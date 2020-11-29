@@ -2,40 +2,25 @@
 <html lang="en">
 
 <head>
-  <title>HAI Collaboration WebApp</title>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HAI Collaboration WebApp</title>
 
   <!-- p5 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
 
   <!-- ml5 -->
   <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
 
-  <!-- Custom CSS -->
-  <link href="css/style.css" rel="stylesheet" />
+  <!-- custom css -->
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <script>
-    //Console log
-    console.log('ml5 version:', ml5.version);
-
-    //Setup
-    function setup() {
-      createCanvas(windowWidth, windowHeight);
-    }
-
-    //Draw
-    function draw() {
-      background(200);
-    }
-
-    //Resize canvas on window resize
-    function windowResized() {
-      resizeCanvas(windowWidth, windowHeight);
-    }
-  </script>
+  <!-- ml5 script -->
+  <script src="js/script.js"></script>
 </body>
 
 </html>
