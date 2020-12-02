@@ -28,6 +28,11 @@ let x9;
 let x10;
 let timer = 0;
 
+// ui
+let gui;
+let plantToggle;
+let seasonToggle;
+
 // setup neural network
 let model;
 let options = {
@@ -48,7 +53,7 @@ function setup() {
   recipeData = loadTable(recipeDataUrl, "csv", "header");
 
   //preload trained model
-  // trainingData =;
+  trainingData = loadTable(ingredientDataUrl, "csv", "header");
 
   // run conditions
   if (recipeData.getRowCount() != 0) {
@@ -56,56 +61,35 @@ function setup() {
     recipeList = recipeData.getColumn("recipeName");
     recipeVector = recipeData.getColumn("recipeVector");
   }
+
+  // setup ui
+  gui = createGui();
+  plantToggle = createToggle("Toggle", 100, 50, 200, 50);
+  seasonToggle = createToggle("Toggle", 500, 50, 200, 50);
 }
 
 // draw
 function draw() {
-  //draw UI
-  drawUI();
+  // gui
+  drawGui();
 
   // get tryout ingredient from UI
-  // get intention filter from UI
+
+  // intention filter
+  if (plantToggle.val) {
+    //flag ingredients
+    print("plant");
+  } else {
+    if (seasonToggle.val) {
+      // flag ingredients
+      print("season");
+    }
+  }
 
   // if input, run model
   if (ingredientData && recipeData) {
     runModel();
   }
-
-  // send saved results to UI
-}
-
-function drawUI() {
-  consoleLog();
-
-  background(255);
-  fill(200);
-  noStroke();
-
-  rect(25, 25, (windowWidth - 100) / 3, ((windowHeight - 75) / 3) * 2);
-  rect((windowWidth - 100) / 3 + 50, 25, (windowWidth - 100) / 4, ((windowHeight - 75) / 3) * 2);
-  rect(((windowWidth - 100) / 12) * 7 + 75, 25, ((windowWidth - 100) / 12) * 5, windowHeight - 50);
-  rect(25, ((windowHeight - 75) / 3) * 2 + 50, ((windowWidth - 100) / 12) * 7 + 25, (windowHeight - 75) / 3);
-  fill(0);
-
-  textSize(18);
-  text("Insight Interface", 25 + 12.5, 25 + 25);
-  text("Try-out", (windowWidth - 100) / 3 + 50 + 12.5, 25 + 25);
-  text("Cookbook", ((windowWidth - 100) / 12) * 7 + 75 + 12.5, 25 + 25);
-  text("Console", 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 25);
-
-  // console
-  text(x1, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + (windowHeight - 275) / 3 / 10);
-  text(x2, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 2);
-  text(x3, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 3);
-  text(x4, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 4);
-  text(x5, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 5);
-  text(x6, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 6);
-  text(x7, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 7);
-  text(x8, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 8);
-  text(x9, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 9);
-  text(x10, 25 + 12.5, ((windowHeight - 75) / 3) * 2 + 50 + 50 + ((windowHeight - 275) / 3 / 10) * 10);
-
-  consoleText = mouseX;
 }
 
 function runModel() {
@@ -113,8 +97,6 @@ function runModel() {
   for (i = 0; i < recipeAmount; i++) {
     currentRecipeName = recipeList[i];
     currentRecipeVector = recipeVector[i];
-
-    // intention filter
 
     // decide which old ingredient has to go
 
@@ -126,23 +108,6 @@ function runModel() {
     // model.addData(inputs, output)
 
     // if > threshold -> save recommendation to recipe
-  }
-}
-
-function consoleLog() {
-  if (millis() >= 500 + timer) {
-    x10 = x9;
-    x9 = x8;
-    x8 = x7;
-    x7 = x6;
-    x6 = x5;
-    x5 = x4;
-    x4 = x3;
-    x3 = x2;
-    x2 = x1;
-    x1 = consoleText;
-
-    timer = millis();
   }
 }
 
