@@ -6,7 +6,7 @@ let recipeData;
 let recipeDataUrl =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRDKC0TKzDZxYVeogUXlhM14U7CsL3rAX0-q4J_hOO8rj-OWxcaANNLuw5WYEuv7FMBylZGa3GC8Mp7/pub?gid=0&single=true&output=csv";
 let trainingData;
-// let trainingDataUrl = '';
+let trainingDataUrl = "https://data.id.tue.nl/datasets/downloadPublic/WM4i2UiFfBqCkooSD6z/0bSDERz3S2eVjGdNK8me8EEn8BeyxZTcbUVXR1+5BWl2";
 
 // variables
 let recipeAmount;
@@ -83,8 +83,8 @@ function drawUI() {
 
   rect(25, 25, (windowWidth - 100) / 3, ((windowHeight - 75) / 3) * 2);
   rect((windowWidth - 100) / 3 + 50, 25, (windowWidth - 100) / 4, ((windowHeight - 75) / 3) * 2);
-  rect(((windowWidth - 100) / 12) * 7 + 75, 25, (windowWidth - 100) / 12 * 5, windowHeight - 50);
-  rect(25, ((windowHeight - 75) / 3) * 2 + 50, (windowWidth - 100) / 12 * 7 + 25, (windowHeight - 75) / 3);
+  rect(((windowWidth - 100) / 12) * 7 + 75, 25, ((windowWidth - 100) / 12) * 5, windowHeight - 50);
+  rect(25, ((windowHeight - 75) / 3) * 2 + 50, ((windowWidth - 100) / 12) * 7 + 25, (windowHeight - 75) / 3);
   fill(0);
 
   textSize(18);
