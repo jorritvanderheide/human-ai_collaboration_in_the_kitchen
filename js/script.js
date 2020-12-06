@@ -55,17 +55,10 @@ function setup() {
   //preload trained model
   trainingData = loadTable(ingredientDataUrl, "csv", "header");
 
-  // run conditions
-  if (recipeData.getRowCount() != 0) {
-    recipeAmount = recipeData.getRowCount();
-    recipeList = recipeData.getColumn("recipeName");
-    recipeVector = recipeData.getColumn("recipeVector");
-  }
-
   // setup ui
   gui = createGui();
-  plantToggle = createToggle("Toggle", 100, 50, 200, 50);
-  seasonToggle = createToggle("Toggle", 500, 50, 200, 50);
+  plantToggle = createToggle("Plant-based", 50, 50, 150, 50);
+  seasonToggle = createToggle("In-season", 250, 50, 150, 50);
 }
 
 // draw
@@ -73,21 +66,31 @@ function draw() {
   // gui
   drawGui();
 
-  // get tryout ingredient from UI
-
   // intention filter
   if (plantToggle.val) {
     //flag ingredients
     print("plant");
-  } else {
-    if (seasonToggle.val) {
-      // flag ingredients
-      print("season");
-    }
   }
+
+  if (seasonToggle.val) {
+    // flag ingredients
+    print("season");
+  }
+
+  // display try-out ingredients
+
+  // select tryout ingredient
+
+  // determine input vector for nn
 
   // if input, run model
   if (ingredientData && recipeData) {
+    // run conditions
+    if (recipeData.getRowCount() != 0) {
+      recipeAmount = recipeData.getRowCount();
+      recipeList = recipeData.getColumn("recipeName");
+      recipeVector = recipeData.getColumn("recipeVector");
+    }
     runModel();
   }
 }
@@ -114,4 +117,9 @@ function runModel() {
 // resize canvas on window resize
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+}
+
+// prevent scrolling on mobile
+function touchMoved() {
+  return false;
 }
