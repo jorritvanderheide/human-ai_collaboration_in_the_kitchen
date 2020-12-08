@@ -7,76 +7,12 @@ let recipeDataUrl =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDKC0TKzDZxYVeogUXlhM14U7CsL3rAX0-q4J_hOO8rj-OWxcaANNLuw5WYEuv7FMBylZGa3GC8Mp7/pub?gid=0&single=true&output=csv';
 
 // variables
-let tryoutArr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
+let tryoutArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 // setup neural network
 let model;
 let modelOptions = {
-  dataUrl: 'data/trainingData.csv',
-  inputs: [
-    'pineapple',
-    'eggplant',
-    'basil',
-    'puffpastry',
-    'cauliflower',
-    'kale',
-    'springonion',
-    'broccoli',
-    'cashewnuts',
-    'cherrytomatoes',
-    'zucchini',
-    'egg',
-    'mincedmeat',
-    'cannedpeeledtomatoes',
-    'gratedcheese',
-    'Greekyoghurt',
-    'skimmilk',
-    'ham',
-    'oatdrink',
-    'codfish',
-    'kidneybeans',
-    'chickpeas',
-    'chickenbreast',
-    'garlic',
-    'babypotatoes',
-    'lasagnasheets',
-    'lentils',
-    'margarine',
-    'oliveoil',
-    'bokchoi',
-    'Parmesancheese',
-    'pastasauce',
-    'pumpkin',
-    'quinoa',
-    'rice',
-    'risottorice',
-    'beetroot',
-    'redbellpepper',
-    'redpepper',
-    'redonion',
-    'butter',
-    'whippedcream',
-    'soyyoghurt',
-    'bacon',
-    'spinach',
-    'Brusselssprouts',
-    'vegetarianchicken',
-    'tagliatelle',
-    'wheatflour',
-    'tofu',
-    'tomato',
-    'dicedtomatoes',
-    'peas',
-    'onion',
-    'vegetariansalmon',
-    'whitecabbage',
-    'carrot',
-    'salmon',
-    'sweetpotato',
-    'sunfloweroil',
-  ],
-  outputs: ['score'],
-  task: 'regression',
+  task: 'regression'
 };
 
 // setup
@@ -84,39 +20,29 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   // setup neural network
-  model = ml5.neuralNetwork(modelOptions, dataLoaded);
+  model = ml5.neuralNetwork(modelOptions);
+
+  // load model
+  const modelLoad = {
+    model: 'model/model.json',
+    metadata: 'model/model_meta.json',
+    weights: 'model/model.weights.bin'
+  };
+  model.load(modelLoad, function () {
+    console.log('model loaded!');
+  });
 
   // preload data
   ingredientData = loadTable(ingredientDataUrl, 'csv', 'header');
   recipeData = loadTable(recipeDataUrl, 'csv', 'header');
-
-  //preload trained model
-  trainingData = loadTable(ingredientDataUrl, 'csv', 'header');
 }
 
-// if data loaded
-function dataLoaded() {
-  console.log('data loaded');
-  //train
-  console.log('training...');
-  model.train(doneTraining);
-}
-
-// if training done
-function doneTraining() {
-  console.log('training done!');
-}
-
-// // draw
-// function draw() {
-//   // if UI input, run model
-//   runModel();
-//   // send input to UI
-// }
-
-function mousePressed() {
+// draw
+function draw() {
   // if UI input, run model
-  runModel();
+  if (mousePressed) {
+    runModel();
+  }
   // send input to UI
 }
 
@@ -133,11 +59,11 @@ function runModel() {
 }
 
 // if model done
-// function modelDone(results) {
-//   console.log('model done!');
-//   // handle prediction
-//   console.log(results[0]);
-// }
+function modelDone(results) {
+  console.log('model done!');
+  // handle prediction
+  console.log(results[0]);
+}
 
 // resize canvas on window resize
 function windowResized() {

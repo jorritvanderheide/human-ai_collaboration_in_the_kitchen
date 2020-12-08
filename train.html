@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>HAI Collaboration WebApp</title>
+
+  <!-- p5 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
+
+  <!-- ml5 -->
+  <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
+
+  <!-- custom css -->
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <h1>HAI Collaboration Model Training Interface</h1>
+
+  <h2>Step 1: load training data</h2>
+  <p>Training data is loaded from data/trainingData.csv</p>
+  <button id="loadBtn">Load Data</button>
+
+  <h2>Step 2: train the model</h2>
+  <button id="trainBtn">Train Model</button>
+
+  <h2>Step 3: download the trained model</h2>
+  <button id="downloadBtn" disabled>Download Model</button>
+
+  <!-- ml5 js -->
+  <script src="js/trainScript.js"></script>
+</body>
+
+</html>
