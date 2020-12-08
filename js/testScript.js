@@ -1,10 +1,22 @@
-// variables
-let plantBased = false;
-let seasonBased = false;
+// global variables
+let plantBased;
+let seasonBased;
+let ingredientPlant;
+let ingredientSeason;
+let ingredientReturn;
+let ingredientArr = [];
+let tempIngredientArr = [];
 
-// load data
-let ingredientDataUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_zg-Q_2KiUOTb6ZnWY-GHvp2Pjs7bnfWZ1jpP35EJ0nOEkAUCtoCBgsOzh0VY1KXU8Q_4SSweBDEP/pub?gid=0&single=true&output=csv';
+let recipeAmount;
+let recipeList;
+let recipeVector;
 let recipeDataUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDKC0TKzDZxYVeogUXlhM14U7CsL3rAX0-q4J_hOO8rj-OWxcaANNLuw5WYEuv7FMBylZGa3GC8Mp7/pub?gid=0&single=true&output=csv';
+let recipeData;
+
+let ingredientAmount;
+let ingredientList;
+let ingredientDataUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_zg-Q_2KiUOTb6ZnWY-GHvp2Pjs7bnfWZ1jpP35EJ0nOEkAUCtoCBgsOzh0VY1KXU8Q_4SSweBDEP/pub?gid=0&single=true&output=csv';
+let ingredientData;
 
 // setup neural network
 let model;
@@ -29,22 +41,30 @@ function setup() {
   });
 
   // preload data
-  let ingredientData = loadTable(ingredientDataUrl, 'csv', 'header');
-  let recipeData = loadTable(recipeDataUrl, "csv", "header");
+  ingredientData = loadTable(ingredientDataUrl, 'csv', 'header');
+  recipeData = loadTable(recipeDataUrl, 'csv', 'header');
   if (ingredientData && recipeData) {
     console.log('Data loaded!');
-  }
-
-  // run conditions
-  if (recipeData.getRowCount() != 0) {
-    // let recipeAmount = recipeData.getRowCount();
-    let recipeList = recipeData.getColumn("recipeName");
-    let recipeVector = recipeData.getColumn("recipeVector");
   }
 
   //set button color
   document.getElementById('plantBtn').style.backgroundColor = 'white';
   document.getElementById('seasonBtn').style.backgroundColor = 'white';
+}
+
+// assign variables when data loaded
+function draw() {
+  if (recipeData.getRowCount() != 0) {
+    recipeAmount = recipeData.getRowCount();
+    recipeList = recipeData.getColumn("recipeName");
+    recipeVector = recipeData.getColumn("recipeVector");
+    ingredientAmount = ingredientData.getRowCount();
+    ingredientList = ingredientData.getColumn("ingredient");
+    ingredientPlant = ingredientData.getColumn("isPlantbased");
+    ingredientSeason = ingredientData.getColumn("inSeason");
+    console.log('Variables assigned!')
+    noLoop();
+  }
 }
 
 // if plant-based intention filter is clicked
@@ -84,18 +104,34 @@ function seasonFilter() {
 // recommends ingredients to try out
 function recommendIngredients() {
   if (plantBased == true) {
-
-    // if plantbased true in row
-    // copy name to table
-    // get 5 random ingredients from table
-
-    for (let i = 1; i < 6; i++) {
-      ingrName = 'test'    // ingrName = random ingredient uit lijst met intention based ingredients
-      document.getElementById('ingrBtn' + i).innerText = ingrName;
+    ingredientArr = [];
+    for (let i = 0; i < ingredientAmount; i++) {
+      if (ingredientPlant[i] == 1) {
+        ingredientArr.push(ingredientList[i]);
+      }
+    }
+    tempIngredientArr = [];
+    for (let j = 1; j < 6; j++) {
+      const random = Math.floor(Math.random() * ingredientArr.length);
+      let randomIngredient = (random, ingredientArr[random])
+      document.getElementById('ingrBtn' + j).innerText = randomIngredient;
+      tempIngredientArr.push(randomIngredient);
     }
   } else {
     if (seasonBased == true) {
-      // do stuff
+      ingredientArr = [];
+      for (let i = 0; i < ingredientAmount; i++) {
+        if (ingredientSeason[i]) {
+          ingredientArr.push(ingredientList[i]);
+        }
+      }
+      tempIngredientArr = [];
+      for (let j = 1; j < 6; j++) {
+        const random = Math.floor(Math.random() * ingredientArr.length);
+        let randomIngredient = (random, ingredientArr[random])
+        document.getElementById('ingrBtn' + j).innerText = randomIngredient;
+        tempIngredientArr.push(randomIngredient);
+      }
     }
   }
 }
@@ -104,24 +140,28 @@ function recommendIngredients() {
 function removeIngredients() {
   for (let i = 1; i < 6; i++) {
     document.getElementById('ingrBtn' + i).innerText = '...';
+    document.getElementById('newIngr').innerText = 'New ingredient';
   }
   // remove suggestions from recipe
 }
 
 // run model
-// function runModel() {
-//   // run trained model with input value from UI
-//   model.predict(tryoutArr, (err, results) => {
-//     if (err) {
-//       console.log(err);
-//       return;
-//     }
-//     console.log(results[0]);
-//     if (results[0] >= 0.8) {
+function runModel(ingredientReturn) {
+  // console.log(tempIngredientArr[ingredientReturn]);
+  document.getElementById('newIngr').innerText = tempIngredientArr[ingredientReturn];
+  // document.getElementById('newIngr').style.visibility = visible;
+  // //   // run trained model with input value from UI
+  // //   model.predict(tryoutArr, (err, results) => {
+  // //     if (err) {
+  // //       console.log(err);
+  // //       return;
+  // //     }
+  // //     console.log(results[0]);
+  // //     if (results[0] >= 0.8) {
 
-//     }
-//   });
-// }
+  // //     }
+  // //   });
+}
 
 // if model done
 // function modelDone(results) {

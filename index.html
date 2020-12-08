@@ -29,11 +29,11 @@
   <button id="seasonBtn" onclick="seasonFilter()">Eat more in-season</button>
 
   <h2>Step 2: choose which of the listed ingredients you want to try out</h2>
-  <button id="ingrBtn1" class="ingrBtn">...</button>
-  <button id="ingrBtn2" class="ingrBtn">...</button>
-  <button id="ingrBtn3" class="ingrBtn">...</button>
-  <button id="ingrBtn4" class="ingrBtn">...</button>
-  <button id="ingrBtn5" class="ingrBtn">...</button>
+  <button id="ingrBtn1" class="ingrBtn" onclick="runModel(0)">...</button>
+  <button id="ingrBtn2" class="ingrBtn" onclick="runModel(1)">...</button>
+  <button id="ingrBtn3" class="ingrBtn" onclick="runModel(2)">...</button>
+  <button id="ingrBtn4" class="ingrBtn" onclick="runModel(3)">...</button>
+  <button id="ingrBtn5" class="ingrBtn" onclick="runModel(4)">...</button>
 
   <h2>Step 3: explore how your family recipes become more in-line with your intentions</h2>
   <div class="container-fluid">
@@ -48,7 +48,7 @@
           <li>ingredient 2</li>
         </ul>
         <p class="oldIngr">Old ingredient</p>
-        <p class="NewIngr">New ingredient</p>
+        <p id="newIngr" class="newIngr">New ingredient</p>
       </div>
 
       <div id="recipe2" class="recipeContainer">
@@ -60,7 +60,7 @@
           <li>ingredient 2</li>
         </ul>
         <p class="oldIngr">Old ingredient</p>
-        <p class="NewIngr">New ingredient</p>
+        <p class="newIngr">New ingredient</p>
       </div>
 
       <div id="recipe3" class="recipeContainer">
@@ -72,7 +72,7 @@
           <li>ingredient 2</li>
         </ul>
         <p class="oldIngr">Old ingredient</p>
-        <p class="NewIngr">New ingredient</p>
+        <p class="newIngr">New ingredient</p>
       </div>
 
       <div id="recipe4" class="recipeContainer">
@@ -84,7 +84,7 @@
           <li>ingredient 2</li>
         </ul>
         <p class="oldIngr">Old ingredient</p>
-        <p class="NewIngr">New ingredient</p>
+        <p class="newIngr">New ingredient</p>
       </div>
 
       <div id="recipe5" class="recipeContainer">
@@ -96,7 +96,7 @@
           <li>ingredient 2</li>
         </ul>
         <p class="oldIngr">Old ingredient</p>
-        <p class="NewIngr">New ingredient</p>
+        <p class="newIngr">New ingredient</p>
       </div>
 
     </div>

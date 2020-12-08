@@ -37,10 +37,10 @@ h4 {
 
 .oldIngr {
   color: red;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 .newIngr {
   color: green;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
