@@ -184,7 +184,7 @@ function runModel(ingredientReturn) {
           console.log(err);
           return;
         }
-        if (results[0].score >= 0.1) {
+        if (results[0].score >= 0.5) {
           document.getElementById("newIngr" + i).innerText = tempIngredientArr[ingredientReturn];
         } else if (results[0].score < 0.5) {
           document.getElementById("newIngr" + i).innerText = "no alternative found";
