@@ -35,6 +35,10 @@ h4 {
   border: solid 2px;
 }
 
+.recipeVector {
+  display: none;
+}
+
 .oldIngr {
   color: red;
   /* visibility: hidden; */

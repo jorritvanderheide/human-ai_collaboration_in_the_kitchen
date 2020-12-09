@@ -1,6 +1,6 @@
 // global variables
-let plantBased;
-let seasonBased;
+let plantBased = false;
+let seasonBased = false;
 let ingredientPlant;
 let ingredientSeason;
 let ingredientReturn;
@@ -54,7 +54,7 @@ function setup() {
 
 // assign variables when data loaded
 function draw() {
-  if (recipeData.getRowCount() != 0) {
+  if (recipeData.getRowCount()) {
     recipeAmount = recipeData.getRowCount();
     recipeList = recipeData.getColumn("recipeName");
     recipeVector = recipeData.getColumn("recipeVector");
@@ -111,25 +111,25 @@ function recommendIngredients() {
       }
     }
     tempIngredientArr = [];
-    for (let j = 1; j < 6; j++) {
+    for (i = 1; i < 6; i++) {
       const random = Math.floor(Math.random() * ingredientArr.length);
       let randomIngredient = (random, ingredientArr[random])
-      document.getElementById('ingrBtn' + j).innerText = randomIngredient;
+      document.getElementById('ingrBtn' + i).innerText = randomIngredient;
       tempIngredientArr.push(randomIngredient);
     }
   } else {
     if (seasonBased == true) {
       ingredientArr = [];
-      for (let i = 0; i < ingredientAmount; i++) {
+      for (i = 0; i < ingredientAmount; i++) {
         if (ingredientSeason[i]) {
           ingredientArr.push(ingredientList[i]);
         }
       }
       tempIngredientArr = [];
-      for (let j = 1; j < 6; j++) {
+      for (i = 1; i < 6; i++) {
         const random = Math.floor(Math.random() * ingredientArr.length);
         let randomIngredient = (random, ingredientArr[random])
-        document.getElementById('ingrBtn' + j).innerText = randomIngredient;
+        document.getElementById('ingrBtn' + i).innerText = randomIngredient;
         tempIngredientArr.push(randomIngredient);
       }
     }
@@ -140,32 +140,37 @@ function recommendIngredients() {
 function removeIngredients() {
   for (let i = 1; i < 6; i++) {
     document.getElementById('ingrBtn' + i).innerText = '...';
-    document.getElementById('newIngr').innerText = 'New ingredient';
+  }
+  for (let i = 0; i < 5; i++) {
+    document.getElementById('newIngr' + i).innerText = 'New ingredient';
   }
   // remove suggestions from recipe
 }
 
 // run model
 function runModel(ingredientReturn) {
-  // console.log(tempIngredientArr[ingredientReturn]);
-  document.getElementById('newIngr').innerText = tempIngredientArr[ingredientReturn];
-  // document.getElementById('newIngr').style.visibility = visible;
-  // //   // run trained model with input value from UI
-  // //   model.predict(tryoutArr, (err, results) => {
-  // //     if (err) {
-  // //       console.log(err);
-  // //       return;
-  // //     }
-  // //     console.log(results[0]);
-  // //     if (results[0] >= 0.8) {
+  for (let i = 0; i < 5; i++) {
+    let inputArr = [];
+    inputArr = document.getElementById('recipeVector' + i).innerText;
+    inputArr = inputArr.split(',').map(Number);
 
-  // //     }
-  // //   });
+    // filter what igredient has to go
+
+    // add new ingredient to input arr in place of the old ingredient
+
+    model.predict(inputArr, (err, results) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log(results[0].score);
+      if (results[0].score >= 0.8) {
+        document.getElementById('newIngr' + i).innerText = tempIngredientArr[ingredientReturn];
+        console.log(results[0].score);
+      } else {
+        document.getElementById('newIngr' + i).innerText = '-'
+      }
+    });
+  }
+  console.log('Model done!');
 }
-
-// if model done
-// function modelDone(results) {
-//   console.log('model done!');
-//   // handle prediction
-//   console.log(results[0]);
-// }

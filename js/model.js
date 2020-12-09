@@ -40,9 +40,7 @@ function setup() {
 // draw
 function draw() {
   // if UI input, run model
-  if (mousePressed) {
     runModel();
-  }
   // send input to UI
 }
 
