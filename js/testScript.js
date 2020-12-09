@@ -68,7 +68,11 @@ function draw() {
 function plantFilter() {
   const plantBtn = document.getElementById("plantBtn");
   const seasonBtn = document.getElementById("seasonBtn");
-  if (plantBtn.style.backgroundColor == "white" && recipeData.getRowCount() && ingredientData.getRowCount()) {
+  if (
+    plantBtn.style.backgroundColor == "white" &&
+    recipeData.getRowCount() &&
+    ingredientData.getRowCount()
+  ) {
     plantBtn.style.backgroundColor = "green";
     seasonBtn.disabled = true;
     plantBased = true;
@@ -85,7 +89,11 @@ function plantFilter() {
 function seasonFilter() {
   const seasonBtn = document.getElementById("seasonBtn");
   const plantBtn = document.getElementById("plantBtn");
-  if (seasonBtn.style.backgroundColor == "white" && recipeData.getRowCount() && ingredientData.getRowCount()) {
+  if (
+    seasonBtn.style.backgroundColor == "white" &&
+    recipeData.getRowCount() &&
+    ingredientData.getRowCount()
+  ) {
     seasonBtn.style.backgroundColor = "green";
     plantBtn.disabled = true;
     seasonBased = true;
@@ -104,7 +112,10 @@ function recommendIngredients() {
     // if plant-based filter is active
     ingredientArr = [];
     for (let i = 0; i < ingredientAmount; i++) {
-      if (ingredientPlant[i] == 1 && ingredientCategory[i] != "vegetables and fruit") {
+      if (
+        ingredientPlant[i] == 1 &&
+        ingredientCategory[i] != "vegetables and fruit"
+      ) {
         // filters vegetables from the recommendations
         ingredientArr.push(ingredientList[i]); // push possible recommendations to array
       }
@@ -149,8 +160,12 @@ function removeIngredients() {
 
 // run model
 function runModel(ingredientReturn) {
-  let tryoutCat = ingredientCategory[ingredientList.indexOf(tempIngredientArr[ingredientReturn])];
+  let tryoutCat =
+    ingredientCategory[
+      ingredientList.indexOf(tempIngredientArr[ingredientReturn])
+    ];
 
+  // runs for every recipe
   for (let i = 0; i < 5; i++) {
     let inputArr = [];
     let swapArr = [];
@@ -158,20 +173,28 @@ function runModel(ingredientReturn) {
     inputArr = document.getElementById("recipeVector" + i).innerText;
     inputArr = inputArr.split(",").map(Number);
 
+    // runs for every ingredient in the recipe vector
     for (let j = 0; j < inputArr.length; j++) {
       if (plantBased == true) {
-        if (inputArr[j] == 1 && ingredientPlant[j] == 0 && tryoutCat == ingredientCategory[j]) {
+        if (
+          inputArr[j] == 1 &&
+          ingredientPlant[j] == 0 &&
+          tryoutCat == ingredientCategory[j]
+        ) {
           inputArr[j] = 0;
           swapArr.push(j);
           document.getElementById("oldIngr" + i).innerText = ingredientList[j];
         }
       }
-      // if (seasonBased == true) {
-      //   if (!ingredientSeason[j] && tryoutCat == ingredientCategory[j]) {
-      //     inputArr[j] = 0;
-      //     document.getElementById("oldIngr" + i).innerText = ingredientList[i];
-      //   }
-      // }
+      if (seasonBased == true) {
+        if (
+          ingredientSeason[j].length != 0 &&
+          tryoutCat == ingredientCategory[j]
+        ) {
+          inputArr[j] = 0;
+          document.getElementById("oldIngr" + i).innerText = ingredientList[i];
+        }
+      }
       if (ingredientList[j] == ingredientReturn) {
         inputArr[j] = 1;
       }
@@ -185,9 +208,11 @@ function runModel(ingredientReturn) {
           return;
         }
         if (results[0].score >= 0.1) {
-          document.getElementById("newIngr" + i).innerText = tempIngredientArr[ingredientReturn];
+          document.getElementById("newIngr" + i).innerText =
+            tempIngredientArr[ingredientReturn];
         } else if (results[0].score < 0.5) {
-          document.getElementById("newIngr" + i).innerText = "no alternative found";
+          document.getElementById("newIngr" + i).innerText =
+            "no alternative found";
         }
         console.log(results[0].score);
       });
