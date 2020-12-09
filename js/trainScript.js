@@ -81,7 +81,6 @@ function setup() {
 
 // train model when data loaded
 function dataLoaded() {
-  console.log("Data loaded!");
   const trainBtn = select("#trainBtn");
   trainBtn.mousePressed(function () {
     console.log("Training...");
@@ -96,6 +95,5 @@ function doneTraining() {
   const downloadBtn = select("#downloadBtn");
   downloadBtn.mousePressed(function () {
     model.save();
-    console.log("Model downloading!");
   });
 }
