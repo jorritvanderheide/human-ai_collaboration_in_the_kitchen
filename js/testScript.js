@@ -47,6 +47,9 @@ function setup() {
   //set button color
   document.getElementById("plantBtn").style.backgroundColor = "white";
   document.getElementById("seasonBtn").style.backgroundColor = "white";
+
+  // clear console
+  console.clear();
 }
 
 // assign variables when data loaded
@@ -188,11 +191,13 @@ function runModel(ingredientReturn) {
       }
       if (seasonBased == true) {
         if (
+          inputArr[j] == 1 &&
           ingredientSeason[j].length != 0 &&
           tryoutCat == ingredientCategory[j]
         ) {
           inputArr[j] = 0;
-          document.getElementById("oldIngr" + i).innerText = ingredientList[i];
+          swapArr.push(j);
+          document.getElementById("oldIngr" + i).innerText = ingredientList[j];
         }
       }
       if (ingredientList[j] == ingredientReturn) {
@@ -207,14 +212,14 @@ function runModel(ingredientReturn) {
           console.log(err);
           return;
         }
-        if (results[0].score >= 0.1) {
+        if (results[0].score >= 0.8) {
           document.getElementById("newIngr" + i).innerText =
             tempIngredientArr[ingredientReturn];
         } else if (results[0].score < 0.5) {
           document.getElementById("newIngr" + i).innerText =
             "no alternative found";
         }
-        console.log(results[0].score);
+        // console.log(results[0].score);
       });
       // }
     } else if (swapArr.length == 0) {
