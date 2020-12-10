@@ -33,21 +33,21 @@ function setup() {
     // setup neural network
     model = ml5.neuralNetwork(modelOptions);
 
-    // // // load model offline
-    // const modelLoad = {
-    //     model: 'model/model.json',
-    //     metadata: 'model/model_meta.json',
-    //     weights: 'model/model.weights.bin',
-    // };
-    // model.load(modelLoad);
-
-    // load model online
+    // // load model offline
     const modelLoad = {
-      model: "webapp/model/model.json",
-      metadata: "webapp/model/model_meta.json",
-      weights: "webapp/model/model.weights.bin",
+        model: 'model/model.json',
+        metadata: 'model/model_meta.json',
+        weights: 'model/model.weights.bin',
     };
     model.load(modelLoad);
+
+    // // load model online
+    // const modelLoad = {
+    //   model: "webapp/model/model.json",
+    //   metadata: "webapp/model/model_meta.json",
+    //   weights: "webapp/model/model.weights.bin",
+    // };
+    // model.load(modelLoad);
 
     // preload data
     ingredientData = loadTable(ingredientDataUrl, 'csv', 'header');
