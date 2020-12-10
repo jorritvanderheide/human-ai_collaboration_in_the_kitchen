@@ -1,6 +1,6 @@
 //settings
 let thresholdValue = 0.8; // set threshold value
-let debug = false; // toggle debug mode
+let debug = true; // toggle debug mode
 
 // global variables
 let plantBased = false;
@@ -35,20 +35,20 @@ function setup() {
   model = ml5.neuralNetwork(modelOptions);
 
   // // load model offline
-  // const modelLoad = {
-  //     model: 'model/model.json',
-  //     metadata: 'model/model_meta.json',
-  //     weights: 'model/model.weights.bin',
-  // };
-  // model.load(modelLoad);
-
-  // load model online
   const modelLoad = {
-    model: "webapp/model/model.json",
-    metadata: "webapp/model/model_meta.json",
-    weights: "webapp/model/model.weights.bin",
+      model: 'model/model.json',
+      metadata: 'model/model_meta.json',
+      weights: 'model/model.weights.bin',
   };
   model.load(modelLoad);
+
+  // // load model online
+  // const modelLoad = {
+  //   model: "webapp/model/model.json",
+  //   metadata: "webapp/model/model_meta.json",
+  //   weights: "webapp/model/model.weights.bin",
+  // };
+  // model.load(modelLoad);
 
   // preload data
   ingredientData = loadTable(ingredientDataUrl, "csv", "header");
@@ -80,7 +80,7 @@ function draw() {
 
 // run if plant-based intention filter is clicked
 function plantFilter() {
-  //log
+  // log
   if (debug == true) {
     console.clear();
     console.log('Running "plantFilter"');
@@ -97,7 +97,7 @@ function plantFilter() {
     seasonBtn.disabled = true; // filter is set to true
     plantBased = true; // ingredients are recommended
 
-    //log
+    // log
     if (debug == true) {
       console.log("-> Plant-based filter enabled");
     }
@@ -110,7 +110,7 @@ function plantFilter() {
     seasonBtn.disabled = false; // filter is set to false
     plantBased = false; // recommended ingredients are removed
 
-    //log
+    // log
     if (debug == true) {
       console.log("-> Plant-based filter disabled");
     }
@@ -122,7 +122,7 @@ function plantFilter() {
 
 // run if season-based intention filter is clicked
 function seasonFilter() {
-  //log
+  // log
   if (debug == true) {
     console.clear();
     console.log('Running "seasonFilter"');
@@ -139,7 +139,7 @@ function seasonFilter() {
     plantBtn.disabled = true; // ingredients are recommended
     seasonBased = true; // filter is set to true
 
-    //log
+    // log
     if (debug == true) {
       console.log("-> Season-based filter enabled");
     }
@@ -164,7 +164,7 @@ function seasonFilter() {
 
 // recommend ingredients to try out
 function recommendIngredients() {
-  //log
+  // log
   if (debug == true) {
     console.log('Running "recommendIngredients"');
   }
@@ -215,7 +215,7 @@ function recommendIngredients() {
 
 // reset interface if a filter is de-selected
 function removeIngredients() {
-  //log
+  // log
   if (debug == true) {
     console.clear();
     console.log('Running "removeIngredients"');
@@ -238,7 +238,7 @@ function removeIngredients() {
 
 // run model with an input value ('ingredientReturn') of 1-5, received from the HTML depending on what try-out button is clicked
 function runModel(ingredientReturn) {
-  //log
+  // log
   if (debug == true) {
     console.clear();
     console.log('Running "runModel" for try-out ingredient ' + tempIngredientArr[ingredientReturn]);
@@ -249,7 +249,7 @@ function runModel(ingredientReturn) {
 
   // run for each recipe
   for (let i = 0; i < 5; i++) {
-    //log
+    // log
     if (debug == true) {
       console.log("Run for recipe " + i);
     }
@@ -263,7 +263,7 @@ function runModel(ingredientReturn) {
     inputArr = document.getElementById("recipeVector" + i).innerText;
     inputArr = inputArr.split(",").map(Number);
 
-    //log
+    // log
     if (debug == true) {
       // console.log('-> The recipe vector for recipe ' + i + ' is ' + inputArr);
     }
@@ -293,7 +293,7 @@ function runModel(ingredientReturn) {
 
     // check if there are potential swaps
     if (swapArr.length > 0) {
-      //log
+      // log
       if (debug == true) {
         console.log("-> " + swapArr.length + " swap ingredient(s) found");
       }
@@ -318,14 +318,14 @@ function runModel(ingredientReturn) {
 
           // if the score is higher then the threshold value
           if (results[0].score >= thresholdValue) {
-            //log
+            // log
             if (debug == true) {
               console.log("-> Swap " + k + " above threshold for recipe " + i);
             }
 
             // if the score is higher then the current highest score
             if (results[0].score > highestScore) {
-              //log
+              // log
               if (debug == true) {
                 console.log("-> Swap " + k + " new highest score");
               }
@@ -337,7 +337,7 @@ function runModel(ingredientReturn) {
 
           // if the score is lower then the threshold value
           else {
-            //log
+            // log
             if (debug == true) {
               console.log("-> Swap " + k + " below threshold for recipe " + i);
             }
@@ -356,7 +356,7 @@ function runModel(ingredientReturn) {
 
     // if there are no potential swaps
     else {
-      //log
+      // log
       if (debug == true) {
         console.log("-> No swap ingredient(s) found");
         console.log("-> Recipe " + i + " not applicable");
