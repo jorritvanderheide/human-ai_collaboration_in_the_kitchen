@@ -16,26 +16,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
     <!-- custom css -->
-    <!-- <link rel="stylesheet" href="webapp/css/style.css"> -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="webapp/css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
   </head>
 
   <body>
     <h1>HAI Collaboration Model Testing Interface</h1>
 
-    <h2>Step 1: select an intention filter</h2>
+    <h2>Step 1: determine the accuracy for the recommendations</h2>
+    <p>You can choose any value between 0 and 1.</p>
+    <input id="accuracy" type="text" value="0.5">
+
+    <h2>Step 2: select an intention filter</h2>
     <p>You can choose between 'eating more plant-based' and 'eating more in-season'.</p>
     <button id="plantBtn" onclick="plantFilter()">Eat more plant-based</button>
     <button id="seasonBtn" onclick="seasonFilter()">Eat more in-season</button>
-
-    <h2>Step 2: choose which of the listed ingredients you want to try out</h2>
+   
+    <h2>Step 3: choose which of the listed ingredients you want to try out</h2>
     <button id="ingrBtn1" class="ingrBtn" onclick="runModel(0)">...</button>
     <button id="ingrBtn2" class="ingrBtn" onclick="runModel(1)">...</button>
     <button id="ingrBtn3" class="ingrBtn" onclick="runModel(2)">...</button>
     <button id="ingrBtn4" class="ingrBtn" onclick="runModel(3)">...</button>
     <button id="ingrBtn5" class="ingrBtn" onclick="runModel(4)">...</button>
 
-    <h2>Step 3: explore how your family recipes become more in-line with your intentions</h2>
+    <h2>Step 4: explore how your family recipes become more in-line with your intentions</h2>
     <div class="container-fluid">
       <div class="row">
         <div id="recipe1" class="recipeContainer">
@@ -111,7 +115,7 @@
     </div>
 
     <!-- ml5 js -->
-    <!-- <script src="webapp/js/testScript.js"></script> -->
-    <script src="js/testScript.js"></script>
+    <script src="webapp/js/testScript.js"></script>
+    <!-- <script src="js/testScript.js"></script> -->
   </body>
 </html>
