@@ -231,8 +231,8 @@ function removeIngredients() {
   // run for each recipe
   for (let i = 0; i < 5; i++) {
     // remove suggestions from recipe
-    document.getElementById("newIngr" + i).innerText = "New ingredient";
-    document.getElementById("oldIngr" + i).innerText = "Old ingredient";
+    document.getElementById("newIngr" + i).innerText = "new ingredient";
+    document.getElementById("oldIngr" + i).innerText = "old ingredient";
   }
 }
 
@@ -276,7 +276,7 @@ function runModel(ingredientReturn) {
         if (inputArr[j] == 1 && ingredientPlant[j] == 0 && tryoutCat == ingredientCategory[j]) {
           inputArr[j] = 0; // remove swap ingredient from the input array
           swapArr.push(j); // add the swap ingredient to the swap-potential array
-          document.getElementById("oldIngr" + i).innerText = ingredientList[j]; // update the 'Old ingredient' text on the recipe card
+          document.getElementById("oldIngr" + i).innerText = ingredientList[j]; // update the 'old ingredient' text on the recipe card
         }
       }
 
