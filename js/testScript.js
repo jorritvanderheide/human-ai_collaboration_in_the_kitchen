@@ -1,5 +1,5 @@
 //settings
-let thresholdValue = 0.1; // set threshold value
+let thresholdValue = 0.8; // set threshold value
 let debug = true; // toggle debug mode
 
 // global variables
@@ -256,9 +256,9 @@ function runModel(ingredientReturn) {
         inputArr = inputArr.split(',').map(Number);
 
         //log
-        // if (debug == true) {
-        //     console.log('-> The recipe vector for recipe ' + i + ' is ' + inputArr);
-        // }
+        if (debug == true) {
+            // console.log('-> The recipe vector for recipe ' + i + ' is ' + inputArr);
+        }
 
         // runs for every ingredient in the recipe vector
         for (let j = 0; j < inputArr.length; j++) {
@@ -281,24 +281,24 @@ function runModel(ingredientReturn) {
                     document.getElementById('oldIngr' + i).innerText = ingredientList[j]; // update the text on the recipe card
                 }
             }
-
-            // check for the try-out ingredient in the input array and add it
-            if (ingredientList[j] == tempIngredientArr[ingredientReturn]) {
-                inputArr[j] = 1;
-            }
         }
 
         // check if there are potential swaps
         if (swapArr.length > 0) {
             //log
             if (debug == true) {
-                console.log('-> ' + swapArr.length + ' Swap ingredient(s) found');
+                console.log('-> ' + swapArr.length + ' swap ingredient(s) found');
             }
 
             // run for every potential swap
             for (let k = 0; k < swapArr.length; k++) {
-                //update input array for current potential swap ingredient
-                inputArr[k] = 1;
+                // update the input array for current potential swap ingredient
+                inputArr[swapArr[k]] = 1;
+
+                // remove the previous try-out ingredient from the input array
+                if (k >= 1) {
+                    inputArr[swapArr[k - 1]] = 0;
+                }
 
                 // run the input array through the neural network
                 model.predict(inputArr, (err, results) => {
@@ -327,14 +327,15 @@ function runModel(ingredientReturn) {
                         }
                     }
 
-                    // if the score is lower then the threshold value, show 'no alternative found' on the recipe card
+                    // if the score is lower then the threshold value
                     else {
                         //log
                         if (debug == true) {
                             console.log('-> Swap ' + k + ' below threshold for recipe ' + i);
                         }
 
-                        document.getElementById('newIngr' + i).innerText = 'No alternative found';
+                        // update recipe card text
+                        document.getElementById('newIngr' + i).innerText = 'no alternative found';
                     }
 
                     // log
@@ -343,15 +344,16 @@ function runModel(ingredientReturn) {
             }
         }
 
-        // if there no potential swaps, change the text on the recipe card
-        else if (swapArr.length == 0) {
+        // if there are no potential swaps
+        else {
             //log
             if (debug == true) {
                 console.log('-> No swap ingredient(s) found');
-                console.log('-> Recipe ' + i + ' Not applicable');
+                console.log('-> Recipe ' + i + ' not applicable');
             }
 
-            document.getElementById('oldIngr' + i).innerText = 'Not applicable';
+            // update recipe card text
+            document.getElementById('oldIngr' + i).innerText = 'not applicable';
             document.getElementById('newIngr' + i).innerText = '-';
         }
     }
