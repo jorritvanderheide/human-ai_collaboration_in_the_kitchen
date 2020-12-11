@@ -7,6 +7,7 @@ let seasonBased = false;
 let recipeData; // full recipe .csv
 let ingredientData; // full ingredient .csv
 let recipeList; // array with the names of the recipes
+let recipeVectors; // array with the vectors of the recipes
 let ingredientList; // array with the names of the ingredients
 let ingredientPlant; // array with if an ingredient is plant-based
 let ingredientSeason; // array with when an ingredient is in season
@@ -63,6 +64,7 @@ function draw() {
     // check if data loaded
     if (recipeData.getRowCount() && ingredientData.getRowCount()) {
         recipeList = recipeData.getColumn('recipeName');
+        recipeVectors = recipeData.getColumn('recipeVector');
         ingredientList = ingredientData.getColumn('ingredient');
         ingredientPlant = ingredientData.getColumn('isPlantbased');
         ingredientSeason = ingredientData.getColumn('inSeason');
@@ -242,15 +244,22 @@ function runModel(ingredientReturn) {
         console.clear();
         console.log('Running "runModel" for try-out ingredient ' + tempIngredientArr[ingredientReturn]);
     }
-    
+
     // set recommendation accuracy
     thresholdValue = document.getElementById('accuracy').value;
 
     // determine the product category of the try-out ingredient based on the input value
     let tryoutCat = ingredientCategory[ingredientList.indexOf(tempIngredientArr[ingredientReturn])];
 
+    // top recipes
+    let topRecipes = [];
+    let topNew = [];
+    let topOld = [];
+
     // run for each recipe
+    // for (let i = 0; i < recipeList.length; i++) { // enable for fulll recipe list
     for (let i = 0; i < 5; i++) {
+        // disable for fulll recipe list
         // log
         if (debug == true) {
             console.log('Run for recipe ' + i);
@@ -260,8 +269,9 @@ function runModel(ingredientReturn) {
         let inputArr = []; // array for inputting into the neural network
         let swapArr = []; // array containing the ingredients that can potentially be swapped out for a try-out ingredient
 
-        // fill input array with the recipe vector from the HTML
-        inputArr = document.getElementById('recipeVector' + i).innerText;
+        // fill input array with the recipe vectors from database
+        inputArr = recipeVectors[i];
+        inputArr = inputArr.slice(1, -1);
         inputArr = inputArr.split(',').map(Number);
 
         // log
@@ -282,7 +292,7 @@ function runModel(ingredientReturn) {
             // check if season-based filter is active
             else {
                 // check which ingredients that have the same category as the selected try-out ingredient, are in the recipe and are in season
-                if (inputArr[j] == 1 && ingredientSeason[j].length != 0 && tryoutCat == ingredientCategory[j]) {
+                if (inputArr[j] == 1 && ingredientSeason[j].length != 0) {
                     swapArr.push(j); // add the swap ingredient to the swap-potential array
                 }
             }
@@ -295,7 +305,8 @@ function runModel(ingredientReturn) {
                 console.log('-> ' + swapArr.length + ' swap ingredient(s) found');
             }
 
-            let highestScore = 0; // reset highscore
+            // reset variables for each recipe with potential swaps
+            let highestScore = 0;
             let newText = ' ';
             let oldText = ' ';
 
@@ -320,8 +331,8 @@ function runModel(ingredientReturn) {
                         }
 
                         // update recipe card text
-                        document.getElementById('oldIngr' + i).innerText = ' ';
-                        document.getElementById('newIngr' + i).innerText = ' ';
+                        // document.getElementById('oldIngr' + i).innerText = ' ';
+                        // document.getElementById('newIngr' + i).innerText = ' ';
                     }
 
                     // if the score is higher then the threshold value
@@ -331,13 +342,13 @@ function runModel(ingredientReturn) {
                             console.log('-> Swap ' + k + ' above threshold for recipe ' + i + ' and highestScore');
                         }
                         highestScore = results[0].score; // update highest score
+                        newText = tempIngredientArr[ingredientReturn]; // remember highest scoring ingredient
+                        oldText = ingredientList[swapArr[k]]; // remember for what ingredient this was swapped
 
-                        newText = tempIngredientArr[ingredientReturn];
-                        oldText = ingredientList[swapArr[k]];
-
-                        // update recipe card text
-                        document.getElementById('newIngr' + i).innerText = tempIngredientArr[ingredientReturn];
-                        document.getElementById('oldIngr' + i).innerText = ingredientList[swapArr[k]];
+                        // add recipe to the top recipe list
+                        topRecipes.push(recipeList[i]);
+                        topNew.push(tempIngredientArr[ingredientReturn]);
+                        topOld.push(ingredientList[swapArr[k]]);
                     }
 
                     // update recipe card text
@@ -346,8 +357,8 @@ function runModel(ingredientReturn) {
                         if (debug == true) {
                             console.log('-> Swap ' + k + ' above threshold for recipe ' + i + ' but not higestScore');
                         }
-                        document.getElementById('oldIngr' + i).innerText = oldText;
-                        document.getElementById('newIngr' + i).innerText = newText;
+                        // document.getElementById('oldIngr' + i).innerText = oldText;
+                        // document.getElementById('newIngr' + i).innerText = newText;
                     }
 
                     // log
@@ -355,7 +366,7 @@ function runModel(ingredientReturn) {
                         console.log(results[0].score);
                     }
                 });
-                inputArr[swapArr[k]] = 1; //reset input array
+                inputArr[swapArr[k]] = 1; // reset input array
             }
         }
 
@@ -367,8 +378,20 @@ function runModel(ingredientReturn) {
             }
 
             // update recipe card text
-            document.getElementById('oldIngr' + i).innerText = ' ';
-            document.getElementById('newIngr' + i).innerText = ' ';
+            // document.getElementById('oldIngr' + i).innerText = ' ';
+            // document.getElementById('newIngr' + i).innerText = ' ';
         }
     }
 }
+
+// function viableSwaps() {
+
+//     // show recipes
+//     console.log('test');
+//     for (let l = 0; l < topRecipes.length; l++) {
+//         console.log('Recipe ' + (l + 1) + ': ' + topRecipes[0]);
+//         console.log('-> Old ingredient: ' + topOld[0]);
+//         console.log('-> New ingredient: ' + topNew[0]);
+//     }
+
+// }
