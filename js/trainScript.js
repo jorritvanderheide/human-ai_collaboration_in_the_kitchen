@@ -1,6 +1,6 @@
 // variables
-let model;
-let modelOptions = {
+const model;
+const modelOptions = {
   dataUrl: "data/trainingData.csv",
   inputs: [
     "pineapple",
@@ -65,6 +65,22 @@ let modelOptions = {
     "sunfloweroil",
   ],
   outputs: ["score"],
+  layers: [
+    {
+      type: 'dense',
+      units: 30,
+      activation: 'sigmoid'
+    },
+    {
+      type: 'dense',
+      units: 15,
+      activation: 'sigmoid'
+    },
+    {
+      type: 'dense',
+      activation: 'sigmoid'
+    }
+  ],
   task: "regression",
 };
 
