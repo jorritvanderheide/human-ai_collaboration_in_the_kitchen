@@ -331,8 +331,8 @@ function runModel(ingredientReturn) {
                         }
 
                         // update recipe card text
-                        // document.getElementById('oldIngr' + i).innerText = ' ';
-                        // document.getElementById('newIngr' + i).innerText = ' ';
+                        document.getElementById('oldIngr' + i).innerText = ' ';
+                        document.getElementById('newIngr' + i).innerText = ' ';
                     }
 
                     // if the score is higher then the threshold value
@@ -357,8 +357,8 @@ function runModel(ingredientReturn) {
                         if (debug == true) {
                             console.log('-> Swap ' + k + ' above threshold for recipe ' + i + ' but not higestScore');
                         }
-                        // document.getElementById('oldIngr' + i).innerText = oldText;
-                        // document.getElementById('newIngr' + i).innerText = newText;
+                        document.getElementById('oldIngr' + i).innerText = oldText;
+                        document.getElementById('newIngr' + i).innerText = newText;
                     }
 
                     // log
@@ -378,8 +378,8 @@ function runModel(ingredientReturn) {
             }
 
             // update recipe card text
-            // document.getElementById('oldIngr' + i).innerText = ' ';
-            // document.getElementById('newIngr' + i).innerText = ' ';
+            document.getElementById('oldIngr' + i).innerText = ' ';
+            document.getElementById('newIngr' + i).innerText = ' ';
         }
     }
 }
