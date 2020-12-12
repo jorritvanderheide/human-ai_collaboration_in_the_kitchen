@@ -24,12 +24,12 @@ function setup() {
     console.log('im here');
     console.log(ingredientData.rows.count);
 
-    for (i=0 ; i < recipeData.rows.count; i++) {         // for every recipe get recipe data from columns
-        recipeList[i] = recipeData.getColumn('recipeName');
-        recipeVectors[i] = recipeData.getColumn('recipeVector');
-        ingredientList[i] = ingredientData.getColumn('ingredient');
-        ingredientPlant[i] = ingredientData.getColumn('isPlantbased');
-        ingredientSeason[i] = ingredientData.getColumn('inSeason');
-        ingredientCategory[i] = ingredientData.getColumn('category');  
-    }
+    // for (i=0 ; i < recipeData.rows.count; i++) {         // for every recipe get recipe data from columns
+    //     recipeList[i] = recipeData.getColumn('recipeName');
+    //     recipeVectors[i] = recipeData.getColumn('recipeVector');
+    //     ingredientList[i] = ingredientData.getColumn('ingredient');
+    //     ingredientPlant[i] = ingredientData.getColumn('isPlantbased');
+    //     ingredientSeason[i] = ingredientData.getColumn('inSeason');
+    //     ingredientCategory[i] = ingredientData.getColumn('category');  
+    // }    
 }
