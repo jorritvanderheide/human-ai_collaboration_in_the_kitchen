@@ -10,5 +10,4 @@ function setup() {
         //innerText = recipeList[recipeIndex];
     
     }
-    console.log('recipes loaded');
 }

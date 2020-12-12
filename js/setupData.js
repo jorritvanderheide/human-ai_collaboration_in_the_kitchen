@@ -21,6 +21,9 @@ function setup() {
     ingredientData = loadTable(ingredientDataUrl, 'csv', 'header');
     recipeData = loadTable(recipeDataUrl, 'csv', 'header');
 
+    console.log('im here');
+    console.log(ingredientData.rows.count);
+
     for (i=0 ; i < recipeData.rows.count; i++) {         // for every recipe get recipe data from columns
         recipeList[i] = recipeData.getColumn('recipeName');
         recipeVectors[i] = recipeData.getColumn('recipeVector');
