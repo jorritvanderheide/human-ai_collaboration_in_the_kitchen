@@ -34,6 +34,11 @@ p {
     background-color: var(--background1);
 }
 
+.carousel-item {
+    visibility: hidden;
+    display: none;
+}
+
 #insightContainer {
     width: 45vw;
 }
@@ -93,3 +98,5 @@ p {
     width: 50%;
     height: auto;
 }
+
+

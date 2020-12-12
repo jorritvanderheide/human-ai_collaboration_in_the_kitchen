@@ -55,8 +55,8 @@ function setup() {
     recipeData = loadTable(recipeDataUrl, 'csv', 'header');
 
     // set button color in HTML
-    document.getElementById('plantBtn').style.backgroundColor = 'white';
-    document.getElementById('seasonBtn').style.backgroundColor = 'white';
+    // document.getElementById('plantBtn').style.backgroundColor = 'white';
+    // document.getElementById('seasonBtn').style.backgroundColor = 'white';
 }
 
 // assign values to variables when data loaded
