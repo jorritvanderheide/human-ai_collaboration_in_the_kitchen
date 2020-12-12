@@ -1,5 +1,5 @@
 // variables
-// const model;
+let model;
 const modelOptions = {
     dataUrl: 'data/trainingData.csv',
     inputs: [

@@ -35,15 +35,15 @@ p {
 }
 
 #insightContainer {
-    width: 40vw;
+    width: 45vw;
 }
 
 #tryoutContainer {
-    width: 20vw;
+    width: 25vw;
 }
 
 #cookbookContainer {
-    width: 40vw;
+    width: 30vw;
 }
 
 #insight {
@@ -53,7 +53,6 @@ p {
     background-color: var(--background2);
     border: solid var(--accent3) 1em;
     overflow-y: scroll;
-    
 }
 
 #tryout {
@@ -81,13 +80,13 @@ p {
 
 #console {
     padding: 1em;
-    width: calc(40vw - 5em);
+    width: 40vw;
     overflow-y: scroll;
 }
 
 #reinforcement {
-    margin-left: calc(20vw + 5em);
-    width: calc(40vw - 5em);
+    margin-left: calc(25vw + 5em);
+    width: 25vw;
 }
 
 #tryoutIngredient {
