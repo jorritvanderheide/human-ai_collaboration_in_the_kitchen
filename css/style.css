@@ -1,51 +1,96 @@
-html {
-  margin: 0;
-  padding: 0;
-  overflow: hidden
+:root {
+    --background1: #fff;
+    --background2: #ccc;
+    --accent1: #ce521b;
+    --accent2: #cc5e33;
+    --accent3: #ff9855;
 }
 
+html,
 body {
-  margin: 2.5em;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-canvas {
-  display: block;
+p {
+    margin: 0;
 }
 
-h2 {
-  margin-top: 1em;
+.row {
+    margin: 0;
+    padding: 0;
 }
 
-h3, h4 {
-  margin-bottom: 1.5em;
-  font-size: 1em;
+.productContainer {
+    margin: 0;
+    padding: 5em 2.5em 7.5em;
+    height: 66.6vh;
 }
 
-h4 {
-  font-weight: normal;
-  font-style: italic;
+.subContainer {
+    margin: 0;
+    height: calc(33.3vh - 8.75em);
+    background-color: var(--background1);
 }
 
-#plantBtn {
-  background-color: blue;
+#insightContainer {
+    width: 40vw;
 }
 
-.recipeContainer {
-  margin: 1em 2.5em 0 0;
-  padding: 2.5em;
-  border: solid 2px;
+#tryoutContainer {
+    width: 20vw;
 }
 
-.recipeVector {
-  display: none;
+#cookbookContainer {
+    width: 40vw;
 }
 
-.oldIngr {
-  color: red;
-  /* visibility: hidden; */
+#insight {
+    padding: 1em;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background2);
+    border: solid var(--accent3) 1em;
+    overflow-y: scroll;
+    
 }
 
-.newIngr {
-  color: green;
-  /* visibility: hidden; */
+#tryout {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background2);
+    text-align: center;
+}
+
+#cookbook {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background2);
+}
+
+#ai {
+    padding: 5em 2.5em;
+    width: 100vw;
+    height: 33.3vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent3);
+}
+
+#console {
+    padding: 1em;
+    width: calc(40vw - 5em);
+    overflow-y: scroll;
+}
+
+#reinforcement {
+    margin-left: calc(20vw + 5em);
+    width: calc(40vw - 5em);
+}
+
+#tryoutIngredient {
+    width: 50%;
+    height: auto;
 }
