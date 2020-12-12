@@ -82,7 +82,14 @@ const modelOptions = {
         },
     ],
     task: 'regression',
+    debug: true,
+    learningRate: 0.2,
 };
+
+const trainingOptions = {
+    batchSize: 100,
+    epochs: 300,
+    };
 
 // setup
 function setup() {
@@ -98,9 +105,13 @@ function dataLoaded() {
     const trainBtn = select('#trainBtn');
     trainBtn.mousePressed(function () {
         console.log('Training...');
-        model.train(doneTraining);
+        model.train(trainingOptions, whileTraining, doneTraining);
     });
 }
+
+function whileTraining(epoch, loss) {
+    console.log(`epoch: ${epoch}, loss:${loss}`);
+    }
 
 // save model when training done
 function doneTraining() {
