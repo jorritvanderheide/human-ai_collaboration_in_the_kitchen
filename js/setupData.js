@@ -30,8 +30,5 @@ function draw() {
     ingredientSeason = ingredientData.getColumn("inSeason");
     ingredientCategory = ingredientData.getColumn("category");
     noLoop(); // run once when data is loaded
-
-    console.log(recipeList);
-    console.log(recipeList[5]);
   }
 }
