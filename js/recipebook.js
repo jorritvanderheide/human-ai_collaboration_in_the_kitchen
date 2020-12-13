@@ -1,12 +1,9 @@
-
 let recipeIngredients = [];
-
 
 $(document).ready(function(){
     // Activate Carousel
     $("#carouselExampleControls").carousel({interval: false});
 });
-
 
 function setupRecipes() {   
     logAI("I've seen all recipes");
