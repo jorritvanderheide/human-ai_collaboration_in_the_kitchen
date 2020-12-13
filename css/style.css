@@ -36,7 +36,7 @@ p {
 
 .carousel-item {
     visibility: hidden;
-    display: none;
+    /* display: none; */
 }
 
 #insightContainer {

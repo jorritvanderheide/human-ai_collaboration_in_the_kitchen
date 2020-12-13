@@ -17,6 +17,7 @@ function setup() {
   // preload data
   ingredientData = loadTable(ingredientDataUrl, "csv", "header");
   recipeData = loadTable(recipeDataUrl, "csv", "header");
+
 }
 
 function draw() {
@@ -29,9 +30,14 @@ function draw() {
     ingredientPlant = ingredientData.getColumn("isPlantbased");
     ingredientSeason = ingredientData.getColumn("inSeason");
     ingredientCategory = ingredientData.getColumn("category");
-    noLoop(); // run once when data is loaded
+
+    setupRecipes();
 
     console.log(recipeList);
-    console.log(recipeList[5]);
+
+    noLoop(); // run once when data is loaded
   }
+
+
+
 }
