@@ -1,125 +1,114 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>HAI Collaboration WebApp</title>
+    <title>HAI Collaboration WebApp</title>
 
-        <!-- p5 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
+    <!-- p5 css -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
 
-        <!-- ml5 -->
-        <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
+    <!-- ml5 css -->
+    <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
 
-        <!-- bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-        <!-- custom css -->
-        <!-- <link rel="stylesheet" href="webapp/css/style.css"> -->
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
+    <!-- materialize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
-    <body>
-        <div class="row">
-            <div id="insightContainer" class="productContainer">
-                <div id="insight">
-                    <div class="grid">
-                        <div class="grid-item" onclick="runModel()">test</div>
-                        <div class="grid-item" onclick="runModel()">test</div>
-                        <!-- etc -->
-                    </div>
-                </div>
-            </div>
+    <!-- custom css -->
+    <!-- <link rel="stylesheet" href="webapp/css/style.css"> -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-            <div id="tryoutContainer" class="productContainer">
-                <div id="tryout">
-                    <img id="tryoutIngredient" src="img/products/test.png" />
-                </div>
-            </div>
-
-            <div id="cookbookContainer" class="productContainer">
-                <div id="cookbook">
-                    <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"> -->
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" id="recipe0">
-                                    <h2 id="header0">404</h2>
-                                    <p id="p0">Not found</p>
-                                </div>
-                                <div class="carousel-item" id="recipe1">
-                                    <h2 id="header1">404</h2>
-                                    <p id="p1">Not found</p>
-                                </div>
-                                <div class="carousel-item" id="recipe2">
-                                    <h2 id="header2">404</h2>
-                                    <p id="p2">Not found</p>
-                                </div>
-                                <div class="carousel-item" id="recipe3">
-                                    <h2 id="header3">404</h2>
-                                    <p id="p3">Not found</p>
-                                </div>
-                                <div class="carousel-item" id="recipe4">
-                                    <h2 id="header4">404</h2>
-                                    <p id="p4">Not found</p>
-                                </div>
-                                <div class="carousel-item" id="recipe5">
-                                    <h2 id="header5">404</h2>
-                                    <p id="p5">Not found</p>
-                                </div>
-                                <div class="carousel-item" id="recipe6">
-                                    <h2 id="header6">404</h2>
-                                    <p id="p6">Not found</p>
-                                </div>
-                            </div>
-                            <a
-                                class="carousel-control-prev"
-                                href="#carouselExampleControls"
-                                role="button"
-                                data-bs-slide="prev"
-                            >
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </a>
-                            <a
-                                class="carousel-control-next"
-                                href="#carouselExampleControls"
-                                role="button"
-                                data-bs-slide="next"
-                            >
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </a>
-                        </div>
-                    <!-- </div> -->
-                </div>
-            </div>
+  <body>
+    <div class="row">
+      <div id="insightContainer" class="productContainer">
+        <div id="insight" class="card-panel hoverable">
+          <div class="grid">
+            <div class="grid-item" onclick="runModel()">test</div>
+            <div class="grid-item" onclick="runModel()">test</div>
+            <!-- etc -->
+          </div>
         </div>
+      </div>
 
-        <div id="ai">
-            <div class="row">
-                <div id="console" class="subContainer">
-                    <p>Brain</p>
-                    
-                </div>
-                <div id="reinforcement" class="subContainer">
-
-                </div>
-            </div>
+      <div id="tryoutContainer" class="productContainer">
+        <div id="tryout" class="valign-wrapper">
+          <img id="tryoutIngredient" src="img/tryoutModule.svg" />
         </div>
+      </div>
 
-        <!-- jquery -->
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+      <div id="cookbookContainer" class="productContainer">
+        <div id="cookbook">
+          <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"> -->
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" id="recipe0">
+                <h2 id="header0">404</h2>
+                <p id="p0">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe1">
+                <h2 id="header1">404</h2>
+                <p id="p1">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe2">
+                <h2 id="header2">404</h2>
+                <p id="p2">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe3">
+                <h2 id="header3">404</h2>
+                <p id="p3">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe4">
+                <h2 id="header4">404</h2>
+                <p id="p4">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe5">
+                <h2 id="header5">404</h2>
+                <p id="p5">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe6">
+                <h2 id="header6">404</h2>
+                <p id="p6">Not found</p>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
 
-        <!-- bootstrap js -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+    <div id="ai">
+      <div class="row">
+        <div id="console" class="subContainer">
+          <p>Brain</p>
+        </div>
+        <div id="reinforcement" class="subContainer"></div>
+      </div>
+    </div>
 
-        <!-- ml5 js -->
-        <!-- <script src="webapp/js/testScript.js"></script> -->
-        <script src="js/setupData.js"></script>
-        <!-- <script src="js/testScript.js"></script> -->
-        <script src="js/recipebook.js"></script>
-        
+    <!-- jquery js -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
-    </body>
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+
+    <!-- materialized js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- ml5 js -->
+    <script src="js/setupData.js"></script>
+    <script src="js/recipebook.js"></script>
+  </body>
 </html>
