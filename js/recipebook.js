@@ -8,8 +8,11 @@ $(document).ready(function(){
 });
 
 
-function setupRecipes() {
-    console.log(recipeList);
+function setupRecipes() {   
+    logAI("I've seen all recipes");
+    logAI("More text");
+    logAI("Even more text");
+    logAI("The list goes on");
 
     for (let i=0; i<recipeList.length; i++) {
         document.getElementById('recipe' + i).style.visibility = "visible";
@@ -32,7 +35,6 @@ function setupRecipes() {
                 p.textContent += ingredientList[j] + "\n";
             }
         }
-
-        console.log(recipeList.length, i);
     }
+    console.log(recipeList.length, i);    
 }

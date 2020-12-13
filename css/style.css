@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 :root {
     --background1: #fff;
     --background2: #ccc;
@@ -91,6 +93,7 @@ p {
     background-color: #000000;
     color: white;
     border-radius: 12px;
+    position: relative;
 }
 
 #reinforcement {
@@ -115,3 +118,14 @@ p {
 #console::-webkit-scrollbar-thumb:hover {
     background: rgb(77, 77, 77);
 }
+
+#console p {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    white-space: pre-line;
+    font-size: 15px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
