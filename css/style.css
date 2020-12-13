@@ -36,8 +36,9 @@ p {
 
 .carousel-item {
     visibility: hidden;
-    display: none;
+    /* display: none; */
 }
+
 
 #insightContainer {
     width: 45vw;
@@ -87,6 +88,9 @@ p {
     padding: 1em;
     width: 40vw;
     overflow-y: scroll;
+    background-color: #000000;
+    color: white;
+    border-radius: 12px;
 }
 
 #reinforcement {
@@ -99,4 +103,15 @@ p {
     height: auto;
 }
 
+#console::-webkit-scrollbar {
+    width: 10px;
+}
 
+#console::-webkit-scrollbar-thumb {
+    background: rgb(61, 61, 61);
+    border-radius: 8px;
+}
+
+#console::-webkit-scrollbar-thumb:hover {
+    background: rgb(77, 77, 77);
+}
