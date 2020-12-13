@@ -120,10 +120,12 @@ p {
 }
 
 #console p {
+    /* max-height: calc(33.3vh - 8.75em); */
     position: absolute;
     bottom: 0;
+    vertical-align: bottom;
     margin-bottom: 12px;
-    margin-top: 12px;
+    padding-top: 12px;
     white-space: pre-line;
     font-size: 15px;
     font-family: 'Share Tech Mono', monospace;

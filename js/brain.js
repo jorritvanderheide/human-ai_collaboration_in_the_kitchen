@@ -1,12 +1,5 @@
-let consoleSpeed = 50; // time to wait for adding message to console
 
-// function logAI(log) {
-//     // setTimeout(function(){document.getElementById("consoleText").textContent += "\n" + log}, consoleSpeed);
-//     for (var i=0; i < log.length; i++) {
-//         var char = log.charAt(i);
-//         setTimeout(writeAI(char), consoleSpeed);
-//     }
-// }
+let consoleSpeed = 25; // time to wait for adding message to console
 
 var i = 0;
 var txt = '';
@@ -15,10 +8,11 @@ var buffer = '';
 
 function logAI(message) {
     if (!consoleBusy) {
-    document.getElementById("consoleText").textContent += "\n";
-    txt = message;
-    consoleBusy = true;
-    typeWriter();
+        i = 0;
+        document.getElementById("consoleText").textContent += "\n";
+        txt = message;
+        consoleBusy = true;
+        typeWriter();
     } else if (consoleBusy) {
         txt += "\n" + message;
     }
@@ -33,9 +27,12 @@ function typeWriter() {
       i++;
       setTimeout(typeWriter, consoleSpeed);
     }
+    console.log(consoleBusy);
   }
 
 
 function clearConsole() {
     document.getElementById("consoleText").textContent = "";
 }
+
+document.getElementById("console").onclick = function() {logAI("You clicked me!")};
