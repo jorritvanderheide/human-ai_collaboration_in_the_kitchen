@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- materialize css -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
+    <link href="css/materialize.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <!-- custom css -->
@@ -28,14 +28,14 @@
     <div class="row">
       <!-- insight interface -->
       <div id="insightContainer">
-        <p><b>Step 1:</b> Insight interface</p>
+        <p><b>Step 1:</b> Use the insight interface to select an ingredient you want to try out</p>
         <div id="insight" class="card-panel hoverable row">
           <!-- <div id="filters">
             <img id="plantFilter" src="img/plantFilter.svg" />
             <img id="seasonFilter" src="img/seasonFilter.svg" />
           </div> -->
           <div class="grid">
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/mandarijnen.jpg" /></div>
+            <div class="grid-item valign-wrapper" onclick="runModel('peer')"><img src="img/products/mandarijnen.jpg" /></div>
             <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/bananen.jpg" /></div>
             <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/peren.jpg" /></div>
             <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/rijst.jpg" /></div>
@@ -61,7 +61,7 @@
       <!-- family cookbook -->
       <div id="cookbookContainer">
         <p><b>Step 3:</b> Family cookbook</p>
-        <div id="cookbook" class="card-panel hoverable">
+        <div id="cookbook" class="card-panel hoverable>
           <img id="cookbookModule" src="img/cookbookModule.svg" />
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
