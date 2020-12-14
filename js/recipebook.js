@@ -11,27 +11,34 @@ function setupRecipes() {
     logAI("Even more text");
     logAI("The list goes on");
 
-    for (let i=0; i<recipeList.length; i++) {
-        document.getElementById('recipe' + i).style.visibility = "visible";
+    console.log(recipeList.length);   
+
+    for (let j=0; j<recipeList.length; j++) {
+        document.getElementById('recipe' + j).style.visibility = "visible";
         // document.getElementById('recipe' + i).style.display = "block";
-        let h = document.getElementById("header" + i)
-        h.innerHTML = recipeList[i];
+        let h = document.getElementById("header" + j);
+        h.innerHTML = recipeList[j];
         h.style.margin = "1vw";
         
-        let p = document.getElementById("p" + i);
+        let p = document.getElementById("p" + j);
         p.style.whiteSpace = "pre-line";
         p.textContent = "Ingredients: \n\n";
         p.style.margin = "2vw";
         p.style.fontSize = "18px";
 
-        recipeIngredients = recipeVectors[i].slice(1, -1);
+        recipeIngredients = recipeVectors[j].slice(1, -1);
         recipeIngredients = recipeIngredients.split(',').map(Number);
 
-        for (let j=0; j < recipeIngredients.length; j++) {
-            if (recipeIngredients[j] == 1) {
-                p.textContent += ingredientList[j] + "\n";
+        for (let k=0; k < recipeIngredients.length; k++) {
+            if (recipeIngredients[k] == 1) {
+                p.textContent += ingredientList[k] + "\n";
             }
         }
-    }
-    console.log(recipeList.length, i);    
+        console.log(recipeList[j], j);   
+    } 
+}
+
+
+function testAlternative(rec) {
+
 }

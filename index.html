@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- materialize css -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
+    <link href="css/materialize.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <!-- custom css -->
@@ -28,23 +28,72 @@
     <div class="row">
       <!-- insight interface -->
       <div id="insightContainer">
-        <p><b>Step 1:</b> Insight interface</p>
+        <p><b>Step 1:</b> Use the insight interface to select an ingredient you want to try out</p>
         <div id="insight" class="card-panel hoverable row">
           <!-- <div id="filters">
             <img id="plantFilter" src="img/plantFilter.svg" />
             <img id="seasonFilter" src="img/seasonFilter.svg" />
           </div> -->
           <div class="grid">
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/mandarijnen.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/bananen.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/peren.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/rijst.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/olijfolie.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/melk.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/thee.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/tofu.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/paprika.jpg" /></div>
-            <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/elstar.jpg" /></div>
+            <div id="pineapple" class="grid-item valign-wrapper" onclick="runModel('pineapple')"><img src="img/products/pineapple.jpg" /></div>
+            <div id="eggplant" class="grid-item valign-wrapper" onclick="runModel('eggplant')"><img src="img/products/eggplant.jpg" /></div>
+            <div id="basil" class="grid-item valign-wrapper" onclick="runModel('basil')"><img src="img/products/basil.jpg" /></div>
+            <div id="puffpastry" class="grid-item valign-wrapper" onclick="runModel('puffpastry')"><img src="img/products/puffpastry.jpg" /></div>
+            <div id="cauliflower" class="grid-item valign-wrapper" onclick="runModel('cauliflower')"><img src="img/products/cauliflower.jpg" /></div>
+            <div id="kale" class="grid-item valign-wrapper" onclick="runModel('kale')"><img src="img/products/kale.jpg" /></div>
+            <div id="springonion" class="grid-item valign-wrapper" onclick="runModel('springonion')"><img src="img/products/springonion.jpg" /></div>
+            <div id="broccoli" class="grid-item valign-wrapper" onclick="runModel('broccoli')"><img src="img/products/broccoli.jpg" /></div>
+            <div id="cashewnuts" class="grid-item valign-wrapper" onclick="runModel('cashewnuts')"><img src="img/products/cashewnuts.jpg" /></div>
+            <div id="cherrytomatoes" class="grid-item valign-wrapper" onclick="runModel('cherrytomatoes')"><img src="img/products/cherrytomatoes.jpg" /></div>
+            <div id="zucchini" class="grid-item valign-wrapper" onclick="runModel('zucchini')"><img src="img/products/zucchini.jpg" /></div>
+            <div id="egg" class="grid-item valign-wrapper" onclick="runModel('egg')"><img src="img/products/egg.jpg" /></div>
+            <div id="mincedmeat" class="grid-item valign-wrapper" onclick="runModel('mincedmeat')"><img src="img/products/mincedmeat.jpg" /></div>
+            <div id="cannedpeeledtomatoes" class="grid-item valign-wrapper" onclick="runModel('cannedpeeledtomatoes')"><img src="img/products/cannedpeeledtomatoes.jpg" /></div>
+            <div id="gratedcheese" class="grid-item valign-wrapper" onclick="runModel('gratedcheese')"><img src="img/products/gratedcheese.jpg" /></div>
+            <div id="Greekyoghurt" class="grid-item valign-wrapper" onclick="runModel('Greekyoghurt')"><img src="img/products/Greekyoghurt.jpg" /></div>
+            <div id="skimmilk" class="grid-item valign-wrapper" onclick="runModel('skimmilk')"><img src="img/products/skimmilk.jpg" /></div>
+            <div id="ham" class="grid-item valign-wrapper" onclick="runModel('ham')"><img src="img/products/ham.jpg" /></div>
+            <div id="oatdrink" class="grid-item valign-wrapper" onclick="runModel('oatdrink')"><img src="img/products/oatdrink.jpg" /></div>
+            <div id="codfish" class="grid-item valign-wrapper" onclick="runModel('codfish')"><img src="img/products/codfish.jpg" /></div>
+            <div id="kidneybeans" class="grid-item valign-wrapper" onclick="runModel('kidneybeans')"><img src="img/products/kidneybeans.jpg" /></div>
+            <div id="chickpeas" class="grid-item valign-wrapper" onclick="runModel('chickpeas')"><img src="img/products/chickpeas.jpg" /></div>
+            <div id="chickenbreast" class="grid-item valign-wrapper" onclick="runModel('chickenbreast')"><img src="img/products/chickenbreast.jpg" /></div>
+            <div id="garlic" class="grid-item valign-wrapper" onclick="runModel('garlic')"><img src="img/products/garlic.jpg" /></div>
+            <div id="babypotatoes" class="grid-item valign-wrapper" onclick="runModel('babypotatoes')"><img src="img/products/babypotatoes.jpg" /></div>
+            <div id="lasagnasheets" class="grid-item valign-wrapper" onclick="runModel('lasagnasheets')"><img src="img/products/lasagnasheets.jpg" /></div>
+            <div id="lentils" class="grid-item valign-wrapper" onclick="runModel('lentils')"><img src="img/products/lentils.jpg" /></div>
+            <div id="margarine" class="grid-item valign-wrapper" onclick="runModel('margarine')"><img src="img/products/margarine.jpg" /></div>
+            <div id="oliveoil" class="grid-item valign-wrapper" onclick="runModel('oliveoil')"><img src="img/products/oliveoil.jpg" /></div>
+            <div id="bokchoi" class="grid-item valign-wrapper" onclick="runModel('bokchoi')"><img src="img/products/bokchoi.jpg" /></div>
+            <div id="Parmesancheese" class="grid-item valign-wrapper" onclick="runModel('Parmesancheese')"><img src="img/products/Parmesancheese.jpg" /></div>
+            <div id="pastasauce" class="grid-item valign-wrapper" onclick="runModel('pastasauce')"><img src="img/products/pastasauce.jpg" /></div>
+            <div id="pumpkin" class="grid-item valign-wrapper" onclick="runModel('pumpkin')"><img src="img/products/pumpkin.jpg" /></div>
+            <div id="quinoa" class="grid-item valign-wrapper" onclick="runModel('quinoa')"><img src="img/products/quinoa.jpg" /></div>
+            <div id="rice" class="grid-item valign-wrapper" onclick="runModel('rice')"><img src="img/products/rice.jpg" /></div>
+            <div id="risottorice" class="grid-item valign-wrapper" onclick="runModel('risottorice')"><img src="img/products/risottorice.jpg" /></div>
+            <div id="beetroot" class="grid-item valign-wrapper" onclick="runModel('beetroot')"><img src="img/products/beetroot.jpg" /></div>
+            <div id="redbellpepper" class="grid-item valign-wrapper" onclick="runModel('redbellpepper')"><img src="img/products/redbellpepper.jpg" /></div>
+            <div id="redpepper" class="grid-item valign-wrapper" onclick="runModel('redpepper')"><img src="img/products/redpepper.jpg" /></div>
+            <div id="redonion" class="grid-item valign-wrapper" onclick="runModel('redonion')"><img src="img/products/redonion.jpg" /></div>
+            <div id="butter" class="grid-item valign-wrapper" onclick="runModel('butter')"><img src="img/products/butter.jpg" /></div>
+            <div id="whippedcream" class="grid-item valign-wrapper" onclick="runModel('whippedcream')"><img src="img/products/whippedcream.jpg" /></div>
+            <div id="soyyoghurt" class="grid-item valign-wrapper" onclick="runModel('soyyoghurt')"><img src="img/products/soyyoghurt.jpg" /></div>
+            <div id="bacon" class="grid-item valign-wrapper" onclick="runModel('bacon')"><img src="img/products/bacon.jpg" /></div>
+            <div id="spinach" class="grid-item valign-wrapper" onclick="runModel('spinach')"><img src="img/products/spinach.jpg" /></div>
+            <div id="Brusselssprouts" class="grid-item valign-wrapper" onclick="runModel('Brusselssprouts')"><img src="img/products/Brusselssprouts.jpg" /></div>
+            <div id="vegetarianchicken" class="grid-item valign-wrapper" onclick="runModel('vegetarianchicken')"><img src="img/products/vegetarianchicken.jpg" /></div>
+            <div id="tagliatelle" class="grid-item valign-wrapper" onclick="runModel('tagliatelle')"><img src="img/products/tagliatelle.jpg" /></div>
+            <div id="wheatflour" class="grid-item valign-wrapper" onclick="runModel('wheatflour')"><img src="img/products/wheatflour.jpg" /></div>
+            <div id="tofu" class="grid-item valign-wrapper" onclick="runModel('tofu')"><img src="img/products/tofu.jpg" /></div>
+            <div id="tomato" class="grid-item valign-wrapper" onclick="runModel('tomato')"><img src="img/products/tomato.jpg" /></div>
+            <div id="dicedtomatoes" class="grid-item valign-wrapper" onclick="runModel('dicedtomatoes')"><img src="img/products/dicedtomatoes.jpg" /></div>
+            <div id="peas" class="grid-item valign-wrapper" onclick="runModel('peas')"><img src="img/products/peas.jpg" /></div>
+            <div id="onion" class="grid-item valign-wrapper" onclick="runModel('onion')"><img src="img/products/onion.jpg" /></div>
+            <div id="vegetariansalmon" class="grid-item valign-wrapper" onclick="runModel('vegetariansalmon')"><img src="img/products/vegetariansalmon.jpg" /></div>
+            <div id="whitecabbage" class="grid-item valign-wrapper" onclick="runModel('whitecabbage')"><img src="img/products/whitecabbage.jpg" /></div>
+            <div id="salmon" class="grid-item valign-wrapper" onclick="runModel('salmon')"><img src="img/products/salmon.jpg" /></div>
+            <div id="sweetpotato" class="grid-item valign-wrapper" onclick="runModel('sweetpotato')"><img src="img/products/sweetpotato.jpg" /></div>
+            <div id="sunfloweroil" class="grid-item valign-wrapper" onclick="runModel('sunfloweroil')"><img src="img/products/sunfloweroil.jpg" /></div>
           </div>
         </div>
       </div>
@@ -61,7 +110,7 @@
       <!-- family cookbook -->
       <div id="cookbookContainer">
         <p><b>Step 3:</b> Family cookbook</p>
-        <div id="cookbook" class="card-panel hoverable">
+        <div id="cookbook" class="card-panel hoverable>
           <img id="cookbookModule" src="img/cookbookModule.svg" />
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -93,6 +142,94 @@
                 <h2 id="header6">404</h2>
                 <p id="p6">Not found</p>
               </div>
+              <div class="carousel-item" id="recipe7">
+                <h2 id="header7">404</h2>
+                <p id="p7">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe8">
+                <h2 id="header8">404</h2>
+                <p id="p8">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe9">
+                <h2 id="header9">404</h2>
+                <p id="p9">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe10">
+                <h2 id="header10">404</h2>
+                <p id="p10">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe11">
+                <h2 id="header11">404</h2>
+                <p id="p11">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe12">
+                <h2 id="header12">404</h2>
+                <p id="p12">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe13">
+                <h2 id="header13">404</h2>
+                <p id="p13">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe14">
+                <h2 id="header14">404</h2>
+                <p id="p14">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe15">
+                <h2 id="header15">404</h2>
+                <p id="p15">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe16">
+                <h2 id="header16">404</h2>
+                <p id="p16">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe17">
+                <h2 id="header17">404</h2>
+                <p id="p17">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe18">
+                <h2 id="header18">404</h2>
+                <p id="p18">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe19">
+                <h2 id="header19">404</h2>
+                <p id="p19">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe20">
+                <h2 id="header20">404</h2>
+                <p id="p20">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe21">
+                <h2 id="header21">404</h2>
+                <p id="p21">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe22">
+                <h2 id="header22">404</h2>
+                <p id="p22">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe23">
+                <h2 id="header23">404</h2>
+                <p id="p23">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe24">
+                <h2 id="header24">404</h2>
+                <p id="p24">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe25">
+                <h2 id="header25">404</h2>
+                <p id="p25">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe26">
+                <h2 id="header26">404</h2>
+                <p id="p26">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe27">
+                <h2 id="header27">404</h2>
+                <p id="p27">Not found</p>
+              </div>
+              <div class="carousel-item" id="recipe28">
+                <h2 id="header28">404</h2>
+                <p id="p28">Not found</p>
+              </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -111,7 +248,7 @@
     <div id="ai">
       <div class="row">
         <div id="console" class="card hoverable">
-          <p>Brain</p>
+          <p id="consoleText">Hi! Welcome to my thoughts</p>
         </div>
         <div id="brain" class="valign-wrapper">
           <!-- <div id="brainBackground" class="valign-wrapper hoverable">

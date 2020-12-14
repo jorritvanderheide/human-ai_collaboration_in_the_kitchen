@@ -18,6 +18,7 @@ body {
 p {
   margin: 0;
   font-size: 15px;
+  line-height: normal;
 }
 
 .row {
@@ -33,9 +34,9 @@ p {
   text-align: center;
 }
 
-#insightContainer p {
-  margin: -3.5em 0 2.5em;
-}
+/* #insightContainer p {
+  margin: -3.5em 0 2.5em; 
+}*/
 
 #insight {
   padding: 1em;
@@ -47,7 +48,7 @@ p {
   overflow-y: scroll;
 }
 
-#filters {
+/* #filters {
 
 }
 
@@ -57,7 +58,7 @@ p {
 
 #seasonFilter {
   
-}
+} */
 
 .grid {
   padding: 3em;
@@ -98,9 +99,9 @@ p {
   text-align: center;
 }
 
-#tryoutContainer p {
+/* #tryoutContainer p {
   margin: -3.5em 0 2.5em;
-}
+} */
 
 #tryout {
   width: 100%;
@@ -127,9 +128,9 @@ p {
   position: relative;
 }
 
-#cookbookContainer p {
+/* #cookbookContainer p {
   margin: -3.5em 0 2.5em;
-}
+} */
 
 #cookbookModule {
   transform: rotate(90deg) scale(0.75);
@@ -147,7 +148,7 @@ p {
 }
 
 .carousel-item {
-  visibility: hidden;
+  visibility: visible;
 }
 
 /* ai bar*/
@@ -186,7 +187,7 @@ p {
   background: rgb(77, 77, 77);
 }
 
-#console p {
+#consoleText {
   position: absolute;
   bottom: 0;
   margin-bottom: 12px;
