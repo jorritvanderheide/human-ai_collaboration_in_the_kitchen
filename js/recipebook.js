@@ -18,13 +18,10 @@ function setupRecipes() {
         // document.getElementById('recipe' + i).style.display = "block";
         let h = document.getElementById("header" + j);
         h.innerHTML = recipeList[j];
-        h.style.margin = "1vw";
         
         let p = document.getElementById("p" + j);
         p.style.whiteSpace = "pre-line";
-        p.textContent = "Ingredients: \n\n";
-        p.style.margin = "2vw";
-        p.style.fontSize = "18px";
+        p.textContent = "";
 
         recipeIngredients = recipeVectors[j].slice(1, -1);
         recipeIngredients = recipeIngredients.split(',').map(Number);

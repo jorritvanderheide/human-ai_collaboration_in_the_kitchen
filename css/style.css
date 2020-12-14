@@ -15,10 +15,14 @@ body {
     overflow: hidden;
 }
 
+h1 {
+    margin: 0 0 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 p {
-    margin: 0;
     font-size: 15px;
-    line-height: normal;
 }
 
 .row {
@@ -28,15 +32,11 @@ p {
 
 /* insight */
 #insightContainer {
-    padding: 5vw 0 5vw 5vw;
+    padding: 3.5vw 2.5 2.5vw 7.5vw;
     width: 45vw;
     height: 66.6vh;
     text-align: center;
 }
-
-/* #insightContainer p {
-  margin: -3.5em 0 2.5em; 
-}*/
 
 #insight {
     padding: 1em;
@@ -46,22 +46,22 @@ p {
     border: solid var(--accent3) 1em;
     border-radius: 12px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #filters {
     position: absolute;
-    width: 10vw;
-    left: 2.25vw;
-    top: 9vw;
-}
-/* 
-#plantFilter {
+    width: 8vw;
+    left: calc(5vw + 0.5em);
+    top: calc(8.5vw + 5em);
 }
 
-#seasonFilter {
-} */
+#plantFilter {
+    margin-bottom: 1em;
+}
 
 .grid {
+    margin-left: 2.5em;
     padding: 3em;
     width: 100%;
     height: auto;
@@ -73,6 +73,7 @@ p {
     background-color: var(--accent2);
     border-radius: 12px;
     cursor: pointer;
+    display: none;
 }
 
 .grid-item img {
@@ -94,18 +95,18 @@ p {
 
 /* tryout */
 #tryoutContainer {
-    padding: 5vw;
-    width: 30vw;
+    padding: 3.5vw 0 2.5vw;
+    width: 25vw;
     height: 66.6vh;
     text-align: center;
 }
 
-/* #tryoutContainer p {
-  margin: -3.5em 0 2.5em;
-} */
-
 #tryout {
     width: 100%;
+    height: 100%;
+}
+
+#tryoutWrapper {
     height: 100%;
 }
 
@@ -116,28 +117,25 @@ p {
 
 #tryoutIngredient {
     position: absolute;
-    width: 4%;
-    left: 58vw;
+    width: 5%;
+    left: 55vw;
+    visibility: hidden;
 }
 
 /* cookbook */
 #cookbookContainer {
-    padding: 5vw 5vw 5vw 0;
-    width: 25vw;
+    padding: 3.5vw 7.5vw 2.5vw 2.5;
+    width: 30vw;
     height: 66.6vh;
     text-align: center;
     position: relative;
 }
 
-/* #cookbookContainer p {
-  margin: -3.5em 0 2.5em;
-} */
-
 #cookbookModule {
-    transform: rotate(90deg) scale(0.75);
+    transform: rotate(90deg) scale(0.5);
     position: absolute;
-    bottom: -10vh;
-    right: 5vw;
+    bottom: -10vw;
+    right: 7.5vw;
 }
 
 #cookbook {
@@ -146,6 +144,28 @@ p {
     background-color: var(--background2);
     border: solid var(--accent3) 1em;
     border-radius: 12px;
+    text-align: left;
+}
+
+#cookbook h2 {
+    margin: 1em 2em;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+#cookbook p {
+    margin: 0 2.5em;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    margin-top: 40vh;
 }
 
 .carousel-item {
@@ -154,25 +174,25 @@ p {
 
 /* ai bar*/
 #ai {
-  width: 100vw;
-  height: 25vh;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background-color: var(--accent2);
+    width: 100vw;
+    height: 25vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent2);
 }
 
 /* console */
 #console {
-  margin: 3.5vw 0 2.5vw 5vw;
-  padding: 1em;
-  width: 40vw;
-  height: calc(25vh - 6.5vw);
-  overflow-y: scroll;
-  background-color: #000;
-  color: #fff;
-  border-radius: 12px;
-  position: relative;
+    margin: 2.5vw 2.5vw 2.5vw 7.5vw;
+    padding: 1em;
+    width: 37.5vw;
+    height: calc(25vh - 4.5vw);
+    overflow-y: scroll;
+    background-color: #fff;
+    color: #000;
+    border-radius: 12px;
+    position: relative;
 }
 
 #console::-webkit-scrollbar {
@@ -197,32 +217,23 @@ p {
     font-family: 'Share Tech Mono', monospace;
 }
 
-/* image */
-#brainBackground {
-  margin: auto;
-  width: calc(25vh - 5vw);
-  height: calc(25vh - 5vw);
-  background-color: var(--accent1);
-  border-radius: 12px;
-}
-
-#brain {
-    padding: 2.5vw;
-    width: 30vw;
-}
-
-#brain img {
-  width: 100%;
-  height: calc(25vh - 5vw);
+/* explanation */
+#instructions {
+    margin: -2.5vw 2.5vw 2.5vw 2.5vw;
+    padding: 2em;
+    width: 15vw;
+    height: 27.5vh;
+    background-color: var(--background1);
+    border-radius: 12px;
 }
 
 /* reinforcement */
 #reinforcement {
-  margin: 3.5vw 5vw 2.5vw 0;
-  width: 20vw;
-  height: calc(25vh - 6.5vw);
-  background-color: var(--background1);
-  border-radius: 12px;
+    margin: 2.5vw 2.5vw 2.5vw 2.5vw;
+    width: 22.5vw;
+    height: calc(25vh - 4.5vw);
+    background-color: var(--background1);
+    border-radius: 12px;
 }
 
 .range-field {
@@ -237,9 +248,11 @@ p {
 input[type='range']::-webkit-slider-thumb {
     background-color: var(--accent3);
 }
+
 input[type='range']::-moz-range-thumb {
     background-color: var(--accent3);
 }
+
 input[type='range']::-ms-thumb {
     background-color: var(--accent3);
 }
@@ -247,6 +260,7 @@ input[type='range']::-ms-thumb {
 input[type='range'] + .thumb {
     background-color: var(--accent1);
 }
+
 input[type='range'] + .thumb.active .value {
     color: #fff;
 }
