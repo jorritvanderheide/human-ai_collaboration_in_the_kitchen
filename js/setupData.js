@@ -17,7 +17,6 @@ function setup() {
   // preload data
   ingredientData = loadTable(ingredientDataUrl, "csv", "header");
   recipeData = loadTable(recipeDataUrl, "csv", "header");
-
 }
 
 function draw() {
