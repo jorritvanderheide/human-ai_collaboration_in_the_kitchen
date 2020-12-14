@@ -13,7 +13,7 @@ function setupRecipes() {
 
     console.log(recipeList.length);   
 
-    for (let j=0; j<6 /*recipeList.length*/; j++) {
+    for (let j=0; j<recipeList.length; j++) {
         document.getElementById('recipe' + j).style.visibility = "visible";
         // document.getElementById('recipe' + i).style.display = "block";
         let h = document.getElementById("header" + j);
@@ -36,4 +36,9 @@ function setupRecipes() {
         }
         console.log(recipeList[j], j);   
     } 
+}
+
+
+function testAlternative(rec) {
+
 }
