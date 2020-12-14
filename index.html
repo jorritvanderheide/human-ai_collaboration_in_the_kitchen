@@ -29,7 +29,11 @@
       <!-- insight interface -->
       <div id="insightContainer">
         <p><b>Step 1:</b> Insight interface</p>
-        <div id="insight" class="card-panel hoverable">
+        <div id="insight" class="card-panel hoverable row">
+          <!-- <div id="filters">
+            <img id="plantFilter" src="img/plantFilter.svg" />
+            <img id="seasonFilter" src="img/seasonFilter.svg" />
+          </div> -->
           <div class="grid">
             <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/mandarijnen.jpg" /></div>
             <div class="grid-item valign-wrapper" onclick="runModel()"><img src="img/products/bananen.jpg" /></div>
@@ -48,8 +52,9 @@
       <!-- tryout module -->
       <div id="tryoutContainer">
         <p><b>Step 2:</b> Tryout module</p>
-        <div id="tryout" class="valign-wrapper">
-          <img src="img/tryoutModule.svg" />
+        <div class="valign-wrapper">
+          <img id="tryoutIngredient" src="img/products/tofu.jpg" />
+          <img id="tryoutModule" src="img/tryoutModule.svg" />
         </div>
       </div>
 
