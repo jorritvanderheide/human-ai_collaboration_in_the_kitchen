@@ -167,7 +167,7 @@ p {
   background: rgb(77, 77, 77);
 }
 
-#console p {
+#consoleText {
   position: absolute;
   bottom: 0;
   margin-bottom: 12px;
