@@ -153,7 +153,7 @@ p {
 /* ai bar*/
 #ai {
   width: 100vw;
-  height: 33.3vh;
+  height: 25vh;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -165,7 +165,7 @@ p {
   margin: 3.5vw 0 2.5vw 5vw;
   padding: 1em;
   width: 40vw;
-  height: calc(33.3vh - 6.5vw);
+  height: calc(25vh - 6.5vw);
   overflow-y: scroll;
   background-color: #000;
   color: #fff;
@@ -198,8 +198,8 @@ p {
 /* image */
 #brainBackground {
   margin: auto;
-  width: calc(33.3vh - 5vw);
-  height: calc(33.3vh - 5vw);
+  width: calc(25vh - 5vw);
+  height: calc(25vh - 5vw);
   background-color: var(--accent1);
   border-radius: 12px;
 }
@@ -211,14 +211,14 @@ p {
 
 #brain img {
   width: 100%;
-  height: calc(33.3vh - 5vw);
+  height: calc(25vh - 5vw);
 }
 
 /* reinforcement */
 #reinforcement {
   margin: 3.5vw 5vw 2.5vw 0;
   width: 20vw;
-  height: calc(33.3vh - 6.5vw);
+  height: calc(25vh - 6.5vw);
   background-color: var(--background1);
   border-radius: 12px;
 }
