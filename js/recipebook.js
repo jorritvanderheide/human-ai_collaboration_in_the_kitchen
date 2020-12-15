@@ -58,17 +58,19 @@ function tryAlternative(ingredientReturn) {
     let tryoutCat = ingredientCategory[ingredientList.indexOf(ingredientReturn)];
     var currentIndex = $('div.active').index();
     let i = currentIndex;
-        let inputArr = [];
-        let swapArr = [];
-        returnMessage = "";
-        inputArr = recipeVectors[i];
+    let inputArr = [];
+    let swapArr = [];
+    returnMessage = '';
+    inputArr = recipeVectors[i];
+    inputArr = inputArr.slice(1, -1);
+    inputArr = inputArr.split(',').map(Number);
 
-        // logAI("");
-        if (filter == "plantFilter") {
-            logAI("*** Looking at " + recipeList[i] + " ***");
-        } else if (filter == "seasonFilter") {
-            logAI("*** Looking at " + recipeList[i] + " ***");
-        }
+    // logAI("");
+    if (filter == 'plantFilter') {
+        logAI('*** Looking at ' + recipeList[i] + ' ***');
+    } else if (filter == 'seasonFilter') {
+        logAI('*** Looking at ' + recipeList[i] + ' ***');
+    }
 
     for (let j = 0; j < inputArr.length; j++) {
         if (filter == 'plantFilter') {
@@ -110,7 +112,7 @@ function tryAlternative(ingredientReturn) {
                     bestSwap = ingredientList[swapArr[k]];
                     returnMessage = 'You may swap ' + ingredientReturn + 'for ' + bestSwap;
                     let highScore = (highestScore * 100).toString();
-                    highScore = highScore.slice(0,4);
+                    highScore = highScore.slice(0, 3);
                     highScore = parseInt(highScore);
                     document.getElementById('AIscore').textContent = highScore + '%';
                     // document.getElementById('newIngr' + i).innerText = tempIngredientArr[ingredientReturn];
@@ -123,7 +125,7 @@ function tryAlternative(ingredientReturn) {
                 // inputArr[swapArr[k]] = 1;
                 let resultScore = results[0].score * 100;
                 resultScore = resultScore.toString();
-                resultScore = resultScore.slice(0,4);
+                resultScore = resultScore.slice(0, 3);
                 resultScore = parseInt(resultScore);
                 logAI('Swap ' + ingredientList[swapArr[k]] + " for " + ingredientReturn + '... ' + resultScore + '% compatible');
             });
