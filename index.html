@@ -12,6 +12,9 @@
         <!-- ml5 css -->
         <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
 
+        <!-- OOCSI -->
+        <script src="js/OOCSIlib.js"></script>
+
         <!-- bootstrap css -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -376,10 +379,12 @@
                 <p><b>Step 3:</b> see AI recommendations in your family cookbook</p>
             </div>
             <div id="reinforcement" class="card-panel hoverable">
-                <p>How accurate would you consider this recommendation?</p>
+                <p>The AI gave this combination a score of <b><span id="AIscore">33%</span></b></p>
+                <p>What score would you give? <b><span id="userScore"></span></b></p>
                 <form action="#">
                     <p class="range-field">
-                        <input type="range" id="slider" min="0" max="100" />
+                        <input type="range" id="slider" min="0" max="100" oninput="updateScore()"/>
+                        <input type="button" id="fbButton" value="Send" onclick="sendFeedback()">
                         <!-- <a class="sliderButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">send</i></a> -->
                     </p>
                 </form>
