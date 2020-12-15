@@ -221,7 +221,7 @@ p {
     margin-bottom: 12px;
     margin-top: 12px;
     white-space: pre-line;
-    font-family: 'Share Tech Mono', monospace;
+    /* font-family: 'Share Tech Mono', monospace; */
 }
 
 /* explanation */

@@ -222,5 +222,139 @@ function removeIngredients() {
 
 // run model with an input value ('ingredientReturn') of 1-5, received from the HTML depending on what try-out button is clicked
 function runModel(ingredientReturn) {
+        // log
+        if (debug == true) {
+            console.clear();
+            console.log('Running "runModel" for try-out ingredient ' + tempIngredientArr[ingredientReturn]);
+        }
+        
+        // set recommendation accuracy
+        thresholdValue = document.getElementById('accuracy').value;
     
-}
+        // determine the product category of the try-out ingredient based on the input value
+        let tryoutCat = ingredientCategory[ingredientList.indexOf(tempIngredientArr[ingredientReturn])];
+    
+        // run for each recipe
+        for (let i = 0; i < 5; i++) {
+            // log
+            if (debug == true) {
+                console.log('Run for recipe ' + i);
+            }
+    
+            // reset variables
+            let inputArr = []; // array for inputting into the neural network
+            let swapArr = []; // array containing the ingredients that can potentially be swapped out for a try-out ingredient
+    
+            // fill input array with the recipe vector from the HTML
+            inputArr = document.getElementById('recipeVector' + i).innerText;
+            inputArr = inputArr.split(',').map(Number);
+    
+            // log
+            if (debug == true) {
+                // console.log('-> The recipe vector for recipe ' + i + ' is ' + inputArr);
+            }
+    
+            // runs for every ingredient in the recipe vector
+            for (let j = 0; j < inputArr.length; j++) {
+                // check if plant-based filter is active
+                if (plantBased == true) {
+                    // check which ingredients that have the same category as the selected try-out ingredient, are in the recipe and are not plant-based
+                    if (inputArr[j] == 1 && ingredientPlant[j] == 0 && tryoutCat == ingredientCategory[j]) {
+                        swapArr.push(j); // add the swap ingredient to the swap-potential array
+                    }
+                }
+    
+                // check if season-based filter is active
+                else {
+                    // check which ingredients that have the same category as the selected try-out ingredient, are in the recipe and are in season
+                    if (inputArr[j] == 1 && ingredientSeason[j].length != 0 && tryoutCat == ingredientCategory[j]) {
+                        swapArr.push(j); // add the swap ingredient to the swap-potential array
+                    }
+                }
+            }
+    
+            // check if there are potential swaps
+            if (swapArr.length > 0) {
+                // log
+                if (debug == true) {
+                    console.log('-> ' + swapArr.length + ' swap ingredient(s) found');
+                }
+    
+                let highestScore = 0; // reset highscore
+                let newText = ' ';
+                let oldText = ' ';
+    
+                // run for every potential swap
+                for (let k = 0; k < swapArr.length; k++) {
+                    inputArr[swapArr[k]] = 0; // update the input array for current potential swap ingredient
+                    inputArr[ingredientList.indexOf(tempIngredientArr[ingredientReturn])] = 1; // add the try-out ingredient to the input array
+    
+                    // run the input array through the neural network
+                    model.predict(inputArr, (err, results) => {
+                        // show errors in console
+                        if (err) {
+                            console.log(err);
+                            return;
+                        }
+    
+                        // if the score is lower then the threshold value
+                        if (results[0].score < thresholdValue) {
+                            // log
+                            if (debug == true) {
+                                console.log('-> Swap ' + k + ' below threshold for recipe ' + i);
+                            }
+    
+                            // update recipe card text
+                            document.getElementById('oldIngr' + i).innerText = ' ';
+                            document.getElementById('newIngr' + i).innerText = ' ';
+                        }
+    
+                        // if the score is higher then the threshold value
+                        else if (results[0].score >= thresholdValue && results[0].score > highestScore) {
+                            // log
+                            if (debug == true) {
+                                console.log('-> Swap ' + k + ' above threshold for recipe ' + i + ' and highestScore');
+                            }
+                            highestScore = results[0].score; // update highest score
+    
+                            newText = tempIngredientArr[ingredientReturn];
+                            oldText = ingredientList[swapArr[k]];
+    
+                            // update recipe card text
+                            document.getElementById('newIngr' + i).innerText = tempIngredientArr[ingredientReturn];
+                            document.getElementById('oldIngr' + i).innerText = ingredientList[swapArr[k]];
+                        }
+    
+                        // update recipe card text
+                        else if (highestScore != 0) {
+                            // log
+                            if (debug == true) {
+                                console.log('-> Swap ' + k + ' above threshold for recipe ' + i + ' but not higestScore');
+                            }
+                            document.getElementById('oldIngr' + i).innerText = oldText;
+                            document.getElementById('newIngr' + i).innerText = newText;
+                        }
+    
+                        // log
+                        if (debug == true) {
+                            console.log(results[0].score);
+                        }
+                    });
+                    inputArr[swapArr[k]] = 1; //reset input array
+                }
+            }
+    
+            // if there are no potential swaps
+            else {
+                // log
+                if (debug == true) {
+                    console.log('-> No swap ingredient(s) found');
+                }
+    
+                // update recipe card text
+                document.getElementById('oldIngr' + i).innerText = ' ';
+                document.getElementById('newIngr' + i).innerText = ' ';
+            }
+        }
+    }
+    
