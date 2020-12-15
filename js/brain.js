@@ -27,7 +27,18 @@ function typeWriter() {
         fixScroll();
         setTimeout(typeWriter, consoleSpeed);
     }
-    // console.log(consoleBusy);
+    adjustSpeed();
+    console.log(consoleSpeed);
+}
+
+function adjustSpeed() {
+    if (txt.length-txtPos > 120) {
+            consoleSpeed = 10;
+        } else if (txt.length-txtPos > 60) {
+            consoleSpeed = 20;
+        } else {
+            consoleSpeed = 30;
+        }
 }
 
 function clearConsole() {

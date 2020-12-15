@@ -220,7 +220,7 @@ p {
     bottom: 0;
     margin-bottom: 12px;
     margin-top: 12px;
-    white-space: pre-line;
+    white-space: pre-wrap;
     /* font-family: 'Share Tech Mono', monospace; */
 }
 

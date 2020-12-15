@@ -61,11 +61,11 @@ function tryAlternative(ingredientReturn) {
         returnMessage = "";
         inputArr = recipeVectors[i];
 
-        logAI("---");
+        // logAI("");
         if (filter == "plantFilter") {
             logAI("Looking for plant-based ingredients from " + tryoutCat);
         } else if (filter == "seasonFilter") {
-            logAI("Looking for non-seasonal " + tryoutCat + " in " + recipeList[i] + "..");
+            logAI("*** Looking at " + recipeList[i] + " ***");
         }
 
         for (let j = 0; j < inputArr.length; j++) {
