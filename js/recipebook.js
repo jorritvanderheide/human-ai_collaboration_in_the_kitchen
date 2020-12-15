@@ -1,6 +1,6 @@
 let recipeIngredients = [];
 
-let thresholdValue = 0.5; // threshold value for showing the alternative
+let thresholdValue = 0.1; // threshold value for showing the alternative
 
 let highestScore = 0;
 let bestSwap = '';
@@ -72,12 +72,10 @@ function tryAlternative(ingredientReturn) {
 
     for (let j = 0; j < inputArr.length; j++) {
         if (filter == 'plantFilter') {
-            // console.log('plant');
             if (inputArr[j] == 1 && ingredientPlant[j] == 0 && tryoutCat == ingredientCategory[j]) {
                 swapArr.push(j);
             }
         } else if (filter == 'seasonFilter') {
-            // console.log('season');
             if (inputArr[j] == 1 && ingredientSeason[j] != 0 && tryoutCat == ingredientCategory[j]) {
                 swapArr.push(j);
             }
@@ -143,10 +141,3 @@ function tryAlternative(ingredientReturn) {
 
     p.textContent += '\n \n ' + returnMessage;
 }
-// function testAlternative(tryIng) {
-//     var currentIndex = $('div.active').index();
-
-//     var targetRecipe = recipeList[currentIndex];
-//     var targetCategory = ingredientCategory[ingredientList.indexOf(tempIngredientArr[ingredientReturn])];
-
-// }
