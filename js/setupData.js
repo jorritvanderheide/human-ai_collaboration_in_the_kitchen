@@ -19,7 +19,7 @@ function setup() {
     recipeData = loadTable(recipeDataUrl, 'csv', 'header');
 
     // connect OOCSI
-    OOCSI.connect("wss://oocsi.id.tue.nl/ws");
+    OOCSI.connect('wss://oocsi.id.tue.nl/ws');
 }
 
 function draw() {
@@ -41,5 +41,5 @@ function draw() {
 }
 
 function randomInt(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
