@@ -36,6 +36,26 @@ function clearConsole() {
     document.getElementById('consoleText').textContent = '';
 }
 
+//---------------- feedback processing
+
+function updateScore() {
+    document.getElementById("userScore").textContent = document.getElementById("slider").value + "%";
+}
+
+function sendFeedback() {
+    var uscore = document.getElementById("userScore").textContent;
+    uscore = uscore.slice(0,-1);
+
+    var aiscore = document.getElementById("AIscore").textContent;
+    aiscore = aiscore.slice(0,-1);
+
+    var absError = Math.abd(uscore - aiscore);
+
+}
+
+
+
+
 //--------------- scrollbar fixes
 document.getElementById('console').onmouseover = function () {
     if (document.getElementById('consoleText').scrollHeight > document.getElementById('console').clientHeight) {

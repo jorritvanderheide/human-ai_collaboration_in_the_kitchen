@@ -376,10 +376,12 @@
                 <p><b>Step 3:</b> see AI recommendations of in your family cookbook</p>
             </div>
             <div id="reinforcement" class="card-panel hoverable">
-                <p>How accurate would you consider this recommendation?</p>
+                <p>The AI gave this combination a score of: <b><span id="AIscore">?%</span></b></p>
+                <p>What score would you give? <b><span id="userScore"></span></b></p>
                 <form action="#">
                     <p class="range-field">
-                        <input type="range" id="slider" min="0" max="100" />
+                        <input type="range" id="slider" min="0" max="100" oninput="updateScore()"/>
+                        <input type="button" id="fbButton" value="Send" onclick="sendFeedback()">
                         <!-- <a class="sliderButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">send</i></a> -->
                     </p>
                 </form>
