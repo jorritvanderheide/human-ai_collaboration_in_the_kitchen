@@ -36,7 +36,6 @@ function showIngredients(intentionFilter) {
     // plant filter
     if (intentionFilter == 'plantFilter') {
         filter = 'plantFilter';
-        console.log(filter);
         logAI('Plant-based filter selected');
         for (let i = 0; i < ingredientList.length; i++) {
             if (ingredientPlant[i] == 1 && ingredientCategory[i] != 'vegetables and fruit') {
