@@ -1,9 +1,18 @@
 let recipeIngredients = [];
 
-$(document).ready(function () {
-    // Activate Carousel
+let thresholdValue = 0.5;   // threshold value for showing the alternative
+
+let highestScore = 0;
+let bestSwap = "";
+let returnMessage = "";
+
+$(document).ready(function () { // prevent automatic sliding
     $('#carouselExampleControls').carousel({ interval: false });
 });
+
+$("#carouselExampleControls").on('slid.bs.carousel', function () { // adjust targetrecipe after sliding
+    tryAlternative(targetIngredient);
+  });
 
 let model;
 let modelOptions = {
@@ -43,34 +52,46 @@ function setupRecipes() {
     logAI('Recipes loaded');
 }
 
-let thresholdValue = 0.5;
-
-function runModel(ingredientReturn) {
+function tryAlternative(ingredientReturn) {
     let tryoutCat = ingredientCategory[ingredientList.indexOf(ingredientReturn)];
-    for (let i = 0; i < recipeList.length; i++) {
+    var currentIndex = $('div.active').index();
+    let i = currentIndex;
         let inputArr = [];
         let swapArr = [];
+        returnMessage = "";
         inputArr = recipeVectors[i];
+
+        logAI("---");
+        if (filter == "plantFilter") {
+            logAI("Looking for plant-based ingredients from " + tryoutCat);
+        } else if (filter == "seasonFilter") {
+            logAI("Looking for non-seasonal " + tryoutCat + " in " + recipeList[i] + "..");
+        }
+
         for (let j = 0; j < inputArr.length; j++) {
             if (filter == 'plantFilter') {
-                console.log('plant');
+                // console.log('plant');
                 if (inputArr[j] == 1 && ingredientPlant[j] == 0 && tryoutCat == ingredientCategory[j]) {
                     swapArr.push(j);
                 }
             } else if (filter == 'seasonFilter') {
-                console.log('season');
-                if (inputArr[j] == 1 && ingredientSeason[j].length != 0 && tryoutCat == ingredientCategory[j]) {
+                // console.log('season');
+                if (inputArr[j] == 1 && ingredientSeason[j] != 0 && tryoutCat == ingredientCategory[j]) {
                     swapArr.push(j);
                 }
             }
         }
+
         if (swapArr.length > 0) {
-            let highestScore = 0;
-            // let newText = ' ';
-            // let oldText = ' ';
+            logAI("Found " + swapArr.length);
+            highestScore = 0;
+            bestSwap = "";
+
             for (let k = 0; k < swapArr.length; k++) {
+                inputArr = recipeVectors[i];    // reset vector for each try
                 inputArr[swapArr[k]] = 0;
                 inputArr[ingredientList.indexOf(ingredientReturn)] = 1;
+                console.log(inputArr);
                 model.predict(inputArr, (err, results) => {
                     if (err) {
                         console.log(err);
@@ -79,26 +100,46 @@ function runModel(ingredientReturn) {
                     if (results[0].score < thresholdValue) {
                         // document.getElementById('oldIngr' + i).innerText = ' ';
                         // document.getElementById('newIngr' + i).innerText = ' ';
-                        results[0].score;
+                        if (results[0].score > highestScore) {
+                            highestScore = results[0].score;
+                        }
                     } else if (results[0].score >= thresholdValue && results[0].score > highestScore) {
                         highestScore = results[0].score;
-                        newText = tempIngredientArr[ingredientReturn];
-                        oldText = ingredientList[swapArr[k]];
+                        // bestSwap = tempIngredientArr[ingredientReturn];
+                        bestSwap = ingredientList[swapArr[k]];
+                        returnMessage = "You may swap " + ingredientReturn + "for " + bestSwap;
+                        document.getElementById("AIscore").textContent = (highestScore * 100).slice(0,3) + "%";
                         // document.getElementById('newIngr' + i).innerText = tempIngredientArr[ingredientReturn];
                         // document.getElementById('oldIngr' + i).innerText = ingredientList[swapArr[k]];
                     } else if (highestScore != 0) {
-                        // document.getElementById('oldIngr' + i).innerText = oldText;
+                        returnMessage = "No suitable swaps found";
+                        // document.getElementById('p' + i).innerText = "Swap " + oldText + "for " + newText;
                         // document.getElementById('newIngr' + i).innerText = newText;
                     }
                 });
-                inputArr[swapArr[k]] = 1;
+                // inputArr[swapArr[k]] = 1;
+                logAI("Looking at " + ingredientList[swapArr[k]] + "... " + results[0].score + "% compatible");
             }
         } else {
+            returnMessage = "Nothing found";
             // document.getElementById('oldIngr' + i).innerText = ' ';
             // document.getElementById('newIngr' + i).innerText = ' ';
         }
+        // return returnMessage;
+        let p = document.getElementById('p' + i);
+        p.textContent = "";
+
+        recipeIngredients = recipeVectors[i].slice(1, -1);
+        recipeIngredients = recipeIngredients.split(',').map(Number);
+
+        for (let k = 0; k < recipeIngredients.length; k++) {
+            if (recipeIngredients[k] == 1) {
+                p.textContent += ingredientList[k] + '\n';
+            }
+        }
+
+        p.textContent += '\n \n ' + returnMessage;
     }
-}
 // function testAlternative(tryIng) {
 //     var currentIndex = $('div.active').index();
 

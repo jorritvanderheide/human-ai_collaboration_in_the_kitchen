@@ -5,12 +5,13 @@ var $grid = $('.grid').packery({
     percentPosition: true,
 });
 
+var filter = ' ';
+var targetIngredient = "";
+
 // initiate grid
 $(document).ready(function () {
     $grid.packery('layout');
 });
-
-var filter = ' ';
 
 function showIngredients(intentionFilter) {
     // reset grid
@@ -72,12 +73,12 @@ function showIngredients(intentionFilter) {
 
 // show tryout ingredient
 function selectTryout(ingredientReturn) {
+    targetIngredient = ingredientReturn;
     if (filter == 'seasonFilter' || filter == 'plantFilter' || ingredientReturn == 'transparent') {
         document.getElementById('tryoutIngredient').src = 'img/products/' + ingredientReturn + '.jpg';
         if (ingredientReturn != 'transparent') {
-            logAI(ingredientReturn.charAt(0).toUpperCase() + ingredientReturn.slice(1) + ' selected as a tryout ingredient!');
-            logAI('Finding suitable recipes ...');
-            runModel(ingredientReturn);
+            logAI(ingredientReturn.charAt(0).toUpperCase() + ingredientReturn.slice(1) + ' selected as a tryout ingredient');
+            tryAlternative(ingredientReturn);
         }
     }
 }

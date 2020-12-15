@@ -5,8 +5,6 @@ var txt = '';
 var consoleBusy = false;
 var buffer = '';
 
-// document.getElementById("console").onclick = function() {logAI("You clicked me!")};
-
 function logAI(message) {
     if (!consoleBusy) {
         txtPos = 0;
@@ -36,7 +34,7 @@ function clearConsole() {
     document.getElementById('consoleText').textContent = '';
 }
 
-//---------------- feedback processing
+//---------------- FEEDBACK PROCESSING
 
 function updateScore() {
     document.getElementById("userScore").textContent = document.getElementById("slider").value + "%";
@@ -57,12 +55,11 @@ function sendFeedback() {
         "AI score": aiscore, "User score": uscore,"Absolute error": absError
     });
 
+    logAI("I've received your feedback!");
 }
 
-
-
-
 //--------------- scrollbar fixes
+
 document.getElementById('console').onmouseover = function () {
     if (document.getElementById('consoleText').scrollHeight > document.getElementById('console').clientHeight) {
         document.getElementById('consoleText').style.position = 'relative';
@@ -77,4 +74,17 @@ document.getElementById('console').onmouseout = function () {
 function fixScroll() {
     var element = document.getElementById('console');
     element.scrollTop = element.scrollHeight - element.clientHeight;
+}
+
+//----------- easter egg for fun
+
+document.getElementById("console").onclick = function() {consoleClicked()};
+
+function consoleClicked() {
+    var chance = randomInt(0, 100);
+    console.log(chance);
+    if (chance%10 == 0) {
+        let eggs = ["Please stop", "You clicked me!", "I'm trying to think here..", "What are you clicking at?"];
+        logAI(eggs[randomInt(0, eggs.length)]);
+    }
 }

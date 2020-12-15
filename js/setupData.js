@@ -39,3 +39,7 @@ function draw() {
         noLoop(); // run once when data is loaded
     }
 }
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
