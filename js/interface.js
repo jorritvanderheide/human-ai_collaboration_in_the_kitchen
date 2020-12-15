@@ -21,9 +21,20 @@ function showIngredients(intentionFilter) {
         document.getElementById(ingredient).style.display = 'none';
     }
 
+    if (filter == intentionFilter) {
+        filter = ' ';
+        intentionFilter = ' ';
+        for (let i = 0; i < ingredientList.length; i++) {
+            let ingredient = ingredientList[i];
+            ingredient = ingredient.replace(/ /g, '');
+            document.getElementById(ingredient).style.display = 'block';
+        }
+    }
+
     // plant filter
     if (intentionFilter == 'plantFilter') {
         filter = 'plantFilter';
+        console.log(filter);
         logAI('Plant-based filter selected');
         for (let i = 0; i < ingredientList.length; i++) {
             if (ingredientPlant[i] == 1 && ingredientCategory[i] != 'vegetables and fruit') {
@@ -35,13 +46,13 @@ function showIngredients(intentionFilter) {
                 document.getElementById(tempArray[j]).style.display = 'block';
             }
         }
-        $grid.packery('layout');
         selectTryout('transparent');
     }
 
     // season filter
     else if (intentionFilter == 'seasonFilter') {
         filter = 'seasonFilter';
+        console.log(filter);
         logAI('Season-based filter selected');
         for (let i = 0; i < ingredientList.length; i++) {
             if (ingredientSeason[i].includes('fall')) {
@@ -53,9 +64,9 @@ function showIngredients(intentionFilter) {
                 document.getElementById(tempArray[j]).style.display = 'block';
             }
         }
-        $grid.packery('layout');
         selectTryout('transparent');
     }
+    $grid.packery('layout');
 }
 
 // show tryout ingredient
