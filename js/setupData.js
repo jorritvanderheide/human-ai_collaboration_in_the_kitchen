@@ -17,6 +17,9 @@ function setup() {
     // preload data
     ingredientData = loadTable(ingredientDataUrl, 'csv', 'header');
     recipeData = loadTable(recipeDataUrl, 'csv', 'header');
+
+    // connect OOCSI
+    OOCSI.connect("wss://oocsi.id.tue.nl/ws");
 }
 
 function draw() {

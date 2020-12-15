@@ -49,7 +49,13 @@ function sendFeedback() {
     var aiscore = document.getElementById("AIscore").textContent;
     aiscore = aiscore.slice(0,-1);
 
-    var absError = Math.abd(uscore - aiscore);
+    var absError = Math.abs(uscore - aiscore)/100;
+
+    OOCSI.send("HumanAI_Feedback",
+        {"device_id": "dd371eddb3d52429d",
+        "activity": "SubmitFeedback",
+        "AI score": aiscore, "User score": uscore,"Absolute error": absError
+    });
 
 }
 
