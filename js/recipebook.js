@@ -110,7 +110,7 @@ function tryAlternative(ingredientReturn) {
                     bestSwap = ingredientList[swapArr[k]];
                     returnMessage = 'You may swap ' + ingredientReturn + 'for ' + bestSwap;
                     let highScore = (highestScore * 100).toString();
-                    highScore = highScore.slice(0,3);
+                    highScore = highScore.slice(0,4);
                     highScore = parseInt(highScore);
                     document.getElementById('AIscore').textContent = highScore + '%';
                     // document.getElementById('newIngr' + i).innerText = tempIngredientArr[ingredientReturn];
@@ -123,13 +123,14 @@ function tryAlternative(ingredientReturn) {
                 // inputArr[swapArr[k]] = 1;
                 let resultScore = results[0].score * 100;
                 resultScore = resultScore.toString();
-                resultScore = resultScore.slice(0,3);
+                resultScore = resultScore.slice(0,4);
                 resultScore = parseInt(resultScore);
-                logAI('Swap for ' + ingredientList[swapArr[k]] + '... ' + resultScore + '% compatible');
+                logAI('Swap ' + ingredientList[swapArr[k]] + " for " + ingredientReturn + '... ' + resultScore + '% compatible');
             });
         }
     } else {
         returnMessage = 'Nothing found';
+        logAI("Nothing found");
         // document.getElementById('oldIngr' + i).innerText = ' ';
         // document.getElementById('newIngr' + i).innerText = ' ';
     }
