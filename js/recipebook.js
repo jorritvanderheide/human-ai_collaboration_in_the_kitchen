@@ -39,6 +39,10 @@ function setupRecipes() {
 }
 
 
-function testAlternative(rec) {
+function testAlternative(tryIng) {
+    var currentIndex = $('div.active').index();
+
+    var targetRecipe = recipeList[currentIndex];
+    var targetCategory = ingredientCategory[ingredientList.indexOf(tempIngredientArr[ingredientReturn])];
 
 }
