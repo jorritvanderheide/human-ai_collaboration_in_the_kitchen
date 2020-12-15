@@ -35,7 +35,7 @@ function draw() {
         logAI('Data loaded');
         logAI('Variables assigned');
         setupRecipes();
-        logAI('You can now use the Interface!');
+        logAI('You can now use the interface!');
         noLoop(); // run once when data is loaded
     }
 }
