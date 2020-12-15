@@ -58,17 +58,17 @@ function tryAlternative(ingredientReturn) {
     let tryoutCat = ingredientCategory[ingredientList.indexOf(ingredientReturn)];
     var currentIndex = $('div.active').index();
     let i = currentIndex;
-    let inputArr = [];
-    let swapArr = [];
-    returnMessage = '';
-    inputArr = recipeVectors[i];
+        let inputArr = [];
+        let swapArr = [];
+        returnMessage = "";
+        inputArr = recipeVectors[i];
 
-    logAI('---');
-    if (filter == 'plantFilter') {
-        logAI('Looking for plant-based ingredients from the category ' + tryoutCat);
-    } else if (filter == 'seasonFilter') {
-        logAI('Looking for non-seasonal ' + tryoutCat + ' in ' + recipeList[i] + '..');
-    }
+        // logAI("");
+        if (filter == "plantFilter") {
+            logAI("*** Looking at " + recipeList[i] + " ***");
+        } else if (filter == "seasonFilter") {
+            logAI("*** Looking at " + recipeList[i] + " ***");
+        }
 
     for (let j = 0; j < inputArr.length; j++) {
         if (filter == 'plantFilter') {
@@ -109,7 +109,10 @@ function tryAlternative(ingredientReturn) {
                     // bestSwap = tempIngredientArr[ingredientReturn];
                     bestSwap = ingredientList[swapArr[k]];
                     returnMessage = 'You may swap ' + ingredientReturn + 'for ' + bestSwap;
-                    document.getElementById('AIscore').textContent = toString(highestScore * 100).slice(0, 3) + '%';
+                    let highScore = (highestScore * 100).toString();
+                    highScore = highScore.slice(0,3);
+                    highScore = parseInt(highScore);
+                    document.getElementById('AIscore').textContent = highScore + '%';
                     // document.getElementById('newIngr' + i).innerText = tempIngredientArr[ingredientReturn];
                     // document.getElementById('oldIngr' + i).innerText = ingredientList[swapArr[k]];
                 } else if (highestScore != 0) {
@@ -118,7 +121,11 @@ function tryAlternative(ingredientReturn) {
                     // document.getElementById('newIngr' + i).innerText = newText;
                 }
                 // inputArr[swapArr[k]] = 1;
-                logAI('Looking at ' + ingredientList[swapArr[k]] + '... ' + results[0].score + '% compatible');
+                let resultScore = results[0].score * 100;
+                resultScore = resultScore.toString();
+                resultScore = resultScore.slice(0,3);
+                resultScore = parseInt(resultScore);
+                logAI('Swap for ' + ingredientList[swapArr[k]] + '... ' + resultScore + '% compatible');
             });
         }
     } else {
