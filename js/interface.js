@@ -6,7 +6,7 @@ var $grid = $('.grid').packery({
 });
 
 var filter = ' ';
-var targetIngredient = "";
+var targetIngredient = '';
 
 // initiate grid
 $(document).ready(function () {
@@ -36,7 +36,7 @@ function showIngredients(intentionFilter) {
     // plant filter
     if (intentionFilter == 'plantFilter') {
         filter = 'plantFilter';
-        logAI('Plant-based filter selected');
+        logAI('Showing plant-based products');
         for (let i = 0; i < ingredientList.length; i++) {
             if (ingredientPlant[i] == 1 && ingredientCategory[i] != 'vegetables and fruit') {
                 ingredient = ingredientList[i];
@@ -54,7 +54,7 @@ function showIngredients(intentionFilter) {
     else if (intentionFilter == 'seasonFilter') {
         filter = 'seasonFilter';
         console.log(filter);
-        logAI('Season-based filter selected');
+        logAI('Showing seasonal products for "fall"');
         for (let i = 0; i < ingredientList.length; i++) {
             if (ingredientSeason[i].includes('fall')) {
                 ingredient = ingredientList[i];
