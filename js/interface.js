@@ -36,7 +36,7 @@ function showIngredients(intentionFilter) {
     // plant filter
     if (intentionFilter == 'plantFilter') {
         filter = 'plantFilter';
-        logAI('Showing plant-based products');
+        logAI('>filter on plant-based products');
         for (let i = 0; i < ingredientList.length; i++) {
             if (ingredientPlant[i] == 1 && ingredientCategory[i] != 'vegetables and fruit') {
                 ingredient = ingredientList[i];
@@ -54,7 +54,7 @@ function showIngredients(intentionFilter) {
     else if (intentionFilter == 'seasonFilter') {
         filter = 'seasonFilter';
         console.log(filter);
-        logAI('Showing seasonal products for "fall"');
+        logAI('>filter on seasonal products for "fall"');
         for (let i = 0; i < ingredientList.length; i++) {
             if (ingredientSeason[i].includes('fall')) {
                 ingredient = ingredientList[i];
@@ -76,7 +76,7 @@ function selectTryout(ingredientReturn) {
     if (filter == 'seasonFilter' || filter == 'plantFilter' || ingredientReturn == 'transparent') {
         document.getElementById('tryoutIngredient').src = 'img/products/' + ingredientReturn + '.jpg';
         if (ingredientReturn != 'transparent') {
-            logAI(ingredientReturn.charAt(0).toUpperCase() + ingredientReturn.slice(1) + ' selected as a tryout ingredient');
+            logAI("\n*AI: \tShall I find a good recipe for trying " + ingredientReturn.charAt(0).toUpperCase() + ingredientReturn.slice(1) + "? I will try to replace it for " + ingredientCategory[ingredientList.indexOf(ingredientReturn)] + " that don't match your intention");
             tryAlternative(ingredientReturn);
         }
     }

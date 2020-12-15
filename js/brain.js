@@ -62,7 +62,7 @@ function sendFeedback() {
 
     OOCSI.send('HumanAI_Feedback', { device_id: 'dd371eddb3d52429d', activity: 'SubmitFeedback', 'AI score': aiscore, 'User score': uscore, 'Absolute error': absError });
 
-    logAI("I've received your feedback!");
+    logAI("*AI: \tI've received your feedback!");
 }
 
 //--------------- scrollbar fixes
@@ -93,7 +93,7 @@ function consoleClicked() {
     var chance = randomInt(0, 100);
     console.log(chance);
     if (chance % 10 == 0) {
-        let eggs = ['Please stop', 'You clicked me!', "I'm trying to think here..", 'What are you clicking at?'];
+        let eggs = ['*AI: \tPlease stop', '*AI: \tYou clicked me!', "*AI: \tI'm trying to think here..", '*AI: \tWhat are you clicking at?', '*AI: \t(╯°□°)╯︵ ┻━┻'];
         logAI(eggs[randomInt(0, eggs.length)]);
     }
 }

@@ -32,10 +32,10 @@ function draw() {
         ingredientPlant = ingredientData.getColumn('isPlantbased');
         ingredientSeason = ingredientData.getColumn('inSeason');
         ingredientCategory = ingredientData.getColumn('category');
-        logAI('Data loaded');
-        logAI('Variables assigned');
+        logAI('>ingredients imported');
         setupRecipes();
-        logAI('You can now use the interface!');
+        logAI(">neural network loaded")
+        logAI("*AI: \tI'm at your service!");
         noLoop(); // run once when data is loaded
     }
 }

@@ -49,7 +49,7 @@ function setupRecipes() {
             }
         }
     }
-    logAI('Recipes loaded');
+    logAI('>recipes imported');
 }
 
 function tryAlternative(ingredientReturn) {
@@ -65,9 +65,9 @@ function tryAlternative(ingredientReturn) {
     inputArr = inputArr.slice(1, -1);
     inputArr = inputArr.split(',').map(Number);
     if (filter == 'plantFilter') {
-        logAI('*** Looking at ' + recipeList[i] + ' ***');
+        logAI("*AI: \tLet's look at " + recipeList[i] + '');
     } else if (filter == 'seasonFilter') {
-        logAI('*** Looking at ' + recipeList[i] + ' ***');
+        logAI("*AI: \tLet's look at " + recipeList[i] + '');
     }
     for (let j = 0; j < inputArr.length; j++) {
         if (filter == 'plantFilter') {
@@ -119,7 +119,11 @@ function tryAlternative(ingredientReturn) {
                 resultScore = resultScore.toString();
                 resultScore = resultScore.slice(0, 3);
                 resultScore = parseInt(resultScore);
-                logAI('Swap ' + ingredientList[swapArr[k]] + " for " + ingredientReturn + '... ' + resultScore + '% compatible');
+                if (resultScore < thresholdValue * 100) {
+                    logAI('\t\tswap ' + ingredientList[swapArr[k]] + " for " + ingredientReturn + ' --> ' + resultScore +  "% match, not enough");
+                } else {
+                    logAI('\t\tswap ' + ingredientList[swapArr[k]] + " for " + ingredientReturn + ' --> ' + resultScore + '% match');
+                }
             });
         }
     } else {
