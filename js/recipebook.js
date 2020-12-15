@@ -64,11 +64,12 @@ function tryAlternative(ingredientReturn) {
     inputArr = recipeVectors[i];
     inputArr = inputArr.slice(1, -1);
     inputArr = inputArr.split(',').map(Number);
-    if (filter == 'plantFilter') {
-        logAI("*AI: \tLet's look at " + recipeList[i] + '');
-    } else if (filter == 'seasonFilter') {
-        logAI("*AI: \tLet's look at " + recipeList[i] + '');
-    }
+    // if (filter == 'plantFilter') {
+    //     logAI("*AI: \tLet's look at " + recipeList[i] + '');
+    // } else if (filter == 'seasonFilter') {
+    //     logAI("*AI: \tLet's look at " + recipeList[i] + '');
+    // }
+    logAI("*AI: \tI'll look at ingredients in " + recipeList[i]);
     for (let j = 0; j < inputArr.length; j++) {
         if (filter == 'plantFilter') {
             if (inputArr[j] == 1 && ingredientPlant[j] == 0 && tryoutCat == ingredientCategory[j]) {
