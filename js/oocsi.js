@@ -17,12 +17,22 @@ OOCSI.subscribe("Tala", function(msg) {
 });
 
 function sendCookInfo() {
-    OOCSI.send("Recuisine", {'dataa': 20, 'data1': false });
+    var recipe_energy = Recipe_Energy[currentIndex];
+    var recipe_time = Recipe_Time[currentIndex];
+    var recipe_name = recipeList[currentIndex];
+
+    var parcel = {'energy': recipe_energy, 'time': recipe_time, 'name': recipe_name};
+
+    OOCSI.send("Recuisine", parcel);
     console.log("data send");
 }
 
 
 
+
+
+
+//--------------------- EXAMPLES
 
 // // connect to the OOCSI server
 // OOCSI.connect('wss://' + 'oocsi.id.tue.nl' + '/ws');
