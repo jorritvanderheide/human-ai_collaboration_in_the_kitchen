@@ -1,10 +1,9 @@
 let recipeIngredients = [];
-
 let thresholdValue = 0.5; // threshold value for showing the alternative
-
 let highestScore = 0;
 let bestSwap = '';
 let returnMessage = '';
+var currentIndex;
 
 $(document).ready(function () {
     // prevent automatic sliding
@@ -54,7 +53,7 @@ function setupRecipes() {
 
 function tryAlternative(ingredientReturn) {
     let tryoutCat = ingredientCategory[ingredientList.indexOf(ingredientReturn)];
-    var currentIndex = $('div.active').index();
+    currentIndex = $('div.active').index();
     let i = currentIndex;
     document.getElementById('swaptext' + (currentIndex + 1)).textContent = '';
     document.getElementById('swaptext' + (currentIndex - 1)).textContent = '';
