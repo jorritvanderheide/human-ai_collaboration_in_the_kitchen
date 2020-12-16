@@ -12,6 +12,9 @@ function logAI(message) {
         txt = message;
         consoleBusy = true;
         typeWriter();
+    } else if (consoleBusy && txt.length- txtPos > 600) {
+        txtPos = 0;
+        txt = "\n*AI: \tI can't keep this up. Can we slow down?";
     } else if (consoleBusy) {
         txt += '\n' + message;
     }
