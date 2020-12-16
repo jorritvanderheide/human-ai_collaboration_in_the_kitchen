@@ -93,7 +93,7 @@ function consoleClicked() {
     var chance = randomInt(0, 100);
     console.log(chance);
     if (chance % 10 == 0) {
-        let eggs = ['*AI: \tPlease stop', '*AI: \tYou clicked me!', "*AI: \tI'm trying to think here..", '*AI: \tWhat are you clicking at?', '*AI: \t(╯°□°)╯︵ ┻━┻'];
+        let eggs = ['*AI: \tPlease stop', '*AI: \tYou clicked me!', "*AI: \tI'm trying to think here..", '*AI: \tWhat are you clicking at?', '*AI: \t(╯°□°)╯︵ ┻━┻', "*AI: \t(ง'̀-'́)ง"];
         logAI(eggs[randomInt(0, eggs.length)]);
     }
 }
@@ -106,7 +106,7 @@ function greetAI() {
         "Welcome to the kitchen of the future!",
         "Hey, don't I know you from somewhere?",
         "Hi, welcome to my brain!",
-        "Hiya!"
+        "Hiya! ༼ つ ◕_◕ ༽つ"
     ]
     logAI('*AI: \t' + greetings[randomInt(0,greetings.length)]);
 }
