@@ -108,22 +108,20 @@ function tryAlternative(ingredientReturn) {
                     } else if (filter == 'seasonFilter') {
                         filterText = 'in season';
                     }
-                    document.getElementById('swaptext' + currentIndex).textContent =
-                        'Replace ' + bestSwap + ' for ' + ingredientReturn + ' to eat more ' + filterText;
+                    document.getElementById('swaptext' + currentIndex).textContent = 'Replace ' + bestSwap + ' for ' + ingredientReturn + ' to eat more ' + filterText;
                     document.getElementById('AIscore').textContent = highScore + '%';
                 } else if (highestScore == 0) {
                     document.getElementById('swaptext' + currentIndex).textContent = 'No suitable swaps found';
                     document.getElementById('AIscore').textContent = 'n.a.';
                 }
-                // inputArr[swapArr[k]] = 1;
                 let resultScore = results[0].score * 100;
                 resultScore = resultScore.toString();
                 resultScore = resultScore.slice(0, 3);
                 resultScore = parseInt(resultScore);
                 if (resultScore < thresholdValue * 100) {
-                    logAI('\t\tswap ' + ingredientList[swapArr[k]] + " for " + ingredientReturn + ' --> ' + resultScore +  "% match, not enough");
+                    logAI('\t\tswap ' + ingredientList[swapArr[k]] + ' for ' + ingredientReturn + ' --> ' + resultScore + '% match, not enough');
                 } else {
-                    logAI('\t\tswap ' + ingredientList[swapArr[k]] + " for " + ingredientReturn + ' --> ' + resultScore + '% match');
+                    logAI('\t\tswap ' + ingredientList[swapArr[k]] + ' for ' + ingredientReturn + ' --> ' + resultScore + '% match');
                 }
             });
         }
@@ -131,22 +129,15 @@ function tryAlternative(ingredientReturn) {
         if (filter != 'plantFilter' || filter != 'seasonFilter') {
             document.getElementById('swaptext' + currentIndex).textContent = 'No potential swaps found';
             document.getElementById('AIscore').textContent = 'n.a.';
-            logAI("*AI: \tI didn't find ingredients to swap " + ingredientReturn + " for");
+            logAI("*AI: \tI didn't find ingredients to swap " + ingredientReturn + ' for');
         }
     }
+}
 
-    // // return returnMessage;
-    // let p = document.getElementById('p' + i);
-    // p.textContent = '';
+function hover(element) {
+    element.setAttribute('src', 'img/cookbookModuleHover.svg');
+}
 
-    // recipeIngredients = recipeVectors[i].slice(1, -1);
-    // recipeIngredients = recipeIngredients.split(',').map(Number);
-
-    // for (let k = 0; k < recipeIngredients.length; k++) {
-    //     if (recipeIngredients[k] == 1) {
-    //         p.textContent += ingredientList[k] + '\n';
-    //     }
-    // }
-
-    // p.textContent += '\n \n ' + returnMessage;
+function unhover(element) {
+    element.setAttribute('src', 'img/cookbookModule.svg');
 }

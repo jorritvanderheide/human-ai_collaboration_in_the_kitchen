@@ -125,7 +125,6 @@ p {
     position: absolute;
     width: 5%;
     left: 55vw;
-    /* visibility: hidden; */
 }
 
 /* cookbook */
@@ -138,9 +137,9 @@ p {
 }
 
 #cookbookModule {
-    transform: rotate(90deg) scale(0.5);
+    transform: scale(0.5);
     position: absolute;
-    bottom: -10vw;
+    bottom: -3.5vw;
     right: 7.5vw;
     cursor: pointer;
 }
