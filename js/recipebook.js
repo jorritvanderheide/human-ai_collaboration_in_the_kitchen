@@ -109,7 +109,7 @@ function tryAlternative(ingredientReturn) {
                         filterText = 'in season';
                     }
                     document.getElementById('swaptext' + currentIndex).textContent =
-                        'Try swapping ' + bestSwap + ' for ' + ingredientReturn + ' if you want to eat more ' + filterText;
+                        'Replace ' + bestSwap + ' for ' + ingredientReturn + ' to eat more ' + filterText;
                     document.getElementById('AIscore').textContent = highScore + '%';
                 } else if (highestScore == 0) {
                     document.getElementById('swaptext' + currentIndex).textContent = 'No suitable swaps found';
