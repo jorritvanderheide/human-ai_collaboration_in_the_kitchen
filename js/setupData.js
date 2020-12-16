@@ -40,7 +40,7 @@ function draw() {
         setupRecipes();
         logAI(">neural network loaded")
         greetAI();
-        logAI("*AI: \tI'm at your service! Here I show you what I'm thinking");
+        logAI("*AI: \tI'm Artifical Intelligence at your service! Here I show you what I'm thinking");
         noLoop(); // run once when data is loaded
     }
 }

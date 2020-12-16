@@ -101,11 +101,12 @@ function consoleClicked() {
 
 function greetAI() {
     var greetings = [
-        "Hi!, my name is... Oh I don't have a name :(",
+        "Hi! my name is... Oh I don't have a name :(",
         "Finally, some friends!",
         "Welcome to the kitchen of the future!",
         "Hey, don't I know you from somewhere?",
         "Hi, welcome to my brain!",
+        "Hiya!"
     ]
     logAI('*AI: \t' + greetings[randomInt(0,greetings.length)]);
 }
