@@ -128,10 +128,10 @@ function tryAlternative(ingredientReturn) {
             });
         }
     } else {
-        // logAI("Nothing found");
         if (filter != 'plantFilter' || filter != 'seasonFilter') {
             document.getElementById('swaptext' + currentIndex).textContent = 'No potential swaps found';
             document.getElementById('AIscore').textContent = 'n.a.';
+            logAI("*AI: \tI didn't find ingredients to swap " + ingredientReturn + " for");
         }
     }
 
