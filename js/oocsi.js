@@ -10,7 +10,7 @@ var Tala_status;
 OOCSI.subscribe("Tala", function(msg) {
     var Tala_status = msg.data.Tala_status;
     if (Tala_status) {
-
+        
     } else if (!Tala_status) {
 
     }

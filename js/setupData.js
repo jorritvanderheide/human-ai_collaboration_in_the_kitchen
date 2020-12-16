@@ -39,7 +39,8 @@ function draw() {
         logAI('>ingredients imported');
         setupRecipes();
         logAI(">neural network loaded")
-        logAI("*AI: \tI'm at your service!");
+        greetAI();
+        logAI("*AI: \tI'm at your service! Here I show you what I'm thinking");
         noLoop(); // run once when data is loaded
     }
 }
