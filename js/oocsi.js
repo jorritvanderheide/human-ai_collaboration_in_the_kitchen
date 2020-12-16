@@ -1,6 +1,11 @@
 
 var Tala_status;
 
+// OOCSI.subscribe("Recuisine", function(msg) {
+//     var dataa = msg.data.dataa;
+//     var data1 = msg.data.data1;
+//     console.log(dataa, data1);
+// });
 
 OOCSI.subscribe("Tala", function(msg) {
     var Tala_status = msg.data.Tala_status;
@@ -12,7 +17,8 @@ OOCSI.subscribe("Tala", function(msg) {
 });
 
 function sendCookInfo() {
-    OOCSI.send("Recuisine", {'data': 20, 'data1': false });
+    OOCSI.send("Recuisine", {'dataa': 20, 'data1': false });
+    console.log("data send");
 }
 
 
