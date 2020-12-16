@@ -98,7 +98,6 @@ function consoleClicked() {
     }
 }
 
-
 function greetAI() {
     var greetings = [
         "Hi! my name is... Oh I don't have a name :(",
