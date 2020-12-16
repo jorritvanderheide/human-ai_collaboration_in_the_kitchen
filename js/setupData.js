@@ -2,6 +2,8 @@ let recipeData; // full recipe .csv
 let ingredientData; // full ingredient .csv
 let recipeList = []; // array with the names of the recipes
 let recipeVectors = []; // array with the vectors of the recipes
+let Recipe_Time = []; // array with the recipe time
+let Recipe_Energy = []; // array with the energy amount needed to cook a recipe
 let ingredientList = []; // array with the names of the ingredients
 let ingredientPlant = []; // array with if an ingredient is plant-based
 let ingredientSeason = []; // array with when an ingredient is in season
@@ -28,6 +30,8 @@ function draw() {
         // assign variables
         recipeList = recipeData.getColumn('recipeName');
         recipeVectors = recipeData.getColumn('recipeVector');
+        Recipe_Time = recipeData.getColumn('Recipe_Time');
+        Recipe_Energy = recipeData.getColumn('Recipe_Energy');
         ingredientList = ingredientData.getColumn('ingredient');
         ingredientPlant = ingredientData.getColumn('isPlantbased');
         ingredientSeason = ingredientData.getColumn('inSeason');
