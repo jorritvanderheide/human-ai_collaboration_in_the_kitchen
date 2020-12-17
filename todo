@@ -2,8 +2,6 @@ Klein AI icoontje dat reageert als model gerund wordt
 UX verbeteren
 
 Jorrit
-Als je de huidige tryout wegklikt reset hij ook het filter
-    -> reset cookbook text na wegklikken
 ui elementen passen maken en semi responsive (CSS)
 Instruction tekst is nu ini mini bij Lars (CSS)
 Font van de AI weer aanpassen? Als het mooi is (CSS)
@@ -25,3 +23,5 @@ visual maken voor data uitwisseling tussen groepen (iris)
 Er wordt niet gecheckt of het ingredient er al in zit. (hij zegt nu bijv swap egg for egg)
 Reageren op Tala
 Als je de site opent en meteen op cook now klikt stuurt hij lege data
+Als je de huidige tryout wegklikt reset hij ook het filter
+    -> reset cookbook text na wegklikken

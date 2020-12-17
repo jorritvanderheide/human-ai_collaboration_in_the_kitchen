@@ -98,15 +98,6 @@ function selectTryout(ingredientReturn) {
 }
 
 function resetTryout() {
-    filter = ' ';
-    intentionFilter = ' ';
-    document.getElementById('plantFilter').src = 'img/plantFilter.svg';
-    document.getElementById('seasonFilter').src = 'img/seasonFilter.svg';
-    for (let i = 0; i < ingredientList.length; i++) {
-        let ingredient = ingredientList[i];
-        ingredient = ingredient.replace(/ /g, '');
-        document.getElementById(ingredient).style.display = 'block';
-    }
     selectTryout('transparent');
-    $grid.packery('layout');
+    document.getElementById('swaptext' + currentIndex).textContent = '';
 }
