@@ -89,7 +89,7 @@ const modelOptions = {
 const trainingOptions = {
     batchSize: 100,
     epochs: 300,
-    };
+};
 
 // setup
 function setup() {
@@ -111,7 +111,7 @@ function dataLoaded() {
 
 function whileTraining(epoch, loss) {
     console.log(`epoch: ${epoch}, loss:${loss}`);
-    }
+}
 
 // save model when training done
 function doneTraining() {
