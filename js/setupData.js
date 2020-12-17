@@ -38,7 +38,7 @@ function draw() {
         ingredientCategory = ingredientData.getColumn('category');
         logAI('>ingredients imported');
         setupRecipes();
-        logAI(">neural network loaded")
+        logAI('>neural network loaded');
         greetAI();
         logAI("*AI: \tI'm Artifical Intelligence at your service! Here I show you what I'm thinking");
 

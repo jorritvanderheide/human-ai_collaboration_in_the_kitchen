@@ -106,19 +106,16 @@ function showIngredients(intentionFilter) {
 
 // run to add a tryout ingredient to the tryout module
 function selectTryout(ingredientReturn) {
-
     // define target ingredient
     targetIngredient = ingredientReturn;
 
     // check what filter is active or if no filter is active
     if (filter == 'seasonFilter' || filter == 'plantFilter' || ingredientReturn == 'transparent') {
-
         // update tryout module visual to match ingredient
         document.getElementById('tryoutIngredient').src = 'img/products/' + ingredientReturn + '.jpg';
 
         // check if ingredient input is 'transparent'
         if (ingredientReturn != 'transparent') {
-
             // log
             if (filter == 'plantFilter') {
                 logAI(
@@ -139,7 +136,7 @@ function selectTryout(ingredientReturn) {
                         " that aren't in season"
                 );
             }
-            
+
             // input for function for the recipe book
             tryAlternative(ingredientReturn);
         }
