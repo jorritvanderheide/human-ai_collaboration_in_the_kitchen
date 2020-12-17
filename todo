@@ -1,12 +1,21 @@
-code commenten en autoformatten
-ui elementen passen maken en semi responsive
-UI experience verbeteren
 Klein AI icoontje dat reageert als model gerund wordt
-Als je scrollt door receptenboek moet de AI niks zeggen
+UX verbeteren
+
+Jorrit
 Als je de huidige tryout wegklikt reset hij ook het filter
-Instruction tekst is nu ini mini bij Lars
-Font van de AI weer aanpassen? Als het mooi is
+    -> reset cookbook text na wegklikken
+ui elementen passen maken en semi responsive (CSS)
+Instruction tekst is nu ini mini bij Lars (CSS)
+Font van de AI weer aanpassen? Als het mooi is (CSS)
+
+Lars
+Als je scrollt door receptenboek moet de AI niks zeggen
+
+Samen
 Nieuwe models met de final training data trainen (eentje zonder singles eentje met) en kijken welke betere scores geeft
+
+code commenten en autoformatten
+
 
 Done:
 Het cookbook geeft nog geen index aan, (recept 3/22)

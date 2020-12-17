@@ -75,70 +75,74 @@ function tryAlternative(ingredientReturn) {
     inputArr = inputArr.slice(1, -1);
     inputArr = inputArr.split(',').map(Number);
     logAI("*AI: \tI'll look at ingredients in " + recipeList[i]);
-    for (let j = 0; j < inputArr.length; j++) {
-        if (filter == 'plantFilter') {
-            if (inputArr[j] == 1 && ingredientPlant[j] == 0 && tryoutCat == ingredientCategory[j]) {
-                swapArr.push(j);
-            }
-        } else if (filter == 'seasonFilter') {
-            if (inputArr[j] == 1 && ingredientSeason[j] != 0 && tryoutCat == ingredientCategory[j]) {
-                swapArr.push(j);
+    if (inputArr[ingredientList.indexOf(ingredientReturn)] == 0) {
+        for (let j = 0; j < inputArr.length; j++) {
+            if (filter == 'plantFilter') {
+                if (inputArr[j] == 1 && ingredientPlant[j] == 0 && tryoutCat == ingredientCategory[j]) {
+                    swapArr.push(j);
+                }
+            } else if (filter == 'seasonFilter') {
+                if (inputArr[j] == 1 && ingredientSeason[j] != 0 && tryoutCat == ingredientCategory[j]) {
+                    swapArr.push(j);
+                }
             }
         }
-    }
-    if (swapArr.length > 0 && ingredientList.indexOf(ingredientReturn) == 1) {
-        highestScore = 0;
-        highScore = 0;
-        let bestSwap = '';
-        for (let k = 0; k < swapArr.length; k++) {
-            inputArr = recipeVectors[i];
-            inputArr = inputArr.slice(1, -1);
-            inputArr = inputArr.split(',').map(Number);
-            inputArr[swapArr[k]] = 0;
-            inputArr[ingredientList.indexOf(ingredientReturn)] = 1;
-            model.predict(inputArr, (err, results) => {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                if (results[0].score >= thresholdValue && results[0].score > highestScore) {
-                    highestScore = results[0].score;
-                    bestSwap = ingredientList[swapArr[k]];
-                    let highScore = (highestScore * 100).toString();
-                    highScore = highScore.slice(0, 3);
-                    highScore = parseInt(highScore);
-                    let filterText = '';
-                    if (filter == 'plantFilter') {
-                        filterText = 'plant based';
-                    } else if (filter == 'seasonFilter') {
-                        filterText = 'in season';
+
+        if (swapArr.length > 0) {
+            highestScore = 0;
+            highScore = 0;
+            let bestSwap = '';
+            for (let k = 0; k < swapArr.length; k++) {
+                inputArr = recipeVectors[i];
+                inputArr = inputArr.slice(1, -1);
+                inputArr = inputArr.split(',').map(Number);
+                inputArr[swapArr[k]] = 0;
+                inputArr[ingredientList.indexOf(ingredientReturn)] = 1;
+                model.predict(inputArr, (err, results) => {
+                    if (err) {
+                        console.log(err);
+                        return;
                     }
-                    document.getElementById('swaptext' + currentIndex).textContent = 'Replace ' + bestSwap + ' for ' + ingredientReturn + ' to eat more ' + filterText;
-                    document.getElementById('AIscore').textContent = highScore + '%';
-                } else if (highestScore == 0) {
-                    document.getElementById('swaptext' + currentIndex).textContent = 'No suitable swaps found';
+                    if (results[0].score >= thresholdValue && results[0].score > highestScore) {
+                        highestScore = results[0].score;
+                        bestSwap = ingredientList[swapArr[k]];
+                        let highScore = (highestScore * 100).toString();
+                        highScore = highScore.slice(0, 3);
+                        highScore = parseInt(highScore);
+                        let filterText = '';
+                        if (filter == 'plantFilter') {
+                            filterText = 'plant based';
+                        } else if (filter == 'seasonFilter') {
+                            filterText = 'in season';
+                        }
+                        document.getElementById('swaptext' + currentIndex).textContent = 'Replace ' + bestSwap + ' for ' + ingredientReturn + ' to eat more ' + filterText;
+                        document.getElementById('AIscore').textContent = highScore + '%';
+                    } else if (highestScore == 0) {
+                        document.getElementById('swaptext' + currentIndex).textContent = 'No suitable swaps found';
+                        document.getElementById('AIscore').textContent = 'n.a.';
+                    }
+                    let resultScore = results[0].score * 100;
+                    resultScore = resultScore.toString();
+                    resultScore = resultScore.slice(0, 3);
+                    resultScore = parseInt(resultScore);
+                    if (resultScore < thresholdValue * 100) {
+                        logAI('\t\tswap ' + ingredientList[swapArr[k]] + ' for ' + ingredientReturn + ' --> ' + resultScore + '% match, not enough');
+                    } else {
+                        logAI('\t\tswap ' + ingredientList[swapArr[k]] + ' for ' + ingredientReturn + ' --> ' + resultScore + '% match');
+                    }
+                });
+            }
+        } else {
+            if (filter != 'plantFilter' || filter != 'seasonFilter') {
+                if (document.getElementById('tryoutIngredient').src.includes('transparent') != true) {
+                    document.getElementById('swaptext' + currentIndex).textContent = 'No potential swaps found';
                     document.getElementById('AIscore').textContent = 'n.a.';
+                    logAI("*AI: \tI didn't find ingredients to swap " + ingredientReturn + ' for');
                 }
-                let resultScore = results[0].score * 100;
-                resultScore = resultScore.toString();
-                resultScore = resultScore.slice(0, 3);
-                resultScore = parseInt(resultScore);
-                if (resultScore < thresholdValue * 100) {
-                    logAI('\t\tswap ' + ingredientList[swapArr[k]] + ' for ' + ingredientReturn + ' --> ' + resultScore + '% match, not enough');
-                } else {
-                    logAI('\t\tswap ' + ingredientList[swapArr[k]] + ' for ' + ingredientReturn + ' --> ' + resultScore + '% match');
-                }
-            });
-        }
-    } else {
-        if (filter != 'plantFilter' || filter != 'seasonFilter') {
-            if (document.getElementById('tryoutIngredient').src.includes('transparent') != true) {
-                console.log(document.getElementById('tryoutIngredient').src.includes('transparent'));
-                document.getElementById('swaptext' + currentIndex).textContent = 'No potential swaps found';
-                document.getElementById('AIscore').textContent = 'n.a.';
-                logAI("*AI: \tI didn't find ingredients to swap " + ingredientReturn + ' for');
             }
         }
+    } else if (inputArr[ingredientList.indexOf(ingredientReturn)] == 1) {
+        logAI('*AI: \tThis recipe already contains ' + ingredientReturn);
     }
 }
 
