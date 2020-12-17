@@ -214,17 +214,17 @@ p {
     position: relative;
 }
 
-#console::-webkit-scrollbar {
+#console::-webkit-scrollbar, #instructions::-webkit-scrollbar {
     width: 10px;
 }
 
-#console::-webkit-scrollbar-thumb {
-    background: rgb(61, 61, 61);
+#console::-webkit-scrollbar-thumb, #instructions::-webkit-scrollbar-thumb {
+    background: var(--accent2);
     border-radius: 8px;
 }
 
-#console::-webkit-scrollbar-thumb:hover {
-    background: rgb(77, 77, 77);
+#console::-webkit-scrollbar-thumb:hover, #instructions::-webkit-scrollbar-thumb:hover {
+    background: var(--accent3);
 }
 
 #consoleText {
@@ -239,11 +239,48 @@ p {
 /* explanation */
 #instructions {
     margin: -2.5vw 2.5vw 2.5vw 2.5vw;
-    padding: 2em;
+    padding: 1em;
     width: 15vw;
-    height: 27.5vh;
+    height: calc(25vh + 0.5vw);
     background-color: var(--background1);
     border-radius: 12px;
+    overflow-y: scroll;
+}
+
+#instructions p {
+    font-size: 0.55em;
+}
+
+#instructions h1 {
+    font-size: 0.65em;
+}
+
+@media (max-width: 1025px) {
+    #instructions {
+        padding: 1em;
+    }
+
+    #instructions p {
+        font-size: 0.55em;
+    }
+    
+    #instructions h1 {
+        font-size: 0.65em;
+    }
+}
+
+@media (max-width: 1250px) {
+    #instructions {
+        padding: 1em;
+    }
+
+    #instructions p {
+        font-size: 0.75em;
+    }
+    
+    #instructions h1 {
+        font-size: 0.85em;
+    }
 }
 
 /* reinforcement */
