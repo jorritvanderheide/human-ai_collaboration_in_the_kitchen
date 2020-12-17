@@ -92,6 +92,9 @@ function selectTryout(ingredientReturn) {
             tryAlternative(ingredientReturn);
         }
     }
+    if (filter != 'seasonFilter' && filter != 'plantFilter' && ingredientReturn != 'transparent') {
+        logAI('*AI: \tPlease use one of the intention filters first');
+    }
 }
 
 function resetTryout() {
