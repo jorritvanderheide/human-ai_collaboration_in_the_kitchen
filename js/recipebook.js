@@ -74,7 +74,13 @@ function tryAlternative(ingredientReturn) {
     inputArr = recipeVectors[i];
     inputArr = inputArr.slice(1, -1);
     inputArr = inputArr.split(',').map(Number);
+
+    if (targetIngredient != 'transparent') {
     logAI("*AI: \tI'll look at ingredients in " + recipeList[i]);
+    } else if (targetIngredient == 'transparent') {
+        idleAI();
+    }
+    
     if (inputArr[ingredientList.indexOf(ingredientReturn)] == 0) {
         for (let j = 0; j < inputArr.length; j++) {
             if (filter == 'plantFilter') {

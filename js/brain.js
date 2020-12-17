@@ -96,7 +96,7 @@ document.getElementById('console').onclick = function () {
 
 function consoleClicked() {
     var chance = randomInt(0, 100);
-    console.log(chance);
+    // console.log(chance);
     if (chance % 10 == 0) {
         let eggs = [
             '*AI: \tPlease stop',
@@ -120,4 +120,18 @@ function greetAI() {
         'Hiya! ༼ つ ◕_◕ ༽つ',
     ];
     logAI('*AI: \t' + greetings[randomInt(0, greetings.length)]);
+}
+
+function idleAI() {
+    var chance = randomInt(0, 100);
+    console.log(chance);
+    if (chance % 13 == 0) {
+        let questions = [
+            "*AI: \tDon't you want to try anything?",
+            '*AI: \tI really like fries you know',
+            "*AI: \t( ◑‿◑)ɔ┏🍟",
+            "*AI: \tWeather seems nice",
+        ];
+        logAI(questions[randomInt(0, questions.length)]);
+    }
 }

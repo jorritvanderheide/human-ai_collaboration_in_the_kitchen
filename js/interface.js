@@ -6,7 +6,7 @@ var $grid = $('.grid').packery({
 });
 
 var filter = ' ';
-var targetIngredient = '';
+var targetIngredient = 'transparent';
 
 // initiate grid
 $(document).ready(function () {
@@ -81,14 +81,25 @@ function selectTryout(ingredientReturn) {
     if (filter == 'seasonFilter' || filter == 'plantFilter' || ingredientReturn == 'transparent') {
         document.getElementById('tryoutIngredient').src = 'img/products/' + ingredientReturn + '.jpg';
         if (ingredientReturn != 'transparent') {
-            logAI(
-                '\n*AI: \tShall I find a good recipe for trying ' +
-                    ingredientReturn.charAt(0).toUpperCase() +
-                    ingredientReturn.slice(1) +
-                    '? I will try to replace it for ' +
-                    ingredientCategory[ingredientList.indexOf(ingredientReturn)] +
-                    " that don't match your intention"
-            );
+            if (filter == 'plantFilter') {
+                logAI(
+                    '\n*AI: \tShall I find a good recipe for trying ' +
+                        ingredientReturn.charAt(0).toUpperCase() +
+                        ingredientReturn.slice(1) +
+                        '? I will try to replace it for ' +
+                        ingredientCategory[ingredientList.indexOf(ingredientReturn)] +
+                        " that aren't plant-based"
+                );
+            } else if (filter == 'seasonFilter') {
+                logAI(
+                    '\n*AI: \tShall I find a good recipe for trying ' +
+                        ingredientReturn.charAt(0).toUpperCase() +
+                        ingredientReturn.slice(1) +
+                        '? I will try to replace it for ' +
+                        ingredientCategory[ingredientList.indexOf(ingredientReturn)] +
+                        " that aren't in season"
+                );
+            }
             tryAlternative(ingredientReturn);
         }
     }
