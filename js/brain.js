@@ -18,7 +18,6 @@ function logAI(message) {
     } else if (consoleBusy) {
         txt += '\n' + message;
     }
-    // console.log(consoleBusy);
 }
 
 function typeWriter() {
@@ -31,7 +30,6 @@ function typeWriter() {
         setTimeout(typeWriter, consoleSpeed);
     }
     adjustSpeed();
-    // console.log(txt.length - txtPos, consoleSpeed);
 }
 
 function adjustSpeed() {

@@ -1,9 +1,10 @@
+// This code is written for Botano, to share family favorite recipes
+
 let recipeData; // full recipe .csv
 let recipeList = []; // array with the names of the recipes
 
 // import csv
-let recipeDataUrl =
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDKC0TKzDZxYVeogUXlhM14U7CsL3rAX0-q4J_hOO8rj-OWxcaANNLuw5WYEuv7FMBylZGa3GC8Mp7/pub?gid=0&single=true&output=csv';
+let recipeDataUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRDKC0TKzDZxYVeogUXlhM14U7CsL3rAX0-q4J_hOO8rj-OWxcaANNLuw5WYEuv7FMBylZGa3GC8Mp7/pub?gid=0&single=true&output=csv';
 
 function setup() {
     // preload data
