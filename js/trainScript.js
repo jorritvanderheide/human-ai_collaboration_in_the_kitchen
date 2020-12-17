@@ -1,7 +1,7 @@
 // variables
 let model;
 const modelOptions = {
-    dataUrl: 'data/trainingData.csv',
+    dataUrl: 'data/trainingDataNS.csv',
     inputs: [
         'pineapple',
         'eggplant',

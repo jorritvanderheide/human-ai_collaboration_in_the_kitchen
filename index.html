@@ -13,20 +13,17 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
         <!-- custom css -->
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style_clean.css" />
     </head>
 
     <body>
         <div class="row">
             <!-- insight interface -->
             <div id="insightContainer">
-                <p style="margin-bottom: 1.5em"><b>Insight interface</b></p>
+                <p class="containerTitle"><b>Insight interface</b></p>
                 <div id="insight" class="card-panel hoverable">
-                    <div id="filters" class="row">
-                        <img id="plantFilter" src="img/plantFilter.svg" onclick="showIngredients('plantFilter')" />
-                        <img id="seasonFilter" src="img/seasonFilter.svg" onclick="showIngredients('seasonFilter')" />
-                    </div>
                     <div class="grid">
+                        <div class="gutter-sizer"></div>
                         <div id="pineapple" class="grid-item valign-wrapper" onclick="selectTryout('pineapple')">
                             <img src="img/products/pineapple.jpg" />
                         </div>
@@ -209,11 +206,15 @@
                         </div>
                     </div>
                 </div>
+                <div id="filters" class="row">
+                    <img id="plantFilter" src="img/plantFilter.svg" onclick="showIngredients('plantFilter')" />
+                    <img id="seasonFilter" src="img/seasonFilter.svg" onclick="showIngredients('seasonFilter')" />
+                </div>
             </div>
 
             <!-- tryout module -->
             <div id="tryoutContainer">
-                <p style="margin-bottom: 1.5em"><b>Tryout module</b></p>
+                <p class="containerTitle"><b>Tryout module</b></p>
                 <div id="tryoutWrapper" class="valign-wrapper">
                     <img id="tryoutIngredient" src="img/products/transparent.jpg" />
                     <img id="tryoutModule" src="img/tryoutModule.svg" onclick="resetTryout();" />
@@ -222,9 +223,9 @@
 
             <!-- family cookbook -->
             <div id="cookbookContainer">
-                <p style="margin-bottom: 1.5em"><b>Family cookbook</b></p>
+                <p class="containerTitle"><b>Family cookbook</b></p>
                 <div id="cookbook" class="card-panel hoverable">
-                <img id="cookbookModule" src="img/cookbookModule.svg" onmouseover="hover(this);" onmouseout="unhover(this);" onclick="sendCookInfo()" />
+                <!-- <img id="cookbookModule" src="img/cookbookModule.svg" onmouseover="hover(this);" onmouseout="unhover(this);" onclick="sendCookInfo()" /> -->
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" id="recipe0">

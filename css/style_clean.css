@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --background1: #fff;
+    --background2: #ccc;
+    --accent1: #ff6d00;
+    --accent2: #ff9855;
+    --accent3: #ffab40;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.containerTitle {
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+/* insight */
+#insightContainer {
+    padding: 3.5vw 2.5 2.5vw 7.5vw;
+    width: 45vw;
+    height: 66.6vh;
+}
+
+#insight {
+    position: relative;
+    /* padding: 1em; */
+    width: 100%;
+    height: 100%;
+    background-color: var(--background1);
+    border: solid var(--accent3) 0.75em;
+    border-radius: 1em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#filters {
+    position: absolute;
+    width: 8vh;
+    left: calc(7.5vw - 1px);
+    top: 22vh;
+}
+
+#plantFilter {
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+#seasonFilter {
+    cursor: pointer;
+}
+
+.grid {
+    margin-left: 2vw;
+    width: 100%;
+    height: auto;
+}
+
+.gutter-sizer {
+    width: 1.33%;
+}
+
+.grid-item {
+    width: 31%;
+    height: auto;
+}
+
+.grid-item img {
+    padding: 1em;
+    width: 100%;
+    cursor: pointer;
+}
+
+#insight::-webkit-scrollbar {
+    width: 1em;
+}
+
+#insight::-webkit-scrollbar-thumb {
+    background: var(--accent2);
+    border-radius: 1em;
+}
+
+#insight::-webkit-scrollbar-thumb:hover {
+    background: var(--accent1);
+}
+
+/* tryout */
+#tryoutContainer {
+    padding: 3.5vw 0 2.5vw;
+    width: 25vw;
+    height: 66.6vh;
+}
+
+#tryoutWrapper {
+    height: 100%;
+}
+
+#tryoutModule {
+    width: 100%;
+}
+
+/* #tryoutIngredient {
+    position: absolute;
+    width: 5%;
+    left: 55vw;
+} */
+
+/* cookbook */
+#cookbookContainer {
+    padding: 3.5vw 7.5vw 2.5vw 2.5;
+    width: 30vw;
+    height: 66.6vh;
+}
+
+/* #cookbookModule {
+    transform: scale(0.5);
+    position: absolute;
+    bottom: -3.5vw;
+    right: 7.5vw;
+    cursor: pointer;
+} */
+
+#cookbook {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background1);
+    border: solid var(--accent3) 0.75em;
+    border-radius: 12px;
+    overflow-y: auto;
+}
+
+/* #cookbook h2 {
+    margin: 1em 2em;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+#cookbook p {
+    margin: 0 2.5em;
+    font-size: 1em;
+    font-style: italic;
+} */
+
+/* .carousel-inner {
+    height: 100%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    margin-top: 40vh;
+}
+
+.carousel-item {
+    visibility: visible;
+}
+
+.carousel-control-next-icon {
+    background-image: url(../img/right.png);
+}
+
+.carousel-control-prev-icon {
+    background-image: url(../img/left.png);
+} */
+
+/* #cookbook .swaptext {
+    font-style: normal;
+    margin-top: 1em;
+} */
+
+/* ai bar*/
+#ai {
+    width: 100vw;
+    height: 25vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent2);
+}
+
+/* console */
+#console {
+    margin: 2.5vw 2.5vw 2.5vw 7.5vw;
+    padding: 1em;
+    width: 37.5vw;
+    height: calc(25vh - 4.5vw);
+    overflow-y: scroll;
+    background-color: #000;
+    color: #fff;
+    border-radius: 12px;
+    position: relative;
+}
+
+/* #console::-webkit-scrollbar, #instructions::-webkit-scrollbar {
+    width: 10px;
+}
+
+#console::-webkit-scrollbar-thumb, #instructions::-webkit-scrollbar-thumb {
+    background: var(--accent2);
+    border-radius: 8px;
+}
+
+#console::-webkit-scrollbar-thumb:hover, #instructions::-webkit-scrollbar-thumb:hover {
+    background: var(--accent3);
+} */
+
+/* #consoleText {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    white-space: pre-wrap;
+    font-family: 'Share Tech Mono', monospace;
+} */
+
+/* explanation */
+/* #instructions {
+    margin: -2.5vw 2.5vw 2.5vw 2.5vw;
+    padding: 1em;
+    width: 15vw;
+    height: calc(25vh + 0.5vw);
+    background-color: var(--background1);
+    border-radius: 12px;
+    overflow-y: scroll;
+}
+
+#instructions p {
+    font-size: 0.55em;
+}
+
+#instructions h1 {
+    font-size: 0.65em;
+}
+
+@media (max-width: 1025px) {
+    #instructions {
+        padding: 1em;
+    }
+
+    #instructions p {
+        font-size: 0.55em;
+    }
+    
+    #instructions h1 {
+        font-size: 0.65em;
+    }
+}
+
+@media (max-width: 1250px) {
+    #instructions {
+        padding: 1em;
+    }
+
+    #instructions p {
+        font-size: 0.75em;
+    }
+    
+    #instructions h1 {
+        font-size: 0.85em;
+    }
+} */
+
+/* reinforcement */
+/* #reinforcement {
+    margin: 2.5vw 2.5vw 2.5vw 2.5vw;
+    width: 22.5vw;
+    height: calc(25vh - 4.5vw);
+    background-color: var(--background1);
+    border-radius: 12px;
+    padding: 1vw;
+}
+
+.range-field {
+    margin-top: 1vh;
+    width: 100%;
+    float: left;
+}
+
+.btn {
+    background-color: var(--accent3);
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--accent1);
+}
+
+#slider {
+    margin-bottom: 3.5vh;
+    width: 75%;
+    margin-right: 1vw;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    background-color: var(--accent3);
+}
+
+input[type='range']::-moz-range-thumb {
+    background-color: var(--accent3);
+}
+
+input[type='range']::-ms-thumb {
+    background-color: var(--accent3);
+}
+
+input[type='range'] + .thumb {
+    background-color: var(--accent1);
+}
+
+input[type='range'] + .thumb.active .value {
+    color: #fff;
+} */

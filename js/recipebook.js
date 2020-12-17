@@ -25,10 +25,17 @@ let modelOptions = {
 model = ml5.neuralNetwork(modelOptions);
 
 // load model
+// const modelLoad = {
+//     model: 'model/model.json',
+//     metadata: 'model/model_meta.json',
+//     weights: 'model/model.weights.bin',
+// };
+// model.load(modelLoad);
+
 const modelLoad = {
-    model: 'model/model.json',
-    metadata: 'model/model_meta.json',
-    weights: 'model/model.weights.bin',
+    model: 'model/modelNS.json',
+    metadata: 'model/modelNS_meta.json',
+    weights: 'model/modelNS_weights.bin',
 };
 model.load(modelLoad);
 
