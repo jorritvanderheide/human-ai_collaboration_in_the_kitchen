@@ -2,7 +2,8 @@
  OOCSI.connect('wss://oocsi.id.tue.nl/ws');
  
  OOCSI.subscribe("Recuisine", function(msg) {
-    var dataa = msg.data.dataa;
-    var data1 = msg.data.data1;
-    console.log(dataa, data1);
+    var energy = msg.data.energy;
+    var time = msg.data.time;
+    var name = msg.data.name;
+    console.log(energy, time, name);
 });

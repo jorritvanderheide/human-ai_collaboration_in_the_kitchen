@@ -55,8 +55,19 @@ function tryAlternative(ingredientReturn) {
     let tryoutCat = ingredientCategory[ingredientList.indexOf(ingredientReturn)];
     currentIndex = $('div.active').index();
     let i = currentIndex;
-    document.getElementById('swaptext' + (currentIndex + 1)).textContent = '';
-    document.getElementById('swaptext' + (currentIndex - 1)).textContent = '';
+    if (i < 28) {
+        document.getElementById('swaptext' + (currentIndex + 1)).textContent = '';
+    }
+    if (i > 0) {
+        document.getElementById('swaptext' + (currentIndex - 1)).textContent = '';
+    }
+    if (i == 0) {
+        document.getElementById('swaptext28').textContent = '';
+    }
+    if (i == 28) {
+        document.getElementById('swaptext0').textContent = '';
+    }
+
     let inputArr = [];
     let swapArr = [];
     let highestScore = 0;
