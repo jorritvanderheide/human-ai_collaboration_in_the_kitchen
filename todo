@@ -2,8 +2,11 @@ code commenten en autoformatten
 ui elementen passen maken en semi responsive
 UI experience verbeteren
 Klein AI icoontje dat reageert als model gerund wordt
-Als je de site opent en meteen op cook now klikt stuurt hij lege data
-Reageren op Tala
+Als je scrollt door receptenboek moet de AI niks zeggen
+Als je de huidige tryout wegklikt reset hij ook het filter
+Instruction tekst is nu ini mini bij Lars
+Font van de AI weer aanpassen? Als het mooi is
+Nieuwe models met de final training data trainen (eentje zonder singles eentje met) en kijken welke betere scores geeft
 
 Done:
 Het cookbook geeft nog geen index aan, (recept 3/22)
@@ -11,3 +14,5 @@ Zorgen dat er geen feedback wordt verzonden als score n/a is
 Als er geen tryout ingredient geselecteerd is en je scrollt door receptenboek geeft hij nog steeds “no alternatives found”
 visual maken voor data uitwisseling tussen groepen (iris)
 Er wordt niet gecheckt of het ingredient er al in zit. (hij zegt nu bijv swap egg for egg)
+Reageren op Tala
+Als je de site opent en meteen op cook now klikt stuurt hij lege data

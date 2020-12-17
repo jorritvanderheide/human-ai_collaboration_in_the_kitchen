@@ -41,6 +41,8 @@ function draw() {
         logAI(">neural network loaded")
         greetAI();
         logAI("*AI: \tI'm Artifical Intelligence at your service! Here I show you what I'm thinking");
+
+        currentIndex = $('div.active').index();
         noLoop(); // run once when data is loaded
     }
 }
