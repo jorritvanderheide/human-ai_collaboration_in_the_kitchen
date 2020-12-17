@@ -267,22 +267,28 @@ body {
 }
 
 /* reinforcement */
-/* #reinforcement {
+#reinforcement {
     margin: 2.5vw 2.5vw 2.5vw 2.5vw;
     width: 22.5vw;
     height: calc(25vh - 4.5vw);
     background-color: var(--background1);
-    border-radius: 12px;
-    padding: 1vw;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+#reinforcement p {
+    margin-bottom: 1vh;
 }
 
 .range-field {
-    margin-top: 1vh;
     width: 100%;
     float: left;
 }
 
 .btn {
+    position: absolute;
+    right: 0;
+    bottom: 1.5vh;
     background-color: var(--accent3);
     display: inline-block;
 }
@@ -315,4 +321,4 @@ input[type='range'] + .thumb {
 
 input[type='range'] + .thumb.active .value {
     color: #fff;
-} */
+}
