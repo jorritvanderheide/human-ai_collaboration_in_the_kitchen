@@ -146,10 +146,12 @@ function tryAlternative(ingredientReturn) {
                         return;
                     }
 
-                    // check if the model scores above the rthreshold and  above the previous highest score
+                    // check if the model scores above the rthreshold and above the previous highest score
                     if (results[0].score >= thresholdValue && results[0].score > highestScore) {
-                        highestScore = results[0].score;
-                        bestSwap = ingredientList[swapArr[k]];
+                        highestScore = results[0].score; // update higest score
+                        bestSwap = ingredientList[swapArr[k]]; // update best swap ingredient
+
+                        // update cookbook recommendation text
                         let highScore = (highestScore * 100).toString();
                         highScore = highScore.slice(0, 3);
                         highScore = parseInt(highScore);
@@ -159,12 +161,18 @@ function tryAlternative(ingredientReturn) {
                         } else if (filter == 'seasonFilter') {
                             filterText = 'in season';
                         }
-                        document.getElementById('swaptext' + currentIndex).textContent = 'Replace ' + bestSwap + ' for ' + ingredientReturn + ' to eat more ' + filterText;
-                        document.getElementById('AIscore').textContent = highScore + '%';
-                    } else if (highestScore == 0) {
+                        document.getElementById('swaptext' + currentIndex).textContent = 'Replace ' + bestSwap + ' for ' + ingredientReturn + ' to eat more ' + filterText; // recommendation sentence
+                        document.getElementById('AIscore').textContent = highScore + '%'; // score percentage
+                    }
+
+                    // check if there is no swap possible
+                    else if (highestScore == 0) {
+                        // update cookbook text
                         document.getElementById('swaptext' + currentIndex).textContent = 'No suitable swaps found';
                         document.getElementById('AIscore').textContent = 'n.a.';
                     }
+
+                    // log to AI console
                     let resultScore = results[0].score * 100;
                     resultScore = resultScore.toString();
                     resultScore = resultScore.slice(0, 3);
@@ -177,7 +185,7 @@ function tryAlternative(ingredientReturn) {
                 });
             }
         }
-        
+
         // if there are flagged ingredients
         else {
             // check if no filters are active
@@ -192,7 +200,7 @@ function tryAlternative(ingredientReturn) {
             }
         }
     }
-    
+
     // run if the tryout ingedient is already in the recipe
     else if (inputArr[ingredientList.indexOf(ingredientReturn)] == 1) {
         logAI('*AI: \tThis recipe already contains ' + ingredientReturn); // log
