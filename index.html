@@ -9,11 +9,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
         <!-- materialize css -->
-        <link href="css/materialize.css" rel="stylesheet" />
+        <link href="vendor/materialize.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
         <!-- custom css -->
-        <!-- <link rel="stylesheet" href="webapp/css/filename.css"> -->
         <link rel="stylesheet" href="css/style.css" />
     </head>
 
@@ -389,14 +388,17 @@
         <!-- ai bottom row -->
         <div id="ai" class="row">
             <div id="console" class="card hoverable">
+                <!-- console -->
                 <p id="consoleText"></p>
             </div>
+            <!-- instructions -->
             <div id="instructions" class="card hoverable">
                 <h1>Instructions</h1>
                 <p><b>Step 1:</b> select an 'intention filter' on the insight interface</p>
                 <p><b>Step 2:</b> click an ingredient to add it to the tryout module</p>
                 <p><b>Step 3:</b> see AI recommendations in your family cookbook</p>
             </div>
+            <!-- feedback -->
             <div id="reinforcement" class="card-panel hoverable">
                 <p>The AI gave this combination a score of <b><span id="AIscore">n.a.</span></b></p>
                 <p>What score would you give? <b><span id="userScore"></span></b></p>
@@ -419,22 +421,22 @@
     <!-- materialized js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- packery -->
+    <!-- packery js -->
     <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
 
-    <!-- p5 css -->
+    <!-- p5 js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
 
-    <!-- ml5 css -->
+    <!-- ml5 js -->
     <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
 
-    <!-- OOCSI -->
-    <script src="js/OOCSIlib.js"></script>
+    <!-- oocsi js -->
+    <script src="vendor/OOCSIlib.js"></script>
 
     <!-- custom js -->
     <script src="js/setupData.js"></script>
-    <script src="js/recipebook.js"></script>
+    <script src="js/recipeBook.js"></script>
     <script src="js/oocsi.js"></script>
     <script src="js/interface.js"></script>
     <script src="js/brain.js"></script>
