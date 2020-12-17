@@ -2,3 +2,8 @@ code commenten en autoformatten
 ui elementen passen maken en semi responsive
 visual maken voor data uitwisseling tussen groepen
 UI experience verbeteren
+Als er geen tryout ingredient geselecteerd is en je scrollt door receptenboek geeft hij nog steeds “no alternatives found”
+Er wordt niet gecheckt of het ingredient er al in zit. (hij zegt nu bijv swap egg for egg)
+Het cookbook geeft nog geen index aan, (recept 3/22)
+Zorgen dat er geen feedback wordt verzonden als score n/a is
+Klein AI icoontje dat reageert als model gerund wordt

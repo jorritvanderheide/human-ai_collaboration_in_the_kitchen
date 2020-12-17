@@ -23,9 +23,9 @@ let modelOptions = {
 model = ml5.neuralNetwork(modelOptions);
 
 const modelLoad = {
-    model: 'webapp/model/model.json',
-    metadata: 'webapp/model/model_meta.json',
-    weights: 'webapp/model/model.weights.bin',
+    model: 'model/model.json',
+    metadata: 'model/model_meta.json',
+    weights: 'model/model.weights.bin',
 };
 // const modelLoad = {
 //     model: 'webapp/model/model.json',
@@ -150,9 +150,9 @@ function tryAlternative(ingredientReturn) {
 }
 
 function hover(element) {
-    element.setAttribute('src', 'webapp/img/cookbookModuleHover.svg');
+    element.setAttribute('src', 'img/cookbookModuleHover.svg');
 }
 
 function unhover(element) {
-    element.setAttribute('src', 'webapp/img/cookbookModule.svg');
+    element.setAttribute('src', 'img/cookbookModule.svg');
 }
