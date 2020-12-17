@@ -1,5 +1,4 @@
 Klein AI icoontje dat reageert als model gerund wordt
-UX verbeteren
 
 Jorrit
 ui elementen passen maken en semi responsive (CSS)
@@ -12,7 +11,6 @@ brain js commenten
 
 Samen
 Nieuwe models met de final training data trainen (eentje zonder singles eentje met) en kijken welke betere scores geeft
-code commenten en autoformatten
 
 
 Done:
@@ -25,3 +23,4 @@ Reageren op Tala
 Als je de site opent en meteen op cook now klikt stuurt hij lege data
 Als je de huidige tryout wegklikt reset hij ook het filter
     -> reset cookbook text na wegklikken
+code commenten en autoformatten

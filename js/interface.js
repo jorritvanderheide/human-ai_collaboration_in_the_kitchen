@@ -4,7 +4,7 @@ var targetIngredient = '';
 
 // setup packery for ingredient grid
 var $grid = $('.grid').packery({
-    gutter: 30,
+    gutter: '.gutter-sizer',
     itemSelector: '.grid-item',
     percentPosition: true,
 });
