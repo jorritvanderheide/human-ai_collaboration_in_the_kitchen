@@ -1,7 +1,7 @@
 // variables
 let model;
 const modelOptions = {
-    dataUrl: 'data/trainingDataNS.csv',
+    dataUrl: 'data/trainingData.csv',
     inputs: [
         'pineapple',
         'eggplant',
@@ -88,7 +88,7 @@ const modelOptions = {
 
 const trainingOptions = {
     batchSize: 100,
-    epochs: 300,
+    epochs: 100,
 };
 
 // setup
