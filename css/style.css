@@ -12,18 +12,9 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background-color: #eee;
     overflow: hidden;
     user-select: none;
-}
-
-h1 {
-    margin: 0 0 1em;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-p {
-    font-size: 15px;
 }
 
 .row {
@@ -31,21 +22,25 @@ p {
     padding: 0;
 }
 
-/* insight */
-#insightContainer {
-    padding: 3.5vw 2.5 2.5vw 7.5vw;
-    width: 45vw;
-    height: 66.6vh;
+.containerTitle {
+    margin-bottom: 1.5em;
     text-align: center;
 }
 
+/* insight */
+#insightContainer {
+    padding: 3.5vw 0 2.5vw 7.5vw;
+    width: 45vw;
+    height: 66.6vh;
+}
+
 #insight {
-    padding: 1em;
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: var(--background1);
-    border: solid var(--accent3) 1em;
-    border-radius: 12px;
+    border: solid var(--accent3) 0.75em;
+    border-radius: 1em;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -53,8 +48,8 @@ p {
 #filters {
     position: absolute;
     width: 8vh;
-    left: calc(7.5vw + 0.2em);
-    top: calc(13vh + 6em);
+    left: calc(7.5vw - 1px);
+    top: 22vh;
 }
 
 #plantFilter {
@@ -67,32 +62,33 @@ p {
 }
 
 .grid {
-    margin-left: 2.5em;
-    padding: 3em;
+    margin-left: 2vw;
     width: 100%;
     height: auto;
 }
 
+.gutter-sizer {
+    width: 1.33%;
+}
+
 .grid-item {
-    width: 8vw;
-    height: 8vw;
-    background-color: var(--accent2);
-    border-radius: 12px;
-    cursor: pointer;
-    /* display: none; */
+    width: 31%;
+    height: auto;
 }
 
 .grid-item img {
+    padding: 1em;
     width: 100%;
+    cursor: pointer;
 }
 
 #insight::-webkit-scrollbar {
-    width: 10px;
+    width: 1em;
 }
 
 #insight::-webkit-scrollbar-thumb {
     background: var(--accent2);
-    border-radius: 8px;
+    border-radius: 1em;
 }
 
 #insight::-webkit-scrollbar-thumb:hover {
@@ -104,12 +100,6 @@ p {
     padding: 3.5vw 0 2.5vw;
     width: 25vw;
     height: 66.6vh;
-    text-align: center;
-}
-
-#tryout {
-    width: 100%;
-    height: 100%;
 }
 
 #tryoutWrapper {
@@ -117,7 +107,6 @@ p {
 }
 
 #tryoutModule {
-    position: relative;
     width: 100%;
 }
 
@@ -125,55 +114,72 @@ p {
     position: absolute;
     width: 5%;
     left: 55vw;
+    z-index: 1;
 }
 
 /* cookbook */
 #cookbookContainer {
+    position: relative;
     padding: 3.5vw 7.5vw 2.5vw 2.5;
     width: 30vw;
     height: 66.6vh;
-    text-align: center;
-    position: relative;
 }
 
 #cookbookModule {
-    transform: scale(0.5);
     position: absolute;
-    bottom: -3.5vw;
+    z-index: 1;
+    bottom: -5vw;
     right: 7.5vw;
+    transform: scale(0.55);
     cursor: pointer;
 }
 
 #cookbook {
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: var(--background1);
-    border: solid var(--accent3) 1em;
-    border-radius: 12px;
-    text-align: left;
+    border: solid var(--accent3) 0.75em;
+    border-radius: 1em;
+    overflow-y: auto;
+}
+
+#cookbook::-webkit-scrollbar {
+    width: 1em;
+}
+
+#cookbook::-webkit-scrollbar-thumb {
+    background: var(--accent2);
+    border-radius: 1em;
+}
+
+#cookbook::-webkit-scrollbar-thumb:hover {
+    background: var(--accent1);
 }
 
 #cookbook h2 {
     margin: 1em 2em;
-    font-size: 1.25em;
+    font-size: 2vh;
     font-weight: bold;
 }
 
 #cookbook p {
     margin: 0 2.5em;
-    font-size: 1em;
+    font-size: 1.55vh;
     font-style: italic;
+    line-height: 1.75vh;
 }
 
 .carousel-inner {
     height: 100%;
+    text-align: center;
+    padding-top: 1vh;
 }
 
 .carousel-control-next,
 .carousel-control-prev {
-    margin-top: 40vh;
+    margin-top: 0;
 }
-
 .carousel-item {
     visibility: visible;
 }
@@ -214,73 +220,50 @@ p {
     position: relative;
 }
 
-#console::-webkit-scrollbar, #instructions::-webkit-scrollbar {
-    width: 10px;
+#console::-webkit-scrollbar,
+#instructions::-webkit-scrollbar {
+    width: 1em;
 }
 
-#console::-webkit-scrollbar-thumb, #instructions::-webkit-scrollbar-thumb {
+#console::-webkit-scrollbar-thumb,
+#instructions::-webkit-scrollbar-thumb {
     background: var(--accent2);
-    border-radius: 8px;
+    border-radius: 1em;
 }
 
-#console::-webkit-scrollbar-thumb:hover, #instructions::-webkit-scrollbar-thumb:hover {
+#console::-webkit-scrollbar-thumb:hover,
+#instructions::-webkit-scrollbar-thumb:hover {
     background: var(--accent3);
 }
 
 #consoleText {
     position: absolute;
     bottom: 0;
-    margin-bottom: 12px;
-    margin-top: 12px;
+    margin-bottom: 1em;
+    margin-top: 1em;
     white-space: pre-wrap;
-    /* font-family: 'Share Tech Mono', monospace; */
 }
 
 /* explanation */
 #instructions {
     margin: -2.5vw 2.5vw 2.5vw 2.5vw;
-    padding: 1em;
+    padding: 1.5em;
     width: 15vw;
     height: calc(25vh + 0.5vw);
     background-color: var(--background1);
-    border-radius: 12px;
+    border-radius: 1em;
     overflow-y: scroll;
 }
 
 #instructions p {
-    font-size: 0.55em;
+    font-size: 1.25vh;
+    line-height: 1.75vh;
 }
 
 #instructions h1 {
-    font-size: 0.65em;
-}
-
-@media (max-width: 1025px) {
-    #instructions {
-        padding: 1em;
-    }
-
-    #instructions p {
-        font-size: 0.55em;
-    }
-    
-    #instructions h1 {
-        font-size: 0.65em;
-    }
-}
-
-@media (max-width: 1250px) {
-    #instructions {
-        padding: 1em;
-    }
-
-    #instructions p {
-        font-size: 0.75em;
-    }
-    
-    #instructions h1 {
-        font-size: 0.85em;
-    }
+    margin: 0 0 1em;
+    font-size: 2vh;
+    font-weight: bold;
 }
 
 /* reinforcement */
@@ -289,18 +272,23 @@ p {
     width: 22.5vw;
     height: calc(25vh - 4.5vw);
     background-color: var(--background1);
-    border-radius: 12px;
-    padding: 1vw;
-    /* overflow: hidden; */
+    border-radius: 1em;
+    padding: 1em;
+}
+
+#reinforcement p {
+    margin-bottom: 1vh;
 }
 
 .range-field {
-    margin-top: 1vh;
     width: 100%;
     float: left;
 }
 
 .btn {
+    position: absolute;
+    right: 0;
+    bottom: 1.5vh;
     background-color: var(--accent3);
     display: inline-block;
 }
