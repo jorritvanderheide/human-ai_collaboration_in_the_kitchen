@@ -12,6 +12,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background-color: #eee;
     overflow: hidden;
     user-select: none;
 }
@@ -28,14 +29,13 @@ body {
 
 /* insight */
 #insightContainer {
-    padding: 3.5vw 2.5 2.5vw 7.5vw;
+    padding: 3.5vw 0 2.5vw 7.5vw;
     width: 45vw;
     height: 66.6vh;
 }
 
 #insight {
     position: relative;
-    /* padding: 1em; */
     width: 100%;
     height: 100%;
     background-color: var(--background1);
@@ -110,26 +110,29 @@ body {
     width: 100%;
 }
 
-/* #tryoutIngredient {
+#tryoutIngredient {
     position: absolute;
     width: 5%;
     left: 55vw;
-} */
+    z-index: 1;
+}
 
 /* cookbook */
 #cookbookContainer {
+    position: relative;
     padding: 3.5vw 7.5vw 2.5vw 2.5;
     width: 30vw;
     height: 66.6vh;
 }
 
-/* #cookbookModule {
-    transform: scale(0.5);
+#cookbookModule {
     position: absolute;
-    bottom: -3.5vw;
+    z-index: 1;
+    bottom: -5vw;
     right: 7.5vw;
+    transform: scale(0.55);
     cursor: pointer;
-} */
+}
 
 #cookbook {
     position: relative;
@@ -137,31 +140,46 @@ body {
     height: 100%;
     background-color: var(--background1);
     border: solid var(--accent3) 0.75em;
-    border-radius: 12px;
+    border-radius: 1em;
     overflow-y: auto;
 }
 
-/* #cookbook h2 {
+#cookbook::-webkit-scrollbar {
+    width: 1em;
+}
+
+#cookbook::-webkit-scrollbar-thumb {
+    background: var(--accent2);
+    border-radius: 1em;
+}
+
+#cookbook::-webkit-scrollbar-thumb:hover {
+    background: var(--accent1);
+}
+
+#cookbook h2 {
     margin: 1em 2em;
-    font-size: 1.25em;
+    font-size: 2vh;
     font-weight: bold;
 }
 
 #cookbook p {
     margin: 0 2.5em;
-    font-size: 1em;
+    font-size: 1.5vh;
     font-style: italic;
-} */
+    line-height: 1.75vh;
+}
 
-/* .carousel-inner {
+.carousel-inner {
     height: 100%;
+    text-align: center;
+    padding-top: 1vh;
 }
 
 .carousel-control-next,
 .carousel-control-prev {
-    margin-top: 40vh;
+    margin-top: 0;
 }
-
 .carousel-item {
     visibility: visible;
 }
@@ -172,12 +190,12 @@ body {
 
 .carousel-control-prev-icon {
     background-image: url(../img/left.png);
-} */
+}
 
-/* #cookbook .swaptext {
+#cookbook .swaptext {
     font-style: normal;
     margin-top: 1em;
-} */
+}
 
 /* ai bar*/
 #ai {
@@ -202,74 +220,51 @@ body {
     position: relative;
 }
 
-/* #console::-webkit-scrollbar, #instructions::-webkit-scrollbar {
-    width: 10px;
+#console::-webkit-scrollbar,
+#instructions::-webkit-scrollbar {
+    width: 1em;
 }
 
-#console::-webkit-scrollbar-thumb, #instructions::-webkit-scrollbar-thumb {
+#console::-webkit-scrollbar-thumb,
+#instructions::-webkit-scrollbar-thumb {
     background: var(--accent2);
-    border-radius: 8px;
+    border-radius: 1em;
 }
 
-#console::-webkit-scrollbar-thumb:hover, #instructions::-webkit-scrollbar-thumb:hover {
+#console::-webkit-scrollbar-thumb:hover,
+#instructions::-webkit-scrollbar-thumb:hover {
     background: var(--accent3);
-} */
+}
 
-/* #consoleText {
+#consoleText {
     position: absolute;
     bottom: 0;
-    margin-bottom: 12px;
-    margin-top: 12px;
+    margin-bottom: 1em;
+    margin-top: 1em;
     white-space: pre-wrap;
-    font-family: 'Share Tech Mono', monospace;
-} */
+}
 
 /* explanation */
-/* #instructions {
+#instructions {
     margin: -2.5vw 2.5vw 2.5vw 2.5vw;
-    padding: 1em;
+    padding: 1.5em;
     width: 15vw;
     height: calc(25vh + 0.5vw);
     background-color: var(--background1);
-    border-radius: 12px;
+    border-radius: 1em;
     overflow-y: scroll;
 }
 
 #instructions p {
-    font-size: 0.55em;
+    font-size: 1.25vh;
+    line-height: 1.75vh;
 }
 
 #instructions h1 {
-    font-size: 0.65em;
+    margin: 0 0 1em;
+    font-size: 2vh;
+    font-weight: bold;
 }
-
-@media (max-width: 1025px) {
-    #instructions {
-        padding: 1em;
-    }
-
-    #instructions p {
-        font-size: 0.55em;
-    }
-    
-    #instructions h1 {
-        font-size: 0.65em;
-    }
-}
-
-@media (max-width: 1250px) {
-    #instructions {
-        padding: 1em;
-    }
-
-    #instructions p {
-        font-size: 0.75em;
-    }
-    
-    #instructions h1 {
-        font-size: 0.85em;
-    }
-} */
 
 /* reinforcement */
 /* #reinforcement {
