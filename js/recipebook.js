@@ -23,22 +23,17 @@ let modelOptions = {
 model = ml5.neuralNetwork(modelOptions);
 
 const modelLoad = {
-    model: 'webapp/model/model.json',
-    metadata: 'webapp/model/model_meta.json',
-    weights: 'webapp/model/model.weights.bin',
+    model: 'model/model.json',
+    metadata: 'model/model_meta.json',
+    weights: 'model/model.weights.bin',
 };
-// const modelLoad = {
-//     model: 'webapp/model/model.json',
-//     metadata: 'webapp/model_meta.json',
-//     weights: 'webapp/model.weights.bin',
-// };
 model.load(modelLoad);
 
 function setupRecipes() {
     for (let i = 0; i < recipeList.length; i++) {
         document.getElementById('recipe' + i).style.visibility = 'visible';
         let h = document.getElementById('header' + i);
-        h.innerHTML = recipeList[i];
+        h.innerHTML = '(' + (i + 1) + '/29) ' + recipeList[i];
 
         let p = document.getElementById('p' + i);
         p.style.whiteSpace = 'pre-line';
@@ -79,11 +74,6 @@ function tryAlternative(ingredientReturn) {
     inputArr = recipeVectors[i];
     inputArr = inputArr.slice(1, -1);
     inputArr = inputArr.split(',').map(Number);
-    // if (filter == 'plantFilter') {
-    //     logAI("*AI: \tLet's look at " + recipeList[i] + '');
-    // } else if (filter == 'seasonFilter') {
-    //     logAI("*AI: \tLet's look at " + recipeList[i] + '');
-    // }
     logAI("*AI: \tI'll look at ingredients in " + recipeList[i]);
     for (let j = 0; j < inputArr.length; j++) {
         if (filter == 'plantFilter') {
@@ -96,7 +86,7 @@ function tryAlternative(ingredientReturn) {
             }
         }
     }
-    if (swapArr.length > 0) {
+    if (swapArr.length > 0 && ingredientList.indexOf(ingredientReturn) == 1) {
         highestScore = 0;
         highScore = 0;
         let bestSwap = '';
@@ -142,17 +132,20 @@ function tryAlternative(ingredientReturn) {
         }
     } else {
         if (filter != 'plantFilter' || filter != 'seasonFilter') {
-            document.getElementById('swaptext' + currentIndex).textContent = 'No potential swaps found';
-            document.getElementById('AIscore').textContent = 'n.a.';
-            logAI("*AI: \tI didn't find ingredients to swap " + ingredientReturn + ' for');
+            if (document.getElementById('tryoutIngredient').src.includes('transparent') != true) {
+                console.log(document.getElementById('tryoutIngredient').src.includes('transparent'));
+                document.getElementById('swaptext' + currentIndex).textContent = 'No potential swaps found';
+                document.getElementById('AIscore').textContent = 'n.a.';
+                logAI("*AI: \tI didn't find ingredients to swap " + ingredientReturn + ' for');
+            }
         }
     }
 }
 
 function hover(element) {
-    element.setAttribute('src', 'webapp/img/cookbookModuleHover.svg');
+    element.setAttribute('src', 'img/cookbookModuleHover.svg');
 }
 
 function unhover(element) {
-    element.setAttribute('src', 'webapp/img/cookbookModule.svg');
+    element.setAttribute('src', 'img/cookbookModule.svg');
 }

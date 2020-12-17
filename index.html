@@ -9,11 +9,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
         <!-- materialize css -->
-        <link href="webapp/css/materialize.css" rel="stylesheet" />
+        <link href="css/materialize.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
         <!-- custom css -->
-        <link rel="stylesheet" href="webapp/css/style.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
 
     <body>
@@ -21,210 +21,210 @@
             <!-- insight interface -->
             <div id="insightContainer">
                 <p style="margin-bottom: 1.5em"><b>Insight interface</b></p>
-                <div id="insight" class="card-panel hoverable">
+                <!-- <div id="insight" class="card-panel hoverable">
                     <div id="filters" class="row">
-                        <img id="plantFilter" src="webapp/img/plantFilter.svg" onclick="showIngredients('plantFilter')" />
-                        <img id="seasonFilter" src="webapp/img/seasonFilter.svg" onclick="showIngredients('seasonFilter')" />
+                        <img id="plantFilter" src="img/plantFilter.svg" onclick="showIngredients('plantFilter')" />
+                        <img id="seasonFilter" src="img/seasonFilter.svg" onclick="showIngredients('seasonFilter')" />
                     </div>
                     <div class="grid">
                         <div id="pineapple" class="grid-item valign-wrapper" onclick="selectTryout('pineapple')">
-                            <img src="webapp/img/products/pineapple.jpg" />
+                            <img src="img/products/pineapple.jpg" />
                         </div>
                         <div id="eggplant" class="grid-item valign-wrapper" onclick="selectTryout('eggplant')">
-                            <img src="webapp/img/products/eggplant.jpg" />
+                            <img src="img/products/eggplant.jpg" />
                         </div>
                         <div id="basil" class="grid-item valign-wrapper" onclick="selectTryout('basil')">
-                            <img src="webapp/img/products/basil.jpg" />
+                            <img src="img/products/basil.jpg" />
                         </div>
                         <div id="puffpastry" class="grid-item valign-wrapper" onclick="selectTryout('puff pastry')">
-                            <img src="webapp/img/products/puff pastry.jpg" />
+                            <img src="img/products/puff pastry.jpg" />
                         </div>
                         <div id="cauliflower" class="grid-item valign-wrapper" onclick="selectTryout('cauliflower')">
-                            <img src="webapp/img/products/cauliflower.jpg" />
+                            <img src="img/products/cauliflower.jpg" />
                         </div>
                         <div id="kale" class="grid-item valign-wrapper" onclick="selectTryout('kale')">
-                            <img src="webapp/img/products/kale.jpg" />
+                            <img src="img/products/kale.jpg" />
                         </div>
                         <div id="springonion" class="grid-item valign-wrapper" onclick="selectTryout('spring onion')">
-                            <img src="webapp/img/products/spring onion.jpg" />
+                            <img src="img/products/spring onion.jpg" />
                         </div>
                         <div id="broccoli" class="grid-item valign-wrapper" onclick="selectTryout('broccoli')">
-                            <img src="webapp/img/products/broccoli.jpg" />
+                            <img src="img/products/broccoli.jpg" />
                         </div>
                         <div id="cashewnuts" class="grid-item valign-wrapper" onclick="selectTryout('cashew nuts')">
-                            <img src="webapp/img/products/cashew nuts.jpg" />
+                            <img src="img/products/cashew nuts.jpg" />
                         </div>
                         <div id="cherrytomatoes" class="grid-item valign-wrapper" onclick="selectTryout('cherry tomatoes')">
-                            <img src="webapp/img/products/cherry tomatoes.jpg" />
+                            <img src="img/products/cherry tomatoes.jpg" />
                         </div>
                         <div id="zucchini" class="grid-item valign-wrapper" onclick="selectTryout('zucchini')">
-                            <img src="webapp/img/products/zucchini.jpg" />
+                            <img src="img/products/zucchini.jpg" />
                         </div>
                         <div id="egg" class="grid-item valign-wrapper" onclick="selectTryout('egg')">
-                            <img src="webapp/img/products/egg.jpg" />
+                            <img src="img/products/egg.jpg" />
                         </div>
                         <div id="mincedmeat" class="grid-item valign-wrapper" onclick="selectTryout('minced meat')">
-                            <img src="webapp/img/products/minced meat.jpg" />
+                            <img src="img/products/minced meat.jpg" />
                         </div>
                         <div id="cannedpeeledtomatoes" class="grid-item valign-wrapper" onclick="selectTryout('canned peeled tomatoes')">
-                            <img src="webapp/img/products/canned peeled tomatoes.jpg" />
+                            <img src="img/products/canned peeled tomatoes.jpg" />
                         </div>
                         <div id="gratedcheese" class="grid-item valign-wrapper" onclick="selectTryout('grated cheese')">
-                            <img src="webapp/img/products/grated cheese.jpg" />
+                            <img src="img/products/grated cheese.jpg" />
                         </div>
                         <div id="Greekyoghurt" class="grid-item valign-wrapper" onclick="selectTryout('Greek yoghurt')">
-                            <img src="webapp/img/products/Greek yoghurt.jpg" />
+                            <img src="img/products/Greek yoghurt.jpg" />
                         </div>
                         <div id="skimmilk" class="grid-item valign-wrapper" onclick="selectTryout('skim milk')">
-                            <img src="webapp/img/products/skim milk.jpg" />
+                            <img src="img/products/skim milk.jpg" />
                         </div>
                         <div id="ham" class="grid-item valign-wrapper" onclick="selectTryout('ham')">
-                            <img src="webapp/img/products/ham.jpg" />
+                            <img src="img/products/ham.jpg" />
                         </div>
                         <div id="oatdrink" class="grid-item valign-wrapper" onclick="selectTryout('oat drink')">
-                            <img src="webapp/img/products/oat drink.jpg" />
+                            <img src="img/products/oat drink.jpg" />
                         </div>
                         <div id="codfish" class="grid-item valign-wrapper" onclick="selectTryout('codfish')">
-                            <img src="webapp/img/products/codfish.jpg" />
+                            <img src="img/products/codfish.jpg" />
                         </div>
                         <div id="kidneybeans" class="grid-item valign-wrapper" onclick="selectTryout('kidney beans')">
-                            <img src="webapp/img/products/kidney beans.jpg" />
+                            <img src="img/products/kidney beans.jpg" />
                         </div>
                         <div id="chickpeas" class="grid-item valign-wrapper" onclick="selectTryout('chickpeas')">
-                            <img src="webapp/img/products/chickpeas.jpg" />
+                            <img src="img/products/chickpeas.jpg" />
                         </div>
                         <div id="chickenbreast" class="grid-item valign-wrapper" onclick="selectTryout('chicken breast')">
-                            <img src="webapp/img/products/chicken breast.jpg" />
+                            <img src="img/products/chicken breast.jpg" />
                         </div>
                         <div id="garlic" class="grid-item valign-wrapper" onclick="selectTryout('garlic')">
-                            <img src="webapp/img/products/garlic.jpg" />
+                            <img src="img/products/garlic.jpg" />
                         </div>
                         <div id="babypotatoes" class="grid-item valign-wrapper" onclick="selectTryout('baby potatoes')">
-                            <img src="webapp/img/products/baby potatoes.jpg" />
+                            <img src="img/products/baby potatoes.jpg" />
                         </div>
                         <div id="lasagnasheets" class="grid-item valign-wrapper" onclick="selectTryout('lasagna sheets')">
-                            <img src="webapp/img/products/lasagna sheets.jpg" />
+                            <img src="img/products/lasagna sheets.jpg" />
                         </div>
                         <div id="lentils" class="grid-item valign-wrapper" onclick="selectTryout('lentils')">
-                            <img src="webapp/img/products/lentils.jpg" />
+                            <img src="img/products/lentils.jpg" />
                         </div>
                         <div id="margarine" class="grid-item valign-wrapper" onclick="selectTryout('margarine')">
-                            <img src="webapp/img/products/margarine.jpg" />
+                            <img src="img/products/margarine.jpg" />
                         </div>
                         <div id="oliveoil" class="grid-item valign-wrapper" onclick="selectTryout('olive oil')">
-                            <img src="webapp/img/products/olive oil.jpg" />
+                            <img src="img/products/olive oil.jpg" />
                         </div>
                         <div id="bokchoi" class="grid-item valign-wrapper" onclick="selectTryout('bokchoi')">
-                            <img src="webapp/img/products/bok choi.jpg" />
+                            <img src="img/products/bok choi.jpg" />
                         </div>
                         <div id="Parmesancheese" class="grid-item valign-wrapper" onclick="selectTryout('Parmesan cheese')">
-                            <img src="webapp/img/products/Parmesan cheese.jpg" />
+                            <img src="img/products/Parmesan cheese.jpg" />
                         </div>
                         <div id="pastasauce" class="grid-item valign-wrapper" onclick="selectTryout('pasta sauce')">
-                            <img src="webapp/img/products/pasta sauce.jpg" />
+                            <img src="img/products/pasta sauce.jpg" />
                         </div>
                         <div id="pumpkin" class="grid-item valign-wrapper" onclick="selectTryout('pumpkin')">
-                            <img src="webapp/img/products/pumpkin.jpg" />
+                            <img src="img/products/pumpkin.jpg" />
                         </div>
                         <div id="quinoa" class="grid-item valign-wrapper" onclick="selectTryout('quinoa')">
-                            <img src="webapp/img/products/quinoa.jpg" />
+                            <img src="img/products/quinoa.jpg" />
                         </div>
                         <div id="rice" class="grid-item valign-wrapper" onclick="selectTryout('rice')">
-                            <img src="webapp/img/products/rice.jpg" />
+                            <img src="img/products/rice.jpg" />
                         </div>
                         <div id="risottorice" class="grid-item valign-wrapper" onclick="selectTryout('risotto rice')">
-                            <img src="webapp/img/products/risotto rice.jpg" />
+                            <img src="img/products/risotto rice.jpg" />
                         </div>
                         <div id="beetroot" class="grid-item valign-wrapper" onclick="selectTryout('beetroot')">
-                            <img src="webapp/img/products/beetroot.jpg" />
+                            <img src="img/products/beetroot.jpg" />
                         </div>
                         <div id="redbellpepper" class="grid-item valign-wrapper" onclick="selectTryout('red bell pepper')">
-                            <img src="webapp/img/products/red bell pepper.jpg" />
+                            <img src="img/products/red bell pepper.jpg" />
                         </div>
                         <div id="redpepper" class="grid-item valign-wrapper" onclick="selectTryout('red pepper')">
-                            <img src="webapp/img/products/red pepper.jpg" />
+                            <img src="img/products/red pepper.jpg" />
                         </div>
                         <div id="redonion" class="grid-item valign-wrapper" onclick="selectTryout('red onion')">
-                            <img src="webapp/img/products/red onion.jpg" />
+                            <img src="img/products/red onion.jpg" />
                         </div>
                         <div id="butter" class="grid-item valign-wrapper" onclick="selectTryout('butter')">
-                            <img src="webapp/img/products/butter.jpg" />
+                            <img src="img/products/butter.jpg" />
                         </div>
                         <div id="whippedcream" class="grid-item valign-wrapper" onclick="selectTryout('whipped cream')">
-                            <img src="webapp/img/products/whipped cream.jpg" />
+                            <img src="img/products/whipped cream.jpg" />
                         </div>
                         <div id="soyyoghurt" class="grid-item valign-wrapper" onclick="selectTryout('soy yoghurt')">
-                            <img src="webapp/img/products/soy yoghurt.jpg" />
+                            <img src="img/products/soy yoghurt.jpg" />
                         </div>
                         <div id="bacon" class="grid-item valign-wrapper" onclick="selectTryout('bacon')">
-                            <img src="webapp/img/products/bacon.jpg" />
+                            <img src="img/products/bacon.jpg" />
                         </div>
                         <div id="spinach" class="grid-item valign-wrapper" onclick="selectTryout('spinach')">
-                            <img src="webapp/img/products/spinach.jpg" />
+                            <img src="img/products/spinach.jpg" />
                         </div>
                         <div id="Brusselssprouts" class="grid-item valign-wrapper" onclick="selectTryout('Brussels sprouts')">
-                            <img src="webapp/img/products/Brussels sprouts.jpg" />
+                            <img src="img/products/Brussels sprouts.jpg" />
                         </div>
                         <div id="vegetarianchicken" class="grid-item valign-wrapper" onclick="selectTryout('vegetarian chicken')">
-                            <img src="webapp/img/products/vegetarian chicken.jpg" />
+                            <img src="img/products/vegetarian chicken.jpg" />
                         </div>
                         <div id="tagliatelle" class="grid-item valign-wrapper" onclick="selectTryout('tagliatelle')">
-                            <img src="webapp/img/products/tagliatelle.jpg" />
+                            <img src="img/products/tagliatelle.jpg" />
                         </div>
                         <div id="wheatflour" class="grid-item valign-wrapper" onclick="selectTryout('wheat flour')">
-                            <img src="webapp/img/products/wheat flour.jpg" />
+                            <img src="img/products/wheat flour.jpg" />
                         </div>
                         <div id="tofu" class="grid-item valign-wrapper" onclick="selectTryout('tofu')">
-                            <img src="webapp/img/products/tofu.jpg" />
+                            <img src="img/products/tofu.jpg" />
                         </div>
                         <div id="tomato" class="grid-item valign-wrapper" onclick="selectTryout('tomato')">
-                            <img src="webapp/img/products/tomato.jpg" />
+                            <img src="img/products/tomato.jpg" />
                         </div>
                         <div id="dicedtomatoes" class="grid-item valign-wrapper" onclick="selectTryout('diced tomatoes')">
-                            <img src="webapp/img/products/diced tomatoes.jpg" />
+                            <img src="img/products/diced tomatoes.jpg" />
                         </div>
                         <div id="peas" class="grid-item valign-wrapper" onclick="selectTryout('peas')">
-                            <img src="webapp/img/products/peas.jpg" />
+                            <img src="img/products/peas.jpg" />
                         </div>
                         <div id="onion" class="grid-item valign-wrapper" onclick="selectTryout('onion')">
-                            <img src="webapp/img/products/onion.jpg" />
+                            <img src="img/products/onion.jpg" />
                         </div>
                         <div id="vegetariansalmon" class="grid-item valign-wrapper" onclick="selectTryout('vegetarian salmon')">
-                            <img src="webapp/img/products/vegetarian salmon.jpg" />
+                            <img src="img/products/vegetarian salmon.jpg" />
                         </div>
                         <div id="whitecabbage" class="grid-item valign-wrapper" onclick="selectTryout('white cabbage')">
-                            <img src="webapp/img/products/white cabbage.jpg" />
+                            <img src="img/products/white cabbage.jpg" />
                         </div>
                         <div id="carrot" class="grid-item valign-wrapper" onclick="selectTryout('carrot')">
-                            <img src="webapp/img/products/carrot.jpg" />
+                            <img src="img/products/carrot.jpg" />
                         </div>
                         <div id="salmon" class="grid-item valign-wrapper" onclick="selectTryout('salmon')">
-                            <img src="webapp/img/products/salmon.jpg" />
+                            <img src="img/products/salmon.jpg" />
                         </div>
                         <div id="sweetpotato" class="grid-item valign-wrapper" onclick="selectTryout('sweet potato')">
-                            <img src="webapp/img/products/sweet potato.jpg" />
+                            <img src="img/products/sweet potato.jpg" />
                         </div>
                         <div id="sunfloweroil" class="grid-item valign-wrapper" onclick="selectTryout('sunflower oil')">
-                            <img src="webapp/img/products/sunflower oil.jpg" />
+                            <img src="img/products/sunflower oil.jpg" />
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- tryout module -->
             <div id="tryoutContainer">
                 <p style="margin-bottom: 1.5em"><b>Tryout module</b></p>
-                <div id="tryoutWrapper" class="valign-wrapper">
-                    <img id="tryoutIngredient" src="webapp/img/products/transparent.jpg" />
-                    <img id="tryoutModule" src="webapp/img/tryoutModule.svg" onclick="resetTryout();" />
-                </div>
+                <!-- <div id="tryoutWrapper" class="valign-wrapper">
+                    <img id="tryoutIngredient" src="img/products/transparent.jpg" />
+                    <img id="tryoutModule" src="img/tryoutModule.svg" onclick="resetTryout();" />
+                </div> -->
             </div>
 
             <!-- family cookbook -->
             <div id="cookbookContainer">
                 <p style="margin-bottom: 1.5em"><b>Family cookbook</b></p>
-                <div id="cookbook" class="card-panel hoverable">
-                <img id="cookbookModule" src="webapp/img/cookbookModule.svg" onmouseover="hover(this);" onmouseout="unhover(this);" onclick="sendCookInfo()" />
+                <!-- <div id="cookbook" class="card-panel hoverable">
+                <img id="cookbookModule" src="img/cookbookModule.svg" onmouseover="hover(this);" onmouseout="unhover(this);" onclick="sendCookInfo()" />
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" id="recipe0">
@@ -382,7 +382,7 @@
                         <span class="visually-hidden">Next</span>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- ai bottom row -->
@@ -391,20 +391,20 @@
                 <p id="consoleText"></p>
             </div>
             <div id="instructions" class="card hoverable">
-                <h1>Instructions</h1>
-                <p><b>Step 1:</b> select an 'intention filter' on the insight interface</p>
+                <p1>Instructions</p1>
+                <!-- <p><b>Step 1:</b> select an 'intention filter' on the insight interface</p>
                 <p><b>Step 2:</b> click an ingredient to add it to the tryout module</p>
-                <p><b>Step 3:</b> see AI recommendations in your family cookbook</p>
+                <p><b>Step 3:</b> see AI recommendations in your family cookbook</p> -->
             </div>
             <div id="reinforcement" class="card-panel hoverable">
                 <p>The AI gave this combination a score of <b><span id="AIscore">n.a.</span></b></p>
-                <p>What score would you give? <b><span id="userScore"></span></b></p>
+                <!-- <p>What score would you give? <b><span id="userScore"></span></b></p>
                 <form action="#">
                     <p class="range-field">
                         <input type="range" id="slider" min="0" max="100" oninput="updateScore()"/>
                         <a class="waves-effect waves-light btn"><i class="material-icons" onclick="sendFeedback()">send</i></a>
                     </p>
-                </form>
+                </form> -->
             </div>
         </div>
     </body>
@@ -429,13 +429,12 @@
     <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
 
     <!-- OOCSI -->
-    <script src="webapp/js/OOCSIlib.js"></script>
+    <script src="js/OOCSIlib.js"></script>
 
     <!-- custom js -->
-    <!-- <script src="webapp/js/filename.js"></script> -->
-    <script src="webapp/js/setupData.js"></script>
-    <script src="webapp/js/recipebook.js"></script>
-    <script src="webapp/js/oocsi.js"></script>
-    <script src="webapp/js/interface.js"></script>
-    <script src="webapp/js/brain.js"></script>
+    <script src="js/setupData.js"></script>
+    <script src="js/recipebook.js"></script>
+    <script src="js/oocsi.js"></script>
+    <script src="js/interface.js"></script>
+    <script src="js/brain.js"></script>
 </html>
