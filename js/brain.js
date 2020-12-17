@@ -123,8 +123,13 @@ function greetAI() {
 function idleAI() {
     var chance = randomInt(0, 100);
     console.log(chance);
-    if (chance % 13 == 0) {
-        let questions = ["*AI: \tDon't you want to try anything?", '*AI: \tI really like fries you know', '*AI: \t( ◑‿◑)ɔ┏🍟', '*AI: \tWeather seems nice'];
+    if (chance % 14 == 0) {
+        let questions = [
+            "*AI: \tDon't you want to try anything?",
+            '*AI: \tI really like fries you know',
+            "*AI: \tYou want fries? ( ◑‿◑)ɔ┏🍟",
+            "*AI: \tWeather seems nice",
+        ];
         logAI(questions[randomInt(0, questions.length)]);
     }
 }
