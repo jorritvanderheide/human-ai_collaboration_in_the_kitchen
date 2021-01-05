@@ -18,3 +18,9 @@ Configurations where (30,30) represent an ANN with two layers of 30 nodes each. 
 
 3 layers: (60,30,15)  (60,30,30)
 
+### Weka settings
+The MultilayerPerceptron Weka function was used. If settings are not mentioned default settings were used.
+
+trainingTime was set to 400 epochs
+batchSize was set to 100 instances
+5-fold cross-validation was used for testing
