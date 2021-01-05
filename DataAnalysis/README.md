@@ -10,7 +10,7 @@ These datasets were used to explore different Artificial Neural Network configur
 
 ### ANN configurations
 
-Configurations where (30,30) represent an ANN with two layers of 30 nodes each.
+Configurations where (30,30) represent an ANN with two layers of 30 nodes each. 9 configurations total.
 
 1 layer: (30)   (60)
 
