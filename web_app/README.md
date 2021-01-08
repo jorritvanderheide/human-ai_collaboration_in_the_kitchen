@@ -1,9 +1,9 @@
-#Recuisine Web App
+# Recuisine Web App
 
-##Introduction
+## Introduction
 The web app showcases the functionality of the neural network within our concept. It can be visited [here](https://solar.jorritvanderheide.com/recuisine "Recuisine Web App").
 
-##Notable content
+## Notable content
 Folder | Content
 --- | ---
 [recuisine.html](recuisine.html) | Front page of the web app 
