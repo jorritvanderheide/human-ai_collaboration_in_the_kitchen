@@ -17,7 +17,7 @@ Folder | Content
 [data_analysis](data_analysis) | Files for reproducing our data analysis.
 [data_collection](data_collection) | Processing files for the distributed data collection app.
 [data_processing](data_processing) | Processing files for processing the data that was collected.
-[databases](databases) | Product and recipe databases created for training and testing
+[databases](databases) | Ingredient and recipe databases created for training and testing
 [web_app](web_app) | HTML, CSS and JavaScript of the web app.
 
 ## Requirements
