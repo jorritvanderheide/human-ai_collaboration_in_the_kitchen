@@ -21,6 +21,8 @@ Folder | Content
 [web_app](web_app) | HTML, CSS and JavaScript of the web app.
 
 ## Requirements
-To run the web app, you need to serve recuisine.html on a PHP server. A full HD monitor is recommended.
-
+To run the web app, you need to serve recuisine.html on a PHP server. A full HD monitor is recommended for the proper user experience.
 Alternativey the web app can be visited [here](https://solar.jorritvanderheide.com/recuisine "Recuisine Web App").
+
+To run the data collection and data processing code, [Processing](https://processing.org) is required.
+This includes the installation of the [Weka library](https://www.cs.waikato.ac.nz/~ml/weka).
