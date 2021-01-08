@@ -13,7 +13,7 @@ of the smart home of 2030.
 ## Table of contents
 Folder | Content
 --- | ---
-collaboration | Code written for [`Botano`](https://hannahvaniterson.nl/demoday "Botano Demo Day page"), to incorporate our data in their project.
+[collaboration](collaboration) | Code written for [`Botano`](https://hannahvaniterson.nl/demoday "Botano Demo Day page"), to incorporate our data in their project.
 data analysis | Files for reproducing our data analysis.
 data collection | Processing files for the distributed data collection app.
 data processing | Processing files for processing the data that was collected.
