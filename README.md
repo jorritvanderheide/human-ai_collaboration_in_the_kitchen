@@ -22,4 +22,4 @@ web app | HTML, CSS and JavaScript of the web app.
 ## Requirements
 To run the web app, you need to serve recuisine.html on a PHP server. A full HD monitor is recommended.
 
-Alternativey the web app can be visited [`here`](https://solar.jorritvanderheide.com/recuisine "Recuisine Web App")
+Alternativey the web app can be visited [`here`](https://solar.jorritvanderheide.com/recuisine "Recuisine Web App").
