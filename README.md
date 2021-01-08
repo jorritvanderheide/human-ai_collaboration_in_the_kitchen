@@ -13,7 +13,7 @@ of the smart home of 2030.
 ## Table of contents
 Folder | Content
 --- | ---
-[collaboration](collaboration) | Code written for [`Botano`](https://hannahvaniterson.nl/demoday "Botano Demo Day page"), to incorporate our data in their project.
+[collaboration](collaboration) | Code written for [Botano](https://hannahvaniterson.nl/demoday "Botano Demo Day page"), to incorporate our data in their project.
 [data_analysis](data_analysis) | Files for reproducing our data analysis.
 [data_collection](data_collection) | Processing files for the distributed data collection app.
 [data_processing](data_processing) | Processing files for processing the data that was collected.
@@ -22,4 +22,4 @@ Folder | Content
 ## Requirements
 To run the web app, you need to serve recuisine.html on a PHP server. A full HD monitor is recommended.
 
-Alternativey the web app can be visited [`here`](https://solar.jorritvanderheide.com/recuisine "Recuisine Web App")
+Alternativey the web app can be visited [here](https://solar.jorritvanderheide.com/recuisine "Recuisine Web App").
