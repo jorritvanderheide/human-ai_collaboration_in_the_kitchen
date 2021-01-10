@@ -235,6 +235,6 @@ limitations under the License.
 
 --------------------------------------------------------------------------------
 
-As included in the files itself, the Processing sketches for data_processing and data_collection have used as a starting point example Processing sketches made by Rong-Hao Liang and I-Tang(Eden) Chiang respectively.
+The Processing sketches for data_processing and data_collection have used as a starting point example Processing sketches made by Rong-Hao Liang and I-Tang(Eden) Chiang respectively. This is also mentioned in the separate files.
 
 
